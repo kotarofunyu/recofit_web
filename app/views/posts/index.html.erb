@@ -1,0 +1,22 @@
+<h1>
+    今日は何をした？
+</h1>
+<textarea name="trRecord" id="trRecord" cols="30" rows="10"></textarea>
+<input type="submit" value="記録する">
+<dl>
+    <dt>
+        記録一覧
+    </dt>
+    <dd>
+        <ul>
+            <% @posts.each do |post| %>
+            <li class="post-item">
+                <dl>
+                    <dt><%= post.content %></dt>
+                    <dd><%= post.updated_at %></dd>
+                </dl>
+            </li>
+            <% end %>
+        </ul>
+    </dd>
+</dl>
