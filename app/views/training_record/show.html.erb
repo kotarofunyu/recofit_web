@@ -1,0 +1,31 @@
+<h1>記録一覧</h1>
+<ul>
+    <%= @records.each do |record| %>
+    <li>
+        <dl>
+            <dt>日にち</dt>
+            <dd><%= record.created_at %></dd>
+        </dl>
+        <dl>
+            <dt>種目</dt>
+            <dd><%= record.menu %></dd>
+        </dl>
+        <dl>
+            <dt>重量</dt>
+            <dd><%= record.weight %>kg</dd>
+        </dl>
+        <dl>
+            <dt>レップ数</dt>
+            <dd><%= record.repitition %>レップ</dd>
+        </dl>
+        <dl>
+            <dt>セット数</dt>
+            <dd><%= record.sets %>セット</dd>
+        </dl>
+        <dl>
+            <dt>コメント</dt>
+            <dd><%= record.comment %></dd>
+        </dl>
+    </li>
+    <% end%>
+</ul>

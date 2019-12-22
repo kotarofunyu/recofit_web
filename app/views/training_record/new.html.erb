@@ -1,0 +1,46 @@
+<h1>記録する</h1>
+<div class="record-wrap">
+<%= form_for(@record, :url => {:controller => :training_record, :action => :create}) do |f| %>
+    <dl>
+        <dt>
+            <%= f.label :menu, "種目" %>
+        </dt>
+        <dd>
+            <%= f.text_field :menu %>
+        </dd>
+    </dl>
+    <dl>
+        <dt>
+            <%= f.label :weight, "重量" %>
+        </dt>
+        <dd>
+            <%= f.text_field :weight %>
+        </dd>
+    </dl>
+    <dl>
+        <dt>
+            <%= f.label :repitition, "回数" %>
+        </dt>
+        <dd>
+            <%= f.text_field :repitition %>
+        </dd>
+    </dl>
+    <dl>
+        <dt>
+            <%= f.label :sets, "セット数" %>
+        </dt>
+        <dd>
+            <%= f.text_field :sets %>
+        </dd>
+    </dl>
+    <dl>
+        <dt>
+            <%= f.label :comment, "コメント" %>
+        </dt>
+        <dd>
+            <%= f.text_field :comment %>
+        </dd>
+    </dl>
+    <%= f.submit "記録する" %>
+    <% end %>
+</div>
