@@ -1,6 +1,7 @@
 class TrainingRecordController < ApplicationController
   def new
     @record = TrainingRecord.new
+    @record.build_event
   end
 
   def create
@@ -12,7 +13,9 @@ class TrainingRecordController < ApplicationController
 
   def show
     # 全ての投稿を取得して、作成日昇順でソートする
-    @records = TrainingRecord.all.order(created_at: "DESC")
+    # @records = TrainingRecord.all.order(created_at: "DESC")
+    @records = TrainingRecord.includes(:event)
+
   end
 
   def edit
@@ -23,6 +26,6 @@ class TrainingRecordController < ApplicationController
 
   private
     def training_record_params
-        params.require(:training_record).permit(:menu,:weight,:repitition,:sets,:comment,:picture)
+        params.require(:training_record).permit(:comment, :picture, event_attributes:[:id, :name, :weight, :rep, :set, :new])
     end
 end

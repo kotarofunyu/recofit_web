@@ -1,5 +1,11 @@
 <h1>記録一覧</h1>
 <p>今日、記録をつけましたか？</p>
+<p>
+    変数@recordの中身
+</p>
+<p>
+    <%= @record %>
+</p>
 <%= link_to '記録する', '/post' %>
 <ul>
     <%= @records.each do |record| %>
@@ -10,28 +16,21 @@
         </dl>
         <dl>
             <dt>種目</dt>
-            <dd><%= record.menu %></dd>
+            <dd><%= record.event.name %></dd>
         </dl>
         <dl>
             <dt>重量</dt>
-            <dd><%= record.weight %>kg</dd>
-        </dl>
-        <dl>
-            <dt>レップ数</dt>
-            <dd><%= record.repitition %>レップ</dd>
+            <dd><%= record.event.weight %>kg</dd>
         </dl>
         <dl>
             <dt>セット数</dt>
-            <dd><%= record.sets %>セット</dd>
+            <dd><%= record.event.set %>セット</dd>
         </dl>
         <dl>
             <dt>コメント</dt>
             <dd><%= record.comment %></dd>
         </dl>
-        <dl>
-            <dt>画像</dt>
-            <dd><%= image_tag record.picture.url if record.picture? %></dd>
-        </dl>
+        <%= image_tag record.picture.url if record.picture? %>
     </li>
     <% end%>
 </ul>
