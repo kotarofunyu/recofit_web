@@ -11,7 +11,8 @@ class TrainingRecordController < ApplicationController
   end
 
   def show
-    @records = TrainingRecord.all
+    # 全ての投稿を取得して、作成日昇順でソートする
+    @records = TrainingRecord.all.order(created_at: "DESC")
   end
 
   def edit
@@ -22,6 +23,6 @@ class TrainingRecordController < ApplicationController
 
   private
     def training_record_params
-        params.require(:training_record).permit(:menu,:weight,:repitition,:sets,:comment)
+        params.require(:training_record).permit(:menu,:weight,:repitition,:sets,:comment,:picture)
     end
 end

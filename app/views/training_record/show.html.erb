@@ -1,10 +1,12 @@
 <h1>記録一覧</h1>
+<p>今日、記録をつけましたか？</p>
+<%= link_to '記録する', '/post' %>
 <ul>
     <%= @records.each do |record| %>
     <li>
         <dl>
             <dt>日にち</dt>
-            <dd><%= record.created_at %></dd>
+            <dd><%= record.created_at.strftime("%Y-%m-%d %H:%M") %></dd>
         </dl>
         <dl>
             <dt>種目</dt>
@@ -25,6 +27,10 @@
         <dl>
             <dt>コメント</dt>
             <dd><%= record.comment %></dd>
+        </dl>
+        <dl>
+            <dt>画像</dt>
+            <dd><%= image_tag record.picture.url if record.picture? %></dd>
         </dl>
     </li>
     <% end%>
