@@ -1,0 +1,89 @@
+<h1>記録一覧</h1>
+<p>今日、記録をつけましたか？</p>
+<h2>記録する</h2>
+
+<% #記録フォーム　%>
+<div class="record_form">
+    <%= form_for(@record, :url => {:controller => :training_record, :action => :create}) do |f| %>
+    <%= f.fields_for :event do |i| %>
+    <dl>
+        <dt>
+            <%= i.label :name, "種目" %>
+        </dt>
+        <dd>
+            <%= i.text_field :name %>
+        </dd>
+    </dl>
+    <dl>
+        <dt>
+            <%= i.label :weight, "重量" %>
+        </dt>
+        <dd>
+            <%= i.text_field :weight %>
+        </dd>
+    </dl>
+    <dl>
+        <dt>
+            <%= i.label :rep, "回数" %>
+        </dt>
+        <dd>
+            <%= i.text_field :rep %>
+        </dd>
+    </dl>
+    <dl>
+        <dt>
+            <%= i.label :set, "セット数" %>
+        </dt>
+        <dd>
+            <%= i.text_field :set %>
+        </dd>
+    </dl>
+    <% end %>
+    <dl>
+        <dt>
+            <%= f.label :comment, "コメント" %>
+        </dt>
+        <dd>
+            <%= f.text_field :comment %>
+        </dd>
+    </dl>
+    <dl>
+        <dt>画像</dt>
+        <dd>
+            <%= f.file_field :picture %>
+        </dd>
+    </dl>
+    <%= f.submit "記録する" %>
+    <% end %>
+</div>
+
+<% #記録一覧　%>
+<div class="record_index">
+    <ul>
+        <%= @records.each do |record| %>
+        <li>
+            <dl>
+                <dt>日にち</dt>
+                <dd><%= record.created_at.strftime("%Y-%m-%d %H:%M") %></dd>
+            </dl>
+            <dl>
+                <dt>種目</dt>
+                <dd><%= record.event.name %></dd>
+            </dl>
+            <dl>
+                <dt>重量</dt>
+                <dd><%= record.event.weight %>kg</dd>
+            </dl>
+            <dl>
+                <dt>セット数</dt>
+                <dd><%= record.event.set %>セット</dd>
+            </dl>
+            <dl>
+                <dt>コメント</dt>
+                <dd><%= record.comment %></dd>
+            </dl>
+            <%= image_tag record.picture.url if record.picture? %>
+        </li>
+        <% end%>
+    </ul>
+</div>
