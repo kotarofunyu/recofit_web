@@ -9,6 +9,7 @@ gem 'rails', '~> 5.2.3'
 gem 'bcrypt', '3.1.12'
 gem 'carrierwave', '1.2.2'
 gem 'mini_magick', '4.7.0'
+gem 'jquery-rails'
 # Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 # Use Puma as the app server

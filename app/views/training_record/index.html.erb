@@ -4,7 +4,7 @@
 
 <% #記録フォーム　%>
 <div class="record_form">
-    <%= form_for(@record, :url => {:controller => :training_record, :action => :create}) do |f| %>
+    <%= form_for(@record,:url => {:controller => :training_record, :action => :create}) do |f| %>
     <%= f.fields_for :event do |i| %>
     <dl>
         <dt>
@@ -44,7 +44,7 @@
             <%= f.label :comment, "コメント" %>
         </dt>
         <dd>
-            <%= f.text_field :comment %>
+            <%= f.text_area :comment %>
         </dd>
     </dl>
     <dl>
@@ -61,11 +61,8 @@
 <div class="record_index">
     <ul>
         <%= @records.each do |record| %>
-        <li>
-            <dl>
-                <dt>日にち</dt>
-                <dd><%= record.created_at.strftime("%Y-%m-%d %H:%M") %></dd>
-            </dl>
+        <li id="record-<%= record.id %>">
+            <strong><%= record.created_at %>の記録</strong>
             <dl>
                 <dt>種目</dt>
                 <dd><%= record.event.name %></dd>
@@ -73,6 +70,10 @@
             <dl>
                 <dt>重量</dt>
                 <dd><%= record.event.weight %>kg</dd>
+            </dl>
+            <dl>
+                <dt>回数</dt>
+                <dd><%= record.event.rep %>レップ</dd>
             </dl>
             <dl>
                 <dt>セット数</dt>
@@ -83,6 +84,7 @@
                 <dd><%= record.comment %></dd>
             </dl>
             <%= image_tag record.picture.url if record.picture? %>
+            <%= link_to "削除する", "training_record/#{record.id}", method: :delete, data: { confirm: "本当に削除しますか？"} %>
         </li>
         <% end%>
     </ul>

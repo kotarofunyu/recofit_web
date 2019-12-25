@@ -1,3 +1,17 @@
 // Place all the styles related to the TrainingRecord controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.record_index ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.record_index li {
+    width: 50%;
+    margin-bottom: 50px;
+    list-style-type: none;
+}
+
+.record_index li img {
+    width: 100%;
+}

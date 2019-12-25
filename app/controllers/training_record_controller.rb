@@ -15,6 +15,7 @@ class TrainingRecordController < ApplicationController
   # フォームからの記録をDBに登録する処理
   def create
     @record = TrainingRecord.new(training_record_params)
+
     if @record.save
       redirect_to("/records")
     end
@@ -24,6 +25,12 @@ class TrainingRecordController < ApplicationController
   end
 
   def destroy
+    # 削除対象の記録を取得
+    @record = TrainingRecord.find_by(id: params[:id])
+    # 削除対象の記録を削除する
+    @record.destroy
+    # 記録一覧へリダイレクトする
+    redirect_to("/records")
   end
 
   # ストロングパラメーターを定義

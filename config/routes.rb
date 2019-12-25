@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
   get '/' => "home#top"
   # 記録ここから
-  # get 'post' => 'training_record#new'
   get 'records' => 'training_record#index'
   post 'training_record/create' => 'training_record#create'
   get 'training_record/edit'
-  get 'training_record/destroy'
+  delete 'training_record/:id' => 'training_record#destroy'
   get 'sessions/new'
   get 'posts/index'
   # ユーザーここから
