@@ -12,6 +12,11 @@ class TrainingRecordController < ApplicationController
 
   end
 
+  def show
+    #パタメーターから投稿を取得して変数に代入
+    @record = TrainingRecord.find_by(id: params[:id])
+  end
+
   # フォームからの記録をDBに登録する処理
   def create
     @record = TrainingRecord.new(training_record_params)

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'records' => 'training_record#index'
   post 'training_record/create' => 'training_record#create'
   get 'training_record/edit'
+  get '/records/:id' => 'training_record#show'
   delete 'training_record/:id' => 'training_record#destroy'
   get 'sessions/new'
   get 'posts/index'

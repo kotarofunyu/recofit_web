@@ -84,6 +84,7 @@
                 <dd><%= record.comment %></dd>
             </dl>
             <%= image_tag record.picture.url if record.picture? %>
+            <%=link_to "詳細", "#{record.id}" %>
             <%= link_to "削除する", "training_record/#{record.id}", method: :delete, data: { confirm: "本当に削除しますか？"} %>
         </li>
         <% end%>
