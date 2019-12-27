@@ -9,7 +9,7 @@
     <dl>
         <dt><%= i.label :part, "対象部位" %></dt>
         <dd>
-            <%= i.text_field :part %>
+            <%= i.select :part, [["大胸筋","大胸筋"],["広背筋","広背筋"],["腹直筋","腹直筋"],["大腿四頭筋","大腿四頭筋"],["上腕三頭筋","上腕三頭筋"],["上腕二頭筋","上腕二頭筋"]] %>
         </dd>
     </dl>
     <dl>
@@ -17,7 +17,7 @@
             <%= i.label :name, "種目" %>
         </dt>
         <dd>
-            <%= i.text_field :name %>
+            <%= i.select :name, [["ベンチプレス","ベンチプレス"],["スクワット","スクワット"],["チンニング","チンニング"],["ダンベルベンチプレス","ダンベルベンチプレス"]] %>
         </dd>
     </dl>
     <dl>
@@ -25,7 +25,7 @@
             <%= i.label :weight, "重量" %>
         </dt>
         <dd>
-            <%= i.text_field :weight %>kg
+            <%= i.number_field :weight %>kg
         </dd>
     </dl>
     <dl>
@@ -33,7 +33,7 @@
             <%= i.label :rep, "回数" %>
         </dt>
         <dd>
-            <%= i.text_field :rep %>レップ
+            <%= i.number_field :rep %>レップ
         </dd>
     </dl>
     <dl>
@@ -41,7 +41,7 @@
             <%= i.label :set, "セット数" %>
         </dt>
         <dd>
-            <%= i.text_field :set %>セット
+            <%= i.number_field :set %>セット
         </dd>
     </dl>
     <% end %>

@@ -9,7 +9,7 @@
     </dl>
     <dl>
         <dt>種目</dt>
-        <dd><%= record.event.name %></dd>
+        <dd><%= link_to "#{record.event.name}", "/records/event/#{record.event.name}" %></dd>
     </dl>
     <dl>
         <dt>重量</dt>
@@ -28,6 +28,6 @@
         <dd><%= record.comment %></dd>
     </dl>
     <%= image_tag record.picture.url if record.picture? %>
-    <%=link_to "詳細", "records/#{record.id}" %>
+    <%=link_to "詳細", "/records/#{record.id}" %>
     <%= link_to "削除する", "training_record/#{record.id}", method: :delete, data: { confirm: "本当に削除しますか？"} %>
 </li>

@@ -39,10 +39,9 @@ class TrainingRecordController < ApplicationController
     redirect_to("/records")
   end
 
-  # 種目別
-  # ベンチプレスの記録を、TRテーブルとEventテーブルを結合してwhereで持ってくる
-  def benchpress
-    @records = TrainingRecord.joins(:event).where(events: {name: "ベンチプレス"}).order(created_at: "DESC")
+  # 種目別の一覧ページ
+  def event
+    @records = TrainingRecord.joins(:event).where(events: {name: params[:name]}).order(created_at: "DESC")
   end
 
   # ストロングパラメーターを定義
