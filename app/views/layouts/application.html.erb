@@ -11,6 +11,13 @@
 </head>
 
 <body>
+  <header>
+    <ul>
+      <li>
+        <%= link_to "トレーニング記録トップ", "/records" %>
+      </li>
+    </ul>
+  </header>
   <% flash.each do |message_type, message| %>
   <div class="alert alert-<%= message_type %>"><%= message %></div>
   <% end %>
