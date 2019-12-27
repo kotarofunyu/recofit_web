@@ -1,4 +1,9 @@
 <div class="record_detail">
+    <h1><%= @record.created_at %>の記録</h1>
+    <dl>
+        <dt>対象部位</dt>
+        <dd><%= @record.event.part %></dd>
+    </dl>
     <dl>
         <dt>種目</dt>
         <dd><%= @record.event.name %></dd>

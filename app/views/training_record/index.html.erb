@@ -7,6 +7,12 @@
     <%= form_for(@record,:url => {:controller => :training_record, :action => :create}) do |f| %>
     <%= f.fields_for :event do |i| %>
     <dl>
+        <dt><%= i.label :part, "対象部位" %></dt>
+        <dd>
+            <%= i.text_field :part %>
+        </dd>
+    </dl>
+    <dl>
         <dt>
             <%= i.label :name, "種目" %>
         </dt>
@@ -19,7 +25,7 @@
             <%= i.label :weight, "重量" %>
         </dt>
         <dd>
-            <%= i.text_field :weight %>
+            <%= i.text_field :weight %>kg
         </dd>
     </dl>
     <dl>
@@ -27,7 +33,7 @@
             <%= i.label :rep, "回数" %>
         </dt>
         <dd>
-            <%= i.text_field :rep %>
+            <%= i.text_field :rep %>レップ
         </dd>
     </dl>
     <dl>
@@ -35,7 +41,7 @@
             <%= i.label :set, "セット数" %>
         </dt>
         <dd>
-            <%= i.text_field :set %>
+            <%= i.text_field :set %>セット
         </dd>
     </dl>
     <% end %>
@@ -60,33 +66,6 @@
 <% #記録一覧　%>
 <div class="record_index">
     <ul>
-        <%= @records.each do |record| %>
-        <li id="record-<%= record.id %>">
-            <strong><%= record.created_at %>の記録</strong>
-            <dl>
-                <dt>種目</dt>
-                <dd><%= record.event.name %></dd>
-            </dl>
-            <dl>
-                <dt>重量</dt>
-                <dd><%= record.event.weight %>kg</dd>
-            </dl>
-            <dl>
-                <dt>回数</dt>
-                <dd><%= record.event.rep %>レップ</dd>
-            </dl>
-            <dl>
-                <dt>セット数</dt>
-                <dd><%= record.event.set %>セット</dd>
-            </dl>
-            <dl>
-                <dt>コメント</dt>
-                <dd><%= record.comment %></dd>
-            </dl>
-            <%= image_tag record.picture.url if record.picture? %>
-            <%=link_to "詳細", "#{record.id}" %>
-            <%= link_to "削除する", "training_record/#{record.id}", method: :delete, data: { confirm: "本当に削除しますか？"} %>
-        </li>
-        <% end%>
+        <%= render partial: 'record', collection: @records %>
     </ul>
 </div>

@@ -7,11 +7,11 @@ class TrainingRecordController < ApplicationController
     @record.build_event
 
     # 全ての投稿を取得して、作成日昇順でソートする
-    # @records = TrainingRecord.all.order(created_at: "DESC")
-    @records = TrainingRecord.includes(:event).order(created_at: "DESC")
+    @records = TrainingRecord.all.includes(:event).order(created_at: "DESC")
 
   end
 
+  # 記録詳細ページ
   def show
     #パタメーターから投稿を取得して変数に代入
     @record = TrainingRecord.find_by(id: params[:id])
@@ -29,6 +29,7 @@ class TrainingRecordController < ApplicationController
   def edit
   end
 
+  # 記録削除
   def destroy
     # 削除対象の記録を取得
     @record = TrainingRecord.find_by(id: params[:id])
@@ -38,10 +39,16 @@ class TrainingRecordController < ApplicationController
     redirect_to("/records")
   end
 
+  # 種目別
+  # ベンチプレスの記録を、TRテーブルとEventテーブルを結合してwhereで持ってくる
+  def benchpress
+    @records = TrainingRecord.joins(:event).where(events: {name: "ベンチプレス"}).order(created_at: "DESC")
+  end
+
   # ストロングパラメーターを定義
   private
     def training_record_params
       # 小テーブルの種目テーブルも同時にパラメータ取得
-        params.require(:training_record).permit(:comment, :picture, event_attributes:[:id, :name, :weight, :rep, :set, :new])
+        params.require(:training_record).permit(:comment, :picture, event_attributes:[:id, :part, :name, :weight, :rep, :set, :new])
     end
 end

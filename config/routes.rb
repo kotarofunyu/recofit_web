@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   delete 'training_record/:id' => 'training_record#destroy'
   get 'sessions/new'
   get 'posts/index'
+  get 'benchpress' => 'training_record#benchpress'
   # ユーザーここから
   get '/signup' => "users#new"
   get '/login' => 'sessions#new'
