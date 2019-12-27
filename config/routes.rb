@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'training_record/edit'
   get '/records/event/:name' => 'training_record#event'
   get '/records/:id' => 'training_record#show'
-  delete 'training_record/:id' => 'training_record#destroy'
+  delete '/records/:id' => 'training_record#destroy'
   get 'sessions/new'
 
   # ユーザーここから

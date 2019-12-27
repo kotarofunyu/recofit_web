@@ -4,8 +4,7 @@ class TrainingRecordController < ApplicationController
   def index
     # 新規作成
     @record = TrainingRecord.new
-    @record.build_event
-
+    @record.event.build
     # 全ての投稿を取得して、作成日昇順でソートする
     @records = TrainingRecord.all.includes(:event).order(created_at: "DESC")
 
