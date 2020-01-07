@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   delete '/records/:id' => 'training_record#destroy'
   get 'sessions/new'
 
+  # 種目名登録ここから
+  post 'menu_register/create' => 'training_record#register'
+
   # ユーザーここから
   get '/signup' => "users#new"
   get '/login' => 'sessions#new'

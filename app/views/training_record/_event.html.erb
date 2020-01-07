@@ -1,0 +1,26 @@
+<li>
+    <dl>
+        <dt>日時</dt>
+        <dd><%= event.created_at %></dd>
+    </dl>
+    <dl>
+        <dt>対象部位</dt>
+        <dd><%= event.part %></dd>
+    </dl>
+    <dl>
+        <dt>種目</dt>
+        <dd><%= link_to "#{event.name}", "/records/event/#{event.name}" %></dd>
+    </dl>
+    <dl>
+        <dt>重量</dt>
+        <dd><%= event.weight %>kg</dd>
+    </dl>
+    <dl>
+        <dt>回数</dt>
+        <dd><%= event.rep %>レップ</dd>
+    </dl>
+    <dl>
+        <dt>セット数</dt>
+        <dd><%= event.set %>セット</dd>
+    </dl>
+</li>
