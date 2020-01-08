@@ -11,16 +11,18 @@
         <dt>種目</dt>
         <dd><%= link_to "#{event.name}", "/records/event/#{event.name}" %></dd>
     </dl>
+    <%= event.set_datum.each do |set| %>
     <dl>
         <dt>重量</dt>
-        <dd><%= event.weight %>kg</dd>
+        <dd><%= set.weight %>kg</dd>
     </dl>
     <dl>
         <dt>回数</dt>
-        <dd><%= event.rep %>レップ</dd>
+        <dd><%= set.rep %>レップ</dd>
     </dl>
     <dl>
         <dt>セット数</dt>
-        <dd><%= event.set %>セット</dd>
+        <dd><%= set.set %>セット</dd>
     </dl>
+    <% end %>
 </li>
