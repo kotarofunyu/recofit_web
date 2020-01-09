@@ -1,0 +1,23 @@
+<%= form_for(@record,:url => {:controller => :training_record, :action => :create}) do |f| %>
+    <%= f.fields_for :event do |i| %>
+        <%= render 'event_fields', f: i %>
+    <% end %>
+    <div class="links">
+        <%= link_to_add_association "種目を追加", f, :event %>
+    </div>
+    <dl>
+        <dt>
+            <%= f.label :comment, "コメント" %>
+        </dt>
+        <dd>
+            <%= f.text_area :comment %>
+        </dd>
+    </dl>
+    <dl>
+        <dt>画像</dt>
+        <dd>
+            <%= f.file_field :picture %>
+        </dd>
+    </dl>
+    <%= f.submit "記録する" %>
+<% end %>

@@ -6,67 +6,10 @@
 <%= a.submit "種目を登録する" %>
 <% end %>
 <h2>記録する</h2>
+
 <% #記録フォーム　%>
 <div class="record_form">
-    <%= form_for(@record,:url => {:controller => :training_record, :action => :create}) do |f| %>
-    <%= f.fields_for :event do |i| %>
-    <dl>
-        <dt><%= i.label :part, "対象部位" %></dt>
-        <dd>
-            <%= i.select :part,[["大胸筋","大胸筋"],["広背筋","広背筋"],["腹直筋","腹直筋"],["大腿四頭筋","大腿四頭筋"],["上腕三頭筋","上腕三頭筋"],["上腕二頭筋","上腕二頭筋"]],:prompt => "部位を選択" %>
-        </dd>
-    </dl>
-    <dl>
-        <dt>
-            <%= i.label :name, "種目" %>
-        </dt>
-        <dd>
-            <%= i.collection_select :name, MenuName.all, :name, :name,:prompt => "種目名を選択する" %>
-        </dd>
-    </dl>
-    <%= i.fields_for :set_datum do |k| %>
-    <dl>
-        <dt>
-            <%= k.label :weight, "重量" %>
-        </dt>
-        <dd>
-            <%= k.number_field :weight %>kg
-        </dd>
-    </dl>
-    <dl>
-        <dt>
-            <%= k.label :rep, "回数" %>
-        </dt>
-        <dd>
-            <%= k.number_field :rep %>レップ
-        </dd>
-    </dl>
-    <dl>
-        <dt>
-            <%= k.label :set, "セット数" %>
-        </dt>
-        <dd>
-            <%= k.number_field :set %>セット
-        </dd>
-    </dl>
-    <% end %>
-    <% end %>
-    <dl>
-        <dt>
-            <%= f.label :comment, "コメント" %>
-        </dt>
-        <dd>
-            <%= f.text_area :comment %>
-        </dd>
-    </dl>
-    <dl>
-        <dt>画像</dt>
-        <dd>
-            <%= f.file_field :picture %>
-        </dd>
-    </dl>
-    <%= f.submit "記録する" %>
-    <% end %>
+    <%= render 'form' %>
 </div>
 
 <% #記録一覧　%>
