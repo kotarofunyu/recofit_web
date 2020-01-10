@@ -1,20 +1,31 @@
-<h1>記録一覧</h1>
-<p>今日、記録をつけましたか？</p>
-<p>今日行った種目の名前がないですか？ここから登録できます！</p>
-<%= form_for(@menuname, :url => {:controller => :training_record, :action => :register}) do |a| %>
-<%= a.text_field :name %>
-<%= a.submit "種目を登録する" %>
-<% end %>
-<h2>記録する</h2>
+<div id="index">
+    <h1>記録一覧</h1>
+    <% #リストにない種目の登録フォーム　%>
+    <div class="register_not_exist">
+        <p>今日行った種目の名前がないですか？ここから登録できます！</p>
+        <%= form_for(@menuname, :url => {:controller => :training_record, :action => :register}) do |a| %>
+        <%= a.text_field :name %>
+        <%= a.submit "種目を登録する" %>
+        <% end %>
+    </div>
 
-<% #記録フォーム　%>
-<div class="record_form">
-    <%= render 'form' %>
-</div>
+    <% #記録登録フォーム　%>
+    <section class="register">
+        <div class="register_record">
+            <h2>記録する</h2>
+            <div class="record_form">
+                <%= render 'form' %>
+            </div>
+        </div>
+    </section>
 
-<% #記録一覧　%>
-<div class="record_index">
-    <ul>
-        <%= render partial: 'record', collection: @records %>
-    </ul>
+    <% #記録一覧表示　%>
+    <section>
+        <div class="record_index">
+            <ul class="record_list">
+                <%= render partial: 'record', collection: @records %>
+            </ul>
+        </div>
+    </section>
+
 </div>

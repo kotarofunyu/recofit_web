@@ -14,6 +14,9 @@ gem 'jquery-rails'
 #フォームを動的に追加するgem
 gem 'cocoon'
 
+#Font Awesome
+gem 'font-awesome-sass'
+
 # Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 # Use Puma as the app server

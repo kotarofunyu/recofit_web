@@ -5,7 +5,8 @@
 //   });
 // });
 $(function () {
-  $("#new_training_record").on("ajax:success", function (event, xhr, settings) {
-    alert("登録が完了しました。");
+  $(document).on('click','.event_item_title',function() {
+    console.log('クリックしたよ');
+    $(this).next('dd').slideToggle();
   });
 });

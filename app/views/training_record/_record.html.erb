@@ -1,36 +1,29 @@
-<li>
-    <dl>
-        <dt>日時</dt>
+<li class="record">
+    <dl class="title">
+        <dt>記録</dt>
         <dd><%= record.created_at %></dd>
     </dl>
-    <%= record.event.each do |item| %>
-    <dl>
-        <dt>対象部位</dt>
-        <dd><%= item.part %></dd>
-    </dl>
-    <dl>
-        <dt>種目</dt>
-        <dd><%= link_to "#{item.name}", "/records/event/#{item.name}" %></dd>
-    </dl>
-    <%= item.set_datum.each do |set| %>
-    <dl>
-        <dt>重量</dt>
-        <dd><%= set.weight %>kg</dd>
-    </dl>
-    <dl>
-        <dt>回数</dt>
-        <dd><%= set.rep %>レップ</dd>
-    </dl>
-    <dl>
-        <dt>セット数</dt>
-        <dd><%= set.set %>セット</dd>
-    </dl>
-    <% end %>
-    <% end %>
-    <dl>
-        <dt>コメント</dt>
-        <dd><%= record.comment %></dd>
-    </dl>
+    <div class="comment">
+        <%= record.comment %>
+    </div>
+    <ul>
+        <% record.event.each do |item| %>
+        <li>
+            <dl>
+                <dt><%= link_to "#{item.name}", "/records/event/#{item.name}" %></dt>
+                <dd>
+                    <% item.set_datum.each do |set| %>
+                    <ul class="set_list">
+                        <li><%= set.weight %>kg</li>
+                        <li><%= set.rep %>レップ</li>
+                        <li><%= set.set %>セット</li>
+                    </ul>
+                    <% end %>
+                </dd>
+            </dl>
+        </li>
+        <% end %>
+    </ul>
     <%= image_tag record.picture.url if record.picture? %>
     <%=link_to "詳細", "/records/#{record.id}" %>
     <%= link_to "削除する", "/records/#{record.id}", method: :delete, data: { confirm: "本当に削除しますか？"} %>
