@@ -15,10 +15,7 @@ Rails.application.routes.draw do
   post 'menu_register/create' => 'training_record#register'
 
   # ユーザーここから
-  get '/signup' => "users#new"
-  get '/login' => 'sessions#new'
-  post '/login' => 'sessions#create'
-  delete '/logout' => 'sessions#destroy'
-  resources :users
+  get '/users/new' => 'users#new'
+  post 'users/create' => 'users#create'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
