@@ -25,6 +25,10 @@
         <% end %>
     </ul>
     <%= image_tag record.picture.url if record.picture? %>
-    <%=link_to "詳細", "/records/#{record.id}" %>
-    <%= link_to "削除する", "/records/#{record.id}", method: :delete, data: { confirm: "本当に削除しますか？"} %>
+    <%=link_to "/records/#{record.id}" do %>
+    <%= icon("fas", "caret-square-down") %>
+    <% end %>
+    <%= link_to "/records/#{record.id}", method: :delete, data: { confirm: "本当に削除しますか？"} do %>
+    <%= icon("fas", "trash") %>
+    <% end %>
 </li>

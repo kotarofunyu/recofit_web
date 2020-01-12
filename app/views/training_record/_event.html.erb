@@ -1,28 +1,19 @@
-<li>
+<li class="record">
     <dl>
-        <dt>日時</dt>
-        <dd><%= event.created_at %></dd>
+        <dt><%= event.created_at %></dt>
+        <dd>
+            <dl>
+                <dt><%= event.name %></dt>
+                <dd>
+                    <% event.set_datum.each do |set| %>
+                    <ul class="set_list">
+                        <li><%= set.weight %>kg</li>
+                        <li><%= set.rep %>レップ</li>
+                        <li><%= set.set %>セット</li>
+                    </ul>
+                    <% end %>
+                </dd>
+            </dl>
+        </dd>
     </dl>
-    <dl>
-        <dt>対象部位</dt>
-        <dd><%= event.part %></dd>
-    </dl>
-    <dl>
-        <dt>種目</dt>
-        <dd><%= link_to "#{event.name}", "/records/event/#{event.name}" %></dd>
-    </dl>
-    <%= event.set_datum.each do |set| %>
-    <dl>
-        <dt>重量</dt>
-        <dd><%= set.weight %>kg</dd>
-    </dl>
-    <dl>
-        <dt>回数</dt>
-        <dd><%= set.rep %>レップ</dd>
-    </dl>
-    <dl>
-        <dt>セット数</dt>
-        <dd><%= set.set %>セット</dd>
-    </dl>
-    <% end %>
 </li>

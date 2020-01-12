@@ -8,9 +8,27 @@
 </div>
 <div class="register_picture">
     <%= f.label :picture, class: "label" do %>
-        <%= icon("far", "image") %>
-        <%= f.file_field :picture, class: "register_picture_button" %>
+    <%= icon("far", "image") %>
+    <%= f.file_field :picture, class: "register_picture_button" %>
     <% end %>
 </div>
 <%= f.submit "記録する" %>
 <% end %>
+
+<% #リストにない種目の登録フォーム（クリックでモーダル表示)　%>
+<div class="modal register_nonexist_event">
+    <div class="modalBg"></div>
+    <div class="modalContents">
+        <dl>
+            <dt>
+                記録したい種目がない場合は登録することができます。
+            </dt>
+            <dd>
+                <%= form_for(@menuname, :url => {:controller => :training_record, :action => :register}) do |a| %>
+                <%= a.text_field :name %>
+                <%= a.submit "種目を登録する" %>
+                <% end %>
+            </dd>
+        </dl>
+    </div>
+</div>

@@ -1,14 +1,5 @@
 <div id="index">
     <h1>記録一覧</h1>
-    <% #リストにない種目の登録フォーム　%>
-    <div class="register_not_exist">
-        <p>今日行った種目の名前がないですか？ここから登録できます！</p>
-        <%= form_for(@menuname, :url => {:controller => :training_record, :action => :register}) do |a| %>
-        <%= a.text_field :name %>
-        <%= a.submit "種目を登録する" %>
-        <% end %>
-    </div>
-
     <% #記録登録フォーム　%>
     <section class="register">
         <div class="register_record">

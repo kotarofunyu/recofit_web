@@ -2,7 +2,12 @@
     <th>
 
     </th>
-    <td><%= f.number_field :weight %></td>
-    <td><%= f.number_field :rep %></td>
-    <td><%= f.number_field :set %></td>
+    <td><%= f.number_field :weight, placeholder: "kg" %></td>
+    <td><%= f.number_field :rep, placeholder: "(例)8" %></td>
+    <td><%= f.number_field :set, placeholder: "(例)3" %></td>
+    <td>
+        <%= link_to_remove_association f do %>
+        <%= icon("fas", "minus-circle") %>
+    <% end %>
+    </td>
 </tr>

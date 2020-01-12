@@ -12,7 +12,7 @@ dd {
     margin: 0;
 }
 
-.record_index .record_list {
+.record_index .record_list, .event_index {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -32,7 +32,24 @@ dd {
         li {
             list-style-type: none;
         }
+        a {
+            text-decoration: none;
+        }
     }
+}
+
+.event_index > ul {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .record {
+        width: 48%;
+    }
+}
+
+section > .record_index {
+    margin-top: 80px;
 }
 
 .record_index li img {
@@ -44,6 +61,14 @@ dd {
     margin: 0 auto;
     .title {
         display: flex;
+    }
+}
+
+.event_index {
+    width: 800px;
+    margin: 0 auto;
+    ul {
+        list-style: none;
     }
 }
 
@@ -65,7 +90,8 @@ dd {
             color: #ffffff;
             font-size: 16px;
             letter-spacing: 2px;
-            margin-top: 15px;
+            display: block;
+            margin: 15px auto 0px auto;
         }
         .register_picture_button {
             display: none;
@@ -121,4 +147,76 @@ dd {
                 }
             }
         }
+}
+
+.event_item_title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.event_item_title > .remove_fields {
+    display: none;
+}
+
+.event_item_title:hover > .remove_fields {
+    display: block;
+}
+
+i.fa-info-circle {
+    cursor: pointer;
+}
+
+// モーダル
+.modalBg {
+    background: rgba(0,0,0,0.8);
+    height: 100vh;
+    position: absolute;
+    width: 100vw;
+    z-index: 8;
+}
+
+.modal {
+    display: none;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 6;
+    width: 100vw;
+}
+
+.modal input[type="text"] {
+    outline:none;
+    -moz-appearance: none;
+    text-indent: 0.01px;
+    text-overflow: '';
+    background: none transparent;
+    vertical-align: middle;
+    font-size: 13px;
+    color: inherit;
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    height: 45px;
+    padding: 3px 12px;
+    border:1px solid #ddd;
+    color:#828c9a;
+    width:100%;
+    margin-top: 20px;
+    border-radius:3px;
+}
+
+.modalContents {
+    background: #ffffff;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    width: 300px;
+    height: 300px;
+    z-index: 100;
+    padding: 20px;
 }
