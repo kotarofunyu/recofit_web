@@ -1,0 +1,22 @@
+<div id="index">
+    <h1>記録一覧</h1>
+    <% #記録登録フォーム　%>
+    <section class="register">
+        <div class="register_record">
+            <h2>記録する</h2>
+            <div class="record_form">
+                <%= render 'form' %>
+            </div>
+        </div>
+    </section>
+
+    <% #記録一覧表示　%>
+    <section>
+        <div class="record_index">
+            <ul class="record_list">
+                <%= render partial: 'record', collection: @records %>
+            </ul>
+        </div>
+    </section>
+
+</div>

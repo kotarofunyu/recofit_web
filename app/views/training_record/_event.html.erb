@@ -1,0 +1,19 @@
+<li class="record">
+    <dl>
+        <dt><%= event.created_at %></dt>
+        <dd>
+            <dl>
+                <dt><%= event.name %></dt>
+                <dd>
+                    <% event.set_datum.each do |set| %>
+                    <ul class="set_list">
+                        <li><%= set.weight %>kg</li>
+                        <li><%= set.rep %>レップ</li>
+                        <li><%= set.set %>セット</li>
+                    </ul>
+                    <% end %>
+                </dd>
+            </dl>
+        </dd>
+    </dl>
+</li>
