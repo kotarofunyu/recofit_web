@@ -1,7 +1,7 @@
 <div class="signup">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
-            <%= form_for(@user, :url => {:controller => :users, :action => :create }) do |f| %>
+            <%= form_for(@user,:url => {:controller => :users, :action => :create }) do |f| %>
 
             <%= f.label :name %>
             <%= f.text_field :name, class:'form-control' %>
