@@ -17,10 +17,10 @@ Rails.application.routes.draw do
   # ユーザーここから
   get '/users/new' => 'users#new'
   post 'users/create' => 'users#create'
+  get '/users/:id' => 'users#show'
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
-  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

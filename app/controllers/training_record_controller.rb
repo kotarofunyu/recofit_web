@@ -59,7 +59,7 @@ class TrainingRecordController < ApplicationController
   private
     def training_record_params
       # 小テーブルの種目テーブルも同時にパラメータ取得
-        params.require(:training_record).permit(:comment, :picture, event_attributes:[:id, :part, :name, set_datum_attributes:[:weight, :rep, :set]])
+        params.require(:training_record).permit(:comment, :picture, event_attributes:[:id, :part, :name, set_datum_attributes:[:weight, :rep, :set]]).merge(user_id: current_user.id)
     end
 
     def menu_name_params
