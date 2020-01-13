@@ -17,8 +17,15 @@ class SessionsController < ApplicationController
     end
   end
 
+  # ログアウト
   def destroy
     log_out
+    redirect_to('/records')
+  end
+
+  # テストユーザーでログインする
+  def test_login
+    session[:user_id] = 2
     redirect_to('/records')
   end
 end

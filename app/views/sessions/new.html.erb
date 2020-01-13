@@ -12,6 +12,10 @@
 
       <%= f.submit "Log in", class: "btn btn-primary" %>
     <% end %>
+    <dl>
+      <dt>テストユーザーログインはこちら</dt>
+      <dd><%=link_to "テストユーザーログイン", "/test_login", method: :post %></dd>
+    </dl>
 
     <p>New user? <%= link_to "Sign up now!", '/users/new' %></p>
   </div>

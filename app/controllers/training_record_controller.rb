@@ -6,7 +6,7 @@ class TrainingRecordController < ApplicationController
     @record = TrainingRecord.new
     recordevent= @record.event.build
     recordevent.set_datum.build
-    
+
     # 全ての投稿を取得して、作成日昇順でソートする
     @records = TrainingRecord.all.includes(:event).order(created_at: "DESC")
 

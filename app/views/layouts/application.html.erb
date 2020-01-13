@@ -12,23 +12,20 @@
 
 <body>
   <header>
-    <ul>
+    <ul class="row">
       <li>
         <%= link_to "トレーニング記録トップ", "/records" %>
       </li>
+      <% if logged_in %>
+      <li><%=link_to "#{current_user.name}", "/users/#{current_user.id}" %></li>
+      <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
+      <% else %>
       <li>
         <%= link_to "新規登録", "/users/new" %>
       </li>
+      <li><%= link_to "ログイン", "/login" %></li>
+      <% end %>
     </ul>
-    <% if logged_in %>
-    <dl>
-      <dt>ログイン中のユーザー</dt>
-      <dd><%= current_user.name %></dd>
-    </dl>
-    <%= link_to "ログアウト", logout_path, method: :delete %>
-    <% else %>
-    <%= link_to "ログイン", "/login" %>
-    <% end %>
   </header>
   <% flash.each do |message_type, message| %>
   <div class="alert alert-<%= message_type %>"><%= message %></div>

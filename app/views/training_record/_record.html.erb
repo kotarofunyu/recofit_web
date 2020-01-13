@@ -28,7 +28,11 @@
     <%=link_to "/records/#{record.id}" do %>
     <%= icon("fas", "caret-square-down") %>
     <% end %>
+    <% if logged_in %>
+    <% if current_user.id == record.user_id %>
     <%= link_to "/records/#{record.id}", method: :delete, data: { confirm: "本当に削除しますか？"} do %>
     <%= icon("fas", "trash") %>
+    <% end %>
+    <% end %>
     <% end %>
 </li>
