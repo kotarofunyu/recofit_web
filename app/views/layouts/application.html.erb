@@ -20,6 +20,15 @@
         <%= link_to "新規登録", "/users/new" %>
       </li>
     </ul>
+    <% if logged_in %>
+    <dl>
+      <dt>ログイン中のユーザー</dt>
+      <dd><%= current_user.name %></dd>
+    </dl>
+    <%= link_to "ログアウト", logout_path, method: :delete %>
+    <% else %>
+    <%= link_to "ログイン", "/login" %>
+    <% end %>
   </header>
   <% flash.each do |message_type, message| %>
   <div class="alert alert-<%= message_type %>"><%= message %></div>
