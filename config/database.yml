@@ -55,9 +55,6 @@ test:
 production:
   <<: *default
   adapter: postgresql
-<<<<<<< HEAD
   database: mydatabase
-=======
   encoding: unicode
   pool: 5
->>>>>>> 8e61a3c1cb917b49df1074a666daceadc3c985a4
