@@ -47,8 +47,12 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+# production:
+#   <<: *default
+#   database: kochanapp_production
+#   username: kochanapp
+#   password: <%= ENV['KOCHANAPP_DATABASE_PASSWORD'] %>
 production:
   <<: *default
-  database: kochanapp_production
-  username: kochanapp
-  password: <%= ENV['KOCHANAPP_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  database: mydatabase
