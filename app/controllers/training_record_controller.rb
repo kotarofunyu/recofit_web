@@ -6,7 +6,7 @@ class TrainingRecordController < ApplicationController
     @record = TrainingRecord.new
     recordevent= @record.event.build
     recordevent.set_datum.build
-    
+
     # 全ての投稿を取得して、作成日昇順でソートする
     @records = TrainingRecord.all.includes(:event).order(created_at: "DESC")
 
@@ -59,7 +59,7 @@ class TrainingRecordController < ApplicationController
   private
     def training_record_params
       # 小テーブルの種目テーブルも同時にパラメータ取得
-        params.require(:training_record).permit(:comment, :picture, event_attributes:[:id, :part, :name, set_datum_attributes:[:weight, :rep, :set]])
+        params.require(:training_record).permit(:comment, :picture, event_attributes:[:id, :part, :name, set_datum_attributes:[:weight, :rep, :set]]).merge(user_id: current_user.id)
     end
 
     def menu_name_params

@@ -1,8 +1,4 @@
 class UsersController < ApplicationController
-    def show
-        @user = User.find(params[:id])
-    end
-
     def new
         @user = User.new
     end
@@ -12,10 +8,15 @@ class UsersController < ApplicationController
         if @user.save
             log_in @user
             flash[:success] = "ユーザー登録が完了しました。"
-            redirect_to @user
+            redirect_to('/records')
         else
             render 'new'
         end
+    end
+
+    def show
+        @user = User.find_by(id: params[:id])
+        @records = TrainingRecord.where(user_id: params[:id]).order(created_at: "DESC")
     end
 
     private
