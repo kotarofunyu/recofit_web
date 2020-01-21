@@ -21,14 +21,9 @@ gem 'font-awesome-sass'
 gem 'webpacker'
 
 # Use mysql as the database for Active Record
-<<<<<<< HEAD
-gem 'mysql2', '>= 0.4.4', '< 0.6.0'
-gem 'pg', groups: %w(production), require: false
-=======
 gem 'mysql2', '>= 0.4.4', '< 0.6.0', groups: %w(test development),require: false
 gem 'pg', '~> 0.19.0', group: :production, require: false
 
->>>>>>> 8e61a3c1cb917b49df1074a666daceadc3c985a4
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
