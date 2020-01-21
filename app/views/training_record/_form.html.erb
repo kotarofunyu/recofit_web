@@ -3,6 +3,7 @@
 <%= f.fields_for :event do |i| %>
 <%= render 'event_fields', f: i %>
 <% end %>
+<%=javascript_pack_tag 'hello_vue'%>
 <div class="links">
     <%= link_to_add_association "種目を追加", f, :event %>
 </div>

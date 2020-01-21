@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       #ログインする
       log_in user
       # 特定のページにリダイレクトする
-      redirect_to user
+      redirect_to('/records')
     else
       #エラーメッセージの表示
       flash.now[:danger] = 'メールアドレスもしくはパスワードが正しくありません。'
@@ -17,8 +17,15 @@ class SessionsController < ApplicationController
     end
   end
 
+  # ログアウト
   def destroy
     log_out
-    redirect_to root_url
+    redirect_to('/records')
+  end
+
+  # テストユーザーでログインする
+  def test_login
+    session[:user_id] = 2
+    redirect_to('/records')
   end
 end

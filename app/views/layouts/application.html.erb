@@ -12,12 +12,24 @@
 
 <body>
   <header>
-    <ul>
+    <ul class="row">
       <li>
         <%= link_to "トレーニング記録トップ", "/records" %>
       </li>
+      <% if logged_in %>
+      <li><%=link_to "#{current_user.name}", "/users/#{current_user.id}" %></li>
+      <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
+      <% else %>
+      <li>
+        <%= link_to "新規登録", "/users/new" %>
+      </li>
+      <li><%= link_to "ログイン", "/login" %></li>
+      <% end %>
     </ul>
   </header>
+  <% flash.each do |message_type, message| %>
+  <div class="alert alert-<%= message_type %>"><%= message %></div>
+  <% end %>
   <%= yield %>
   <%= debug(params) if Rails.env.development? %>
 </body>

@@ -1,9 +1,3 @@
-// $(function () {
-//   $("#new_training_record").on("ajax:error", function (event, jqXHR, ajaxSettings, thrownError) {
-//     var data = jqXHR.responseJSON;
-//     alert(data);
-//   });
-// });
 $(function () {
 
   // 種目のトグル
@@ -20,16 +14,9 @@ $(function () {
   })
 
   $('.modalBg').click(function() {
-    console.log('クリックしたよ');
+    // console.log('クリックしたよ');
     var target = $('.modal.register_nonexist_event');
     target.fadeOut();
   })
-
-  // $(document).on('click', 'modalBg', function() {
-  //   console.log('クリックしたよ');
-  //   var target = $('.modal.register_nonexist_event');
-  //   target.fadeIn();
-  // })
-
 
 });
