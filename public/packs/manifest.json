@@ -11,18 +11,14 @@
       ]
     },
     "hello_vue": {
-      "css": [
-        "/packs/css/hello_vue-6e27e7a0.css"
-      ],
       "js": [
-        "/packs/js/hello_vue-a1864f6315ff76ad9e11.js"
+        "/packs/js/hello_vue-36fe9628c52b901a37fb.js"
       ],
       "js.map": [
-        "/packs/js/hello_vue-a1864f6315ff76ad9e11.js.map"
+        "/packs/js/hello_vue-36fe9628c52b901a37fb.js.map"
       ]
     }
   },
-  "hello_vue.css": "/packs/css/hello_vue-6e27e7a0.css",
-  "hello_vue.js": "/packs/js/hello_vue-a1864f6315ff76ad9e11.js",
-  "hello_vue.js.map": "/packs/js/hello_vue-a1864f6315ff76ad9e11.js.map"
+  "hello_vue.js": "/packs/js/hello_vue-36fe9628c52b901a37fb.js",
+  "hello_vue.js.map": "/packs/js/hello_vue-36fe9628c52b901a37fb.js.map"
 }
