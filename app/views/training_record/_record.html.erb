@@ -2,9 +2,9 @@
     <dl class="title">
         <dt class="username"><% user_id = record.user_id %>
             <% user = User.find_by(id: user_id) %>
-            <%= user.name %>
+            <%= link_to "#{user.name}","/users/#{user_id}" %>
         </dt>
-        <dd><%= record.created_at %></dd>
+        <dd class="date"><%= time_ago_in_words(record.created_at) %>前</dd>
     </dl>
     <div class="comment">
         <%= record.comment %>
