@@ -1,21 +1,28 @@
 <div class="signup">
     <div class="row">
-        <div class="col-md-6 col-md-offset-3">
+        <div class="form">
             <%= form_for(@user,:url => {:controller => :users, :action => :create }) do |f| %>
-
-            <%= f.label :name %>
-            <%= f.text_field :name, class:'form-control' %>
-
-            <%= f.label :email %>
-            <%= f.email_field :email, class:'form-control' %>
-
-            <%= f.label :password %>
-            <%= f.password_field :password, class:'form-control' %>
-
-            <%= f.label :password_confirmation, "確誝" %>
-            <%= f.password_field :password_confirmation, class:'form-control' %>
-
-            <%= f.submit "Create my account", class: "btn btn-primary" %>
+            <dl>
+                <dt>?????</dt>
+                <dd><%= f.text_field :name, class:'form-control' %></dd>
+            </dl>
+            <dl>
+                <dt>???????</dt>
+                <dd> <%= f.email_field :email, class:'form-control' %></dd>
+            </dl>
+            <dl>
+                <dt>?????</dt>
+                <dd><%= f.password_field :password, class:'form-control' %></dd>
+            </dl>
+            <dl>
+                <dt>?????(??)</dt>
+                <dd><%= f.password_field :password_confirmation, class:'form-control' %></dd>
+            </dl>
+            <dl>
+                <dt>????????</dt>
+                <dd><%= f.file_field :picture, class: "register_profile_image" %></dd>
+            </dl>
+            <%= f.submit "????", class: "register_button" %>
             <% end %>
         </div>
     </div>

@@ -2,6 +2,30 @@
     <div class="wrapper">
         <div class="user_info">
             <h1>ユーザー基本情報</h1>
+            <%= image_tag @user.picture.url if @user.picture? %>
+            <% if logged_in && current_user.id === @user.id %>
+            <% if @user.picture? %>
+            <dl>
+                <dt>プロフィール画像を変更する</dt>
+                <dd>
+                    <%= form_for(@user,:url => {:controller => :users, :action => :update }) do |f| %>
+                    <%= f.file_field :picture, class: "register_profile_image" %>
+                    <%= f.submit "変更する", class: "register_button" %>
+                    <% end %>
+                </dd>
+            </dl>
+            <% else %>
+            <dl>
+                <dt>プロフィール画像を登録する</dt>
+                <dd>
+                    <%= form_for(@user,:url => {:controller => :users, :action => :update }) do |f| %>
+                    <%= f.file_field :picture, class: "register_profile_image" %>
+                    <%= f.submit "登録する", class: "register_button" %>
+                    <% end %>
+                </dd>
+            </dl>
+            <% end %>
+            <% end %>
             <dl>
                 <dt>
                     ユーザー名
