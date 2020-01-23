@@ -15,7 +15,8 @@ gem 'jquery-rails'
 gem 'cocoon'
 
 #Font Awesome
-gem 'font-awesome-sass', '~> 4.4.0'
+# gem 'font-awesome-sass', '~> 4.4.0'
+gem 'font-awesome-sass'
 
 #webpacker
 gem 'webpacker'
