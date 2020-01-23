@@ -1,5 +1,6 @@
 <div id="index">
     <h1>記録一覧</h1>
+    <% if logged_in %>
     <% #記録登録フォーム　%>
     <section class="register">
         <div class="register_record">
@@ -9,6 +10,7 @@
             </div>
         </div>
     </section>
+    <% end %>
 
     <% #記録一覧表示　%>
     <section>

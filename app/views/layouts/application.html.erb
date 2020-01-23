@@ -5,26 +5,31 @@
   <title>RecoFit</title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
-
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= favicon_link_tag('favicon.ico') %>
 </head>
 
 <body>
   <header>
-    <ul class="row">
+    <%=link_to "/", target: "_blank" do %>
+    <%= image_tag "app_icon.png" %>
+    <% end %>
+    <ul class="row menu_left">
       <li>
         <%= link_to "トレーニング記録トップ", "/records" %>
       </li>
-      <% if logged_in %>
-      <li><%=link_to "#{current_user.name}", "/users/#{current_user.id}" %></li>
-      <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
-      <% else %>
-      <li>
-        <%= link_to "新規登録", "/users/new" %>
-      </li>
-      <li><%= link_to "ログイン", "/login" %></li>
-      <% end %>
+    </ul>
+    <ul class="row menu_right">
+    <% if logged_in %>
+    <li><%=link_to "#{current_user.name}", "/users/#{current_user.id}" %></li>
+    <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
+    <% else %>
+    <li>
+      <%= link_to "新規登録", "/users/new" %>
+    </li>
+    <li><%= link_to "ログイン", "/login" %></li>
+    <% end %>
     </ul>
   </header>
   <% flash.each do |message_type, message| %>

@@ -1,19 +1,20 @@
 <li class="record">
-    <dl>
-        <dt><%= event.created_at %></dt>
-        <dd>
-            <dl>
-                <dt><%= event.name %></dt>
-                <dd>
+    <div class="title">
+        <%= event.created_at %>
+    </div>
+    <div class="event">
+        <dl>
+            <dt><%= event.name %></dt>
+            <dd>
+                <ol class="set_list">
                     <% event.set_datum.each do |set| %>
-                    <ul class="set_list">
-                        <li><%= set.weight %>kg</li>
-                        <li><%= set.rep %>レップ</li>
-                        <li><%= set.set %>セット</li>
-                    </ul>
+                    <li><%= set.weight %>kg <%= set.rep %>レップ <%= set.set %>セット</li>
                     <% end %>
-                </dd>
-            </dl>
-        </dd>
-    </dl>
+                </ol>
+            </dd>
+        </dl>
+    </div>
+    <div class="button">
+        <%=link_to "この日の記録を見る", "/records/#{event.training_record_id}" %>
+    </div>
 </li>

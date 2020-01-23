@@ -1,36 +1,29 @@
-<dl>
-    <dt>
-        ユーザー名
-    </dt>
-    <dd>
-        <%= @user.name %>
-    </dd>
-</dl>
-<dl>
-    <dt>
-        メールアドレス
-    </dt>
-    <dd>
-        <%= @user.email %>
-    </dd>
-</dl>
-<dl>
-    <dt>
-        登録日時
-    </dt>
-    <dd>
-        <%= @user.created_at %>
-    </dd>
-</dl>
-<dl>
-    <dt>
-        最終更新
-    </dt>
-    <dd>
-        <%= @user.updated_at %>
-    </dd>
-</dl>
-<h2><%= @user.name %>の記録一覧</h2>
-<ul>
-    <%= render partial: 'record', collection: @records %>
-</ul>
+<div class="user">
+    <div class="wrapper">
+        <div class="user_info">
+            <h1>ユーザー基本情報</h1>
+            <dl>
+                <dt>
+                    ユーザー名
+                </dt>
+                <dd>
+                    <%= @user.name %>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    メールアドレス
+                </dt>
+                <dd>
+                    <%= @user.email %>
+                </dd>
+            </dl>
+        </div>
+        <div class="user_trainingrecord">
+            <h1><%= @user.name %>の記録一覧</h1>
+            <ul>
+                <%= render partial: 'record', collection: @records %>
+            </ul>
+        </div>
+    </div>
+</div>

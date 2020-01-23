@@ -25,3 +25,89 @@
     font-weight:normal;
     font-style:normal;
 }
+
+@font-face {
+    font-family: 'Noto Sans JP';
+    src: font-url('/assets/fonts/NotoSansJP-Thin.otf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Noto Sans JP';
+    src: font-url('/assets/fonts/NotoSansJP-Light.otf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Noto Sans JP';
+    src: font-url('/assets/fonts/NotoSansJP-Regular.otf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Noto Sans JP';
+    src: font-url('/assets/fonts/NotoSansJP-Medium.otf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Noto Sans JP';
+    src: font-url('/assets/fonts/NotoSansJP-Bold.otf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Noto Sans JP';
+    src: font-url('/assets/fonts/NotoSansJP-Black.otf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+$main_color: orange;
+
+$icon_color: #000;
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui;
+}
+
+header {
+    width: 100%;
+    height: 65px;
+    background: orange;
+    display: flex;
+    align-items: center;
+    padding: 0 25px;
+        a {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            img {
+                height: 80%;
+            }
+        }
+        .row {
+            display: flex;
+            list-style: none;
+            li {
+                margin: 0 5px;
+                a {
+                    text-decoration: none;
+                    color: #000000;
+                    font-weight: bold;
+                }
+            }
+        }
+        .menu_right {
+            margin-left: auto;
+        }
+}

@@ -1,31 +1,48 @@
 <div class="record_detail">
-    <h1><%= @record.created_at %>の記録</h1>
-    <%= @record.event.each do |item| %>
-    <dl>
-        <dt>対象部位</dt>
-        <dd><%= item.part %></dd>
-    </dl>
-    <dl>
-        <dt>種目</dt>
-        <dd><%= item.name %></dd>
-    </dl>
-    <dl>
-        <dt>重量</dt>
-        <dd><%= item.weight %>kg</dd>
-    </dl>
-    <dl>
-        <dt>回数</dt>
-        <dd><%= item.rep %>レップ</dd>
-    </dl>
-    <dl>
-        <dt>セット数</dt>
-        <dd><%= item.set %>セット</dd>
-    </dl>
+    <h1>
+        <% user = User.find_by(id: @record.user_id) %>
+        <%= user.name %>
+        <%= @record.created_at %>の記録
+    </h1>
+
+    <div class="comment">
+        <p><%= @record.comment %></p>
+    </div>
+
+    <div class="set">
+        <ol>
+            <% @record.event.each do |item| %>
+            <li>
+                <dl>
+                    <dt><%= link_to "#{item.name}", "/records/event/#{item.name}" %></dt>
+                    <dd>
+                        <% item.set_datum.each do |set_item| %>
+                        <ul class="set_list">
+                            <li><%= set_item.weight %>kg</li>
+                            <li><%= set_item.rep %>レップ</li>
+                            <li><%= set_item.set %>セット</li>
+                        </ul>
+                        <% end %>
+                    </dd>
+                </dl>
+            </li>
+            <% end %>
+        </ol>
+    </div>
+
+    <% if @record.picture? %>
+    <div class="picture">
+        <%= image_tag @record.picture.url %>
+    </div>
     <% end %>
-    <dl>
-        <dt>コメント</dt>
-        <dd><%= @record.comment %></dd>
-    </dl>
-    <%= image_tag @record.picture.url if @record.picture? %>
-    <%= link_to "削除する", "/records/#{@record.id}", method: :delete, data: { confirm: "本当に削除しますか？"} %>
+
+    <div class="button">
+        <% if logged_in %>
+        <% if current_user.id == @record.user_id %>
+        <%= link_to "/records/#{@record.id}", method: :delete, data: { confirm: "本当に削除しますか？"} do %>
+        <%= icon("fas", "trash") %>
+        <% end %>
+        <% end %>
+        <% end %>
+    </div>
 </div>

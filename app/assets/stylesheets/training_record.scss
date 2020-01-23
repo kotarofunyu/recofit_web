@@ -1,18 +1,16 @@
 // Place all the styles related to the TrainingRecord controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-* {
-    box-sizing: border-box;
-}
-
-// @import 'font-awesome-sprockets';
-// @import 'font-awesome';
 
 dd {
     margin: 0;
 }
 
-.record_index .record_list, .event_index {
+$main_color: orange;
+
+$icon_color: #000;
+
+.record_index .record_list {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -21,30 +19,39 @@ dd {
         margin-bottom: 50px;
         list-style-type: none;
         border: 1px solid #000;
-        padding: 10px;
+        padding: 15px 15px 20px 15px;
+        .title {
+            margin: 10px 0;
+        }
+        .comment {
+            margin-bottom: 12px;
+            padding: 20px 0;
+            border-bottom: 1px solid #000;
+            line-height: 1.5;
+        }
+        > ol {
+            margin-bottom: 25px;
+            padding-left: 20px;
+            line-height: 1.5;
+            > li {
+                margin-bottom: 15px;
+            }
+        }
         img {
             width: 100%;
         }
         .set_list {
             display: flex;
             list-style-type: none;
-        }
-        li {
-            list-style-type: none;
+            > li {
+                margin-right: 10px;
+            }
         }
         a {
+            color: $main_color;
+            font-weight: bold;
             text-decoration: none;
         }
-    }
-}
-
-.event_index > ul {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    .record {
-        width: 48%;
     }
 }
 
@@ -61,6 +68,7 @@ section > .record_index {
     margin: 0 auto;
     .title {
         display: flex;
+        justify-content: space-between;
     }
 }
 
@@ -72,9 +80,21 @@ section > .record_index {
     }
 }
 
+i {
+    color: $icon_color;
+}
+
+
+
 .record_form {
     width: 600px;
     margin: 0 auto;
+    .links {
+        margin-top: 10px;
+    }
+    .register_picture {
+        margin-top: 5px;
+    }
         textarea {
             width: 100%;
             max-width: 600px;
@@ -105,6 +125,7 @@ section > .record_index {
 .event_fields {
         dl {
             border: 1px solid #ECF0F2;
+            margin-top: 20px;
             dt {
                 font-size: 16px;
                 padding: 10px;
@@ -219,4 +240,69 @@ i.fa-info-circle {
     height: 300px;
     z-index: 100;
     padding: 20px;
+}
+
+.record_detail {
+    width: 600px;
+    margin: 50px auto 0px;
+    border: 1px solid #000;
+    padding: 20px 15px;
+    .comment {
+        padding: 20px 0;
+        margin-bottom: 12px;
+        border-bottom: 1px solid #000;
+        line-height: 1.5;
+    }
+    .set
+        > ol {
+            padding-left: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            > li {
+                margin-bottom: 15px;
+                line-height: 1.5;
+                width: 45%;
+                dt
+                    > a {
+                        color: $main_color;
+                    }
+            }
+        }
+    .set_list {
+        display: flex;
+        list-style: none;
+        > li {
+            margin-right: 5px;
+        }
+    }
+}
+
+.event_index > ul {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 50px;
+    .record {
+        width: 48%;
+        border: 1px solid #000;
+        margin-top: 20px;
+        padding: 15px 15px 20px 15px;
+        .title {
+            margin-bottom: 15px;
+        }
+    }
+    .event {
+        margin-bottom: 15px;
+        dt {
+            margin-bottom: 10px;
+            color: $main_color;
+            font-weight: bold;
+        }
+        ol {
+            line-height: 1.5;
+            padding-left: 17px;
+        }
+    }
 }

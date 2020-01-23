@@ -1,12 +1,15 @@
 <li class="record">
     <dl class="title">
-        <dt>記録</dt>
+        <dt class="username"><% user_id = record.user_id %>
+            <% user = User.find_by(id: user_id) %>
+            <%= user.name %>
+        </dt>
         <dd><%= record.created_at %></dd>
     </dl>
     <div class="comment">
         <%= record.comment %>
     </div>
-    <ul>
+    <ol>
         <% record.event.each do |item| %>
         <li>
             <dl>
@@ -23,12 +26,16 @@
             </dl>
         </li>
         <% end %>
-    </ul>
+    </ol>
     <%= image_tag record.picture.url if record.picture? %>
     <%=link_to "/records/#{record.id}" do %>
     <%= icon("fas", "caret-square-down") %>
     <% end %>
+    <% if logged_in %>
+    <% if current_user.id == record.user_id %>
     <%= link_to "/records/#{record.id}", method: :delete, data: { confirm: "本当に削除しますか？"} do %>
     <%= icon("fas", "trash") %>
+    <% end %>
+    <% end %>
     <% end %>
 </li>

@@ -1,0 +1,65 @@
+// Place all the styles related to the User controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$main_color: orange;
+
+$icon_color: #000;
+
+.wrapper {
+    width: 800px;
+    margin: 50px auto 0;
+    .user_info {
+        margin-bottom: 20px;
+        dl {
+            display: flex;
+            justify-content: space-around;
+        }
+    }
+    .user_trainingrecord {
+        margin-top: 50px;
+        > ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            > li {
+                width: 48%;
+                border: 1px solid #000;
+                margin-top: 20px;
+                padding: 15px 15px 20px 15px;
+                list-style: none;
+                .title {
+                    display: flex;
+                    justify-content: space-between;
+                }
+                .comment {
+                    margin-bottom: 12px;
+                    padding: 20px 0;
+                    border-bottom: 1px solid #000;
+                    line-height: 1.5;
+                }
+                ol {
+                    margin-bottom: 25px;
+                    padding-left: 20px;
+                    line-height: 1.5;
+                    > li {
+                        margin-bottom: 15px;
+                        a {
+                            color: $main_color;
+                            font-weight: bold;
+                            text-decoration: none;
+                        }
+                        .set_list {
+                            display: flex;
+                            list-style: none;
+                            li {
+                                margin-right: 5px;
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}
