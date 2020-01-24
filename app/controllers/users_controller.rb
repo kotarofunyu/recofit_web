@@ -14,6 +14,14 @@ class UsersController < ApplicationController
         end
     end
 
+    def update
+        user = User.find_by(id: params[:id])
+        if user.id == current_user.id
+            user.update(user_params)
+            redirect_to("/users/#{user.id}")
+        end
+    end
+
     def show
         @user = User.find_by(id: params[:id])
         @records = TrainingRecord.where(user_id: params[:id]).order(created_at: "DESC")
@@ -21,6 +29,6 @@ class UsersController < ApplicationController
 
     private
         def user_params
-            params.require(:user).permit(:name,:email,:password,:password_confirmation)
+            params.require(:user).permit(:name,:email,:password, :introduction, :password_confirmation,:picture)
         end
 end

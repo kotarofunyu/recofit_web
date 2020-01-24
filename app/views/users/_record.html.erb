@@ -1,10 +1,21 @@
 <li class="record">
     <dl class="title">
-        <dt class="username"><% user_id = record.user_id %>
+        <dt class="username">
+            <% user_id = record.user_id %>
             <% user = User.find_by(id: user_id) %>
-            <%= user.name %>
+            <% if user.picture.present? %>
+                <%=link_to "/users/#{user_id}" do %>
+                    <%= image_tag user.picture.url, class:"user_image" %>
+                    <%= user.name %>
+                <% end %>
+            <% else %>
+                <%= link_to "/users/#{user_id}" do %>
+                    <%= image_tag ('noicon.png'), class:"user_image" %>
+                    <%= user.name %>
+                <% end %>
+            <% end %>
         </dt>
-        <dd><%= record.created_at %></dd>
+        <dd class="date"><%= time_ago_in_words(record.created_at) %>前</dd>
     </dl>
     <div class="comment">
         <%= record.comment %>

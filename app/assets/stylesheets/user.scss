@@ -6,6 +6,8 @@ $main_color: orange;
 
 $icon_color: #000;
 
+
+
 .wrapper {
     width: 800px;
     margin: 50px auto 0;
@@ -14,6 +16,9 @@ $icon_color: #000;
         dl {
             display: flex;
             justify-content: space-around;
+        }
+        > img {
+            width: 80px;
         }
     }
     .user_trainingrecord {
@@ -31,6 +36,16 @@ $icon_color: #000;
                 .title {
                     display: flex;
                     justify-content: space-between;
+                    align-items: center;
+                    .username
+                        > a {
+                            display: flex;
+                            align-items: center;
+                            > img {
+                                width: 60px;
+                                margin-right: 10px;
+                            }
+                        }
                 }
                 .comment {
                     margin-bottom: 12px;
