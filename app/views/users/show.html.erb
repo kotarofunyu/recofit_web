@@ -3,6 +3,7 @@
         <div class="user_info">
             <h1>ユーザー基本情報</h1>
             <%= image_tag @user.picture.url if @user.picture? %>
+            <%= image_tag ('noicon.png') if @user.picture.blank? %>
             <% if logged_in && current_user.id === @user.id %>
             <% if @user.picture? %>
             <dl>
@@ -40,6 +41,29 @@
                 </dt>
                 <dd>
                     <%= @user.email %>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    プロフィール
+                </dt>
+                <dd>
+                    <%= @user.introduction if @user.introduction? %>
+
+                    <% if logged_in && current_user.id === @user.id %>
+                    <% if@user.introduction.present? %>
+                        <%= form_for(@user,:url => {:controller => :users, :action => :update }) do |f| %>
+                            <%= f.text_area :introduction, class: "register_introduction" %>
+                            <%= f.submit "変更する", class: "register_button" %>
+                        <% end %>
+                        <% else %>
+                        <p>プロフィールを登録する</p>
+                        <%= form_for(@user,:url => {:controller => :users, :action => :update }) do |f| %>
+                        <%= f.text_area :introduction, class: "register_introduction" %>
+                        <%= f.submit "登録する", class: "register_button" %>
+                        <% end %>
+                        <% end %>
+                    <% end %>
                 </dd>
             </dl>
         </div>
