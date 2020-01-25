@@ -2,15 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$main_color: orange;
-
-$icon_color: #000;
-
-
+@import "./variables";
 
 .wrapper {
     width: 800px;
     margin: 50px auto 0;
+    @include sp {
+        width: 90%;
+    }
     .user_info {
         margin-bottom: 20px;
         dl {
@@ -27,12 +26,18 @@ $icon_color: #000;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
+            @include sp {
+                flex-direction: column;
+            }
             > li {
                 width: 48%;
                 border: 1px solid #000;
                 margin-top: 20px;
                 padding: 15px 15px 20px 15px;
                 list-style: none;
+                @include sp {
+                    width: 100%;
+                }
                 .title {
                     display: flex;
                     justify-content: space-between;

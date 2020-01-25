@@ -2,6 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// ?????????????????????
+@import "./variables";
+
 dd {
     margin: 0;
 }
@@ -18,12 +21,18 @@ $icon_color: #000;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    @include sp {
+        flex-direction: column;
+    }
     .record {
         width: 48%;
         margin-bottom: 50px;
         list-style-type: none;
         border: 1px solid #000;
         padding: 15px 15px 20px 15px;
+        @include sp {
+            width: 100%;
+        }
         .title {
             margin: 0px 0 10px 0;
             .username {
@@ -84,6 +93,9 @@ section > .record_index {
 .record_index {
     width: 800px;
     margin: 0 auto;
+    @include sp {
+        width: 90%;
+    }
     .title {
         display: flex;
         justify-content: space-between;
@@ -94,6 +106,9 @@ section > .record_index {
 .event_index {
     width: 800px;
     margin: 0 auto;
+    @include sp {
+        width: 100%;
+    }
     ul {
         list-style: none;
     }
@@ -108,6 +123,9 @@ i {
 .record_form {
     width: 600px;
     margin: 0 auto;
+    @include sp {
+        width: 90%;
+    }
     .links {
         margin-top: 10px;
     }
@@ -266,6 +284,9 @@ i.fa-info-circle {
     margin: 50px auto 0px;
     border: 1px solid #000;
     padding: 20px 15px;
+    @include sp {
+        width: 90%;
+    }
     .comment {
         padding: 20px 0;
         margin-bottom: 12px;
@@ -282,6 +303,9 @@ i.fa-info-circle {
                 margin-bottom: 15px;
                 line-height: 1.5;
                 width: 45%;
+                @include sp {
+                    width: 100%;
+                }
                 dt
                     > a {
                         color: $main_color;
@@ -303,11 +327,19 @@ i.fa-info-circle {
     flex-wrap: wrap;
     justify-content: space-between;
     margin-top: 50px;
+    @include sp {
+        width: 90%;
+        flex-direction: column;
+        margin: 0 auto;
+    }
     .record {
         width: 48%;
         border: 1px solid #000;
         margin-top: 20px;
         padding: 15px 15px 20px 15px;
+        @include sp {
+            width: 100%;
+        }
         .title {
             margin-bottom: 15px;
         }
@@ -322,51 +354,6 @@ i.fa-info-circle {
         ol {
             line-height: 1.5;
             padding-left: 17px;
-        }
-    }
-}
-
-$breakpoints: (
-    'sp': 440,
-    'tab': 768
-) !default;
-
-@mixin mq($mq, $bp1: md, $bp2: lg) {
- 
-    $w1    : map-get($breakpoints, $bp1);
-    $w2    : map-get($breakpoints, $bp2);
-    $min1  : 'min-width: #{convert-em($w1, 1)}';
-    $min2  : 'min-width: #{convert-em($w1, 1)}';
-    $max1  : 'max-width: #{convert-em($w1)}';
-    $max2  : 'max-width: #{convert-em($w2)}';
-   
-    @if $mq == min {
-      @media screen and ($min1) {
-        @content;
-      }
-    }
-    @else if $mq == max {
-      @media screen and ($max1) {
-        @content;
-      }
-    }
-    @else if $mq == min-max {
-      @media screen and ($min2) and ($max2) {
-        @content;
-      }
-    }
-  }
-
-@include mq('max', 'sp') {
-    .record_index {
-        width: 85%;
-        > ul {
-            flex-wrap: nowrap;
-            flex-direction: column;
-            > li {
-                width: 100%;
-                margin: 50px auto 0;
-            }
         }
     }
 }
