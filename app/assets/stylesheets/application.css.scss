@@ -14,6 +14,10 @@
  *= require_self
  */
 
+// 共通変数を宣言しているファイルをロードする
+@import "./variables";
+
+//  FontAwesomeをロードする
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 @font-face{
@@ -68,10 +72,6 @@
     font-style: normal;
 }
 
-$main_color: orange;
-
-$icon_color: #000;
-
 * {
     box-sizing: border-box;
 }
@@ -87,6 +87,10 @@ header {
     display: flex;
     align-items: center;
     padding: 0 25px;
+    @include sp {
+        width: 100%;
+        height: 60px;
+    }
         a {
             height: 100%;
             display: flex;

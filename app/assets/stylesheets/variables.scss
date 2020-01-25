@@ -1,0 +1,20 @@
+// 共通で利用する変数をここで宣言する
+// 各々のscssファイルでこのファイルを@importして利用する
+
+$main_color: orange;
+
+$icon_color: #000;
+
+$tab: 768px; // タブレット
+$sp: 440px;  // スマホ
+
+@mixin tab {
+  @media (max-width: ($tab)) {
+    @content;
+  }
+}
+@mixin sp {
+  @media (max-width: ($sp)) {
+    @content;
+  }
+}
