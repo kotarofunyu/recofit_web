@@ -1,22 +1,20 @@
 <% provide(:title, "ログイン") %>
-<h1>ログイン</h1>
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
+<div class="login wrapper">
+  <div class="row">
     <%= form_for(:session, url: login_path) do |f| %>
-
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
-
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
-
-      <%= f.submit "Log in", class: "btn btn-primary" %>
-    <% end %>
     <dl>
-      <dt>テストユーザーログインはこちら</dt>
-      <dd><%=link_to "テストユーザーログイン", "/test_login", method: :post %></dd>
+      <dt>メールアドレス</dt>
+      <dd><%= f.email_field :email, class: 'form-control' %></dd>
     </dl>
-
-    <p>New user? <%= link_to "Sign up now!", '/users/new' %></p>
+    <dl>
+      <dt>パスワード</dt>
+      <dd><%= f.password_field :password, class: 'form-control' %></dd>
+    </dl>
+    <%= f.submit "ログイン", class: "btn btn-primary" %>
+    <% end %>
+    <ul class="other">
+      <li><%=link_to "テストユーザーはこちらからログイン", "/test_login", method: :post %></li>
+      <li>RecoFitを使ってフィットネスをより楽しくしませんか？ <%= link_to "ユーザー登録する", '/users/new' %></li>
+    </ul>
   </div>
 </div>

@@ -1,29 +1,27 @@
-<div class="signup">
+<div class="signup wrapper">
     <div class="row">
-        <div class="form">
-            <%= form_for(@user,:url => {:controller => :users, :action => :create }) do |f| %>
-            <dl>
-                <dt>?????</dt>
-                <dd><%= f.text_field :name, class:'form-control' %></dd>
-            </dl>
-            <dl>
-                <dt>???????</dt>
-                <dd> <%= f.email_field :email, class:'form-control' %></dd>
-            </dl>
-            <dl>
-                <dt>?????</dt>
-                <dd><%= f.password_field :password, class:'form-control' %></dd>
-            </dl>
-            <dl>
-                <dt>?????(??)</dt>
-                <dd><%= f.password_field :password_confirmation, class:'form-control' %></dd>
-            </dl>
-            <dl>
-                <dt>????????</dt>
-                <dd><%= f.file_field :picture, class: "register_profile_image" %></dd>
-            </dl>
-            <%= f.submit "????", class: "register_button" %>
-            <% end %>
-        </div>
+        <%= form_for(@user,:url => {:controller => :users, :action => :create }) do |f| %>
+        <dl>
+            <dt>ユーザー名<span>*</span></dt>
+            <dd><%= f.text_field :name, class:'form-control' %></dd>
+        </dl>
+        <dl>
+            <dt>メールアドレス<span>*</span></dt>
+            <dd> <%= f.email_field :email, class:'form-control' %></dd>
+        </dl>
+        <dl>
+            <dt>パスワード<span>*</span></dt>
+            <dd><%= f.password_field :password, class:'form-control' %></dd>
+        </dl>
+        <dl>
+            <dt>パスワード（確認）<span>*</span></dt>
+            <dd><%= f.password_field :password_confirmation, class:'form-control' %></dd>
+        </dl>
+        <dl>
+            <dt>プロフィール画像</dt>
+            <dd><%= f.file_field :picture, class: "register_profile_image" %></dd>
+        </dl>
+        <%= f.submit "登録する", class: "register_button" %>
+        <% end %>
     </div>
 </div>

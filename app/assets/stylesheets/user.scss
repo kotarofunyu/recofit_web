@@ -82,3 +82,57 @@
         }
     }
 }
+.signup {
+    .row {
+        width: 500px;
+        margin: 0 auto;
+        @include sp {
+            width: 100%;
+        }
+        dl {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            @include sp {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            dt{
+                @include sp {
+                    margin-bottom: 10px;
+                    font-weight: bold;
+                }
+                > span {
+                    color: $main_color;
+                }
+            }
+            dd {
+                @include sp {
+                    width: 100%;
+                }
+                > input {
+                    width: 250px;
+                    height: 40px;
+                    font-size: 16px;
+                    @include sp {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+        input[type="submit"] {
+            width: 100%;
+            border: 1px solid $main_color;
+            background: $main_color;
+            height: 40px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #ffffff;
+            margin-top: 25px;
+            @include sp {
+                margin-top: 0;
+            }
+        }
+    }
+}
