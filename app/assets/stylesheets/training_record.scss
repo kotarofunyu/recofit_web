@@ -13,9 +13,9 @@ $main_color: orange;
 
 $icon_color: #000;
 
-#index {
-    margin-top: 50px;
-}
+// #index {
+//     margin-top: 50px;
+// }
 
 .record_index .record_list {
     display: flex;
@@ -82,9 +82,9 @@ $icon_color: #000;
     }
 }
 
-section > .record_index {
-    margin-top: 80px;
-}
+// section > .record_index {
+//     margin-top: 80px;
+// }
 
 .record_index li img {
     width: 100%;
@@ -281,7 +281,7 @@ i.fa-info-circle {
 
 .record_detail {
     width: 600px;
-    margin: 50px auto 0px;
+    margin: 0 auto;
     border: 1px solid #000;
     padding: 20px 15px;
     @include sp {
@@ -326,7 +326,7 @@ i.fa-info-circle {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin-top: 50px;
+    // margin-top: 50px;
     @include sp {
         width: 90%;
         flex-direction: column;
