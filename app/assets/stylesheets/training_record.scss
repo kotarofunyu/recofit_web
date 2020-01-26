@@ -118,11 +118,9 @@ i {
     color: $icon_color;
 }
 
-
-
 .record_form {
     width: 600px;
-    margin: 0 auto;
+    margin: 0 auto 50px;
     @include sp {
         width: 90%;
     }
@@ -143,7 +141,7 @@ i {
         input[type="submit"] {
             width: 250px;
             height: 50px;
-            background: #0435a1;
+            background: $main_color;
             color: #ffffff;
             font-size: 16px;
             letter-spacing: 2px;
