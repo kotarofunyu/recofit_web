@@ -16,3 +16,13 @@
 //= require turbolinks
 //= require_tree .
 //= require cocoon
+$(function() {
+
+    $(document).on('click', '.menu_right', function() {
+        $('.dropdown').toggleClass('active');
+      })
+
+      $(document).on('click', '.sp_sidebar', function() {
+        $('#side_menu').toggleClass('active');
+      })
+})

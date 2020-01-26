@@ -13,26 +13,63 @@
 
 <body>
   <header>
+    <div class="sp_sidebar">
+      <%= icon("fas", "bars") %>
+    </div>
     <%=link_to "/", target: "_blank" do %>
-    <%= image_tag "app_icon.png" %>
+    <%= image_tag "app_icon.png", class:"logo" %>
+    RecoFit
     <% end %>
-    <ul class="row menu_left">
+    <% if logged_in %>
+    <div class="user_area menu_right">
+      <%= image_tag current_user.picture.url, class: "user_image" %>
+      <%= icon("fas","angle-down") %>
+      <ul class="dropdown">
+        <li><%= current_user.name %></li>
+        <li><%= link_to "ユーザーページ", "/users/#{current_user.id}" %></li>
+        <li><%= link_to "ログアウト", logout_path, method: :delete, class:"header_button logout" %></li>
+        <li>aaa</li>
+        <li>aaa</li>
+      </ul>
+    </div>
+    <% else %>
+    <ul class="row menu_right">
       <li>
-        <%= link_to "トレーニング記録トップ", "/records" %>
+        <%= link_to "新規登録", "/users/new" %>
+      </li>
+      <li><%= link_to "ログイン", "/login" %></li>
+    </ul>
+    <% end %>
+  </header>
+  <%# サイドメニュー %>
+  <div id="side_menu">
+    <ul>
+      <li>
+        <%= link_to "/records" do %>
+        <%= icon("fas", "book-open") %>
+        記録一覧
+        <% end %>
+      </li>
+      <li>
+        <%= link_to "/records" do %>
+        <%= icon("fas", "clipboard-list") %>
+        種目別記録
+        <% end %>
+      </li>
+      <li>
+        <%= link_to "/records" do %>
+        <%= icon("fas", "users") %>
+        ユーザー
+        <% end %>
+      </li>
+      <li>
+        <%= link_to "/records" do %>
+        <%= icon("fas", "info-circle") %>
+        RecoFitについて
+        <% end %>
       </li>
     </ul>
-    <ul class="row menu_right">
-    <% if logged_in %>
-    <li><%=link_to "#{current_user.name}", "/users/#{current_user.id}" %></li>
-    <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
-    <% else %>
-    <li>
-      <%= link_to "新規登録", "/users/new" %>
-    </li>
-    <li><%= link_to "ログイン", "/login" %></li>
-    <% end %>
-    </ul>
-  </header>
+  </div>
   <% flash.each do |message_type, message| %>
   <div class="alert alert-<%= message_type %>"><%= message %></div>
   <% end %>

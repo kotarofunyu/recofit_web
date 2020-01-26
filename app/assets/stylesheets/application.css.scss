@@ -81,23 +81,62 @@ body {
     font-family: system-ui;
 }
 
+$header_height: 65px;
+
+// 共通クラス
+.wrapper {
+    padding-top: 100px;
+}
+
 header {
     width: 100%;
-    height: 65px;
+    height: $header_height;
     background: orange;
     display: flex;
     align-items: center;
-    padding: 0 25px;
+    padding: 0 45px 0px 25px;
+    position: fixed;
     @include sp {
         width: 100%;
         height: 60px;
+        padding: 0 15px 0 15px;
+    }
+    .user_area {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        > .user_image {
+            height: 90%;
+        }
+        .fa-angle-down {
+            @include sp {
+                margin-left: 5px;
+                color: #ffffff;
+            }
+        }
     }
         a {
             height: 100%;
             display: flex;
             align-items: center;
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: bold;
+            letter-spacing: 1px;
+            font-size: 16px;
+            @include sp {
+                font-size: 14px;
+            }
             img {
                 height: 80%;
+                margin-right: 5px;
+            }
+        }
+        .user_image {
+            width: 50px;
+            margin-right: 5px;
+            @include sp {
+                height: 90%;
             }
         }
         .row {
@@ -115,5 +154,91 @@ header {
         }
         .menu_right {
             margin-left: auto;
+            position: relative;
+            cursor: pointer;
+            .dropdown {
+                display: none;
+                width: 165px;
+                position: absolute;
+                top: 65px;
+                right: 5px;
+                background: rgba(255,165,0,0.7);
+                padding: 5px 15px;
+                list-style: none;
+                line-height: 2;
+                transition: 1s;
+                box-shadow: 1px 1px 15px 0px grey;
+                @include sp {
+                    top: 60px;
+                }
+                &.active {
+                    display: block;
+                }
+                > li {
+                    padding: 5px 0;
+                    > a {
+                        display: block;
+                        background: #ffffff;
+                        color: $main_color;
+                        border-radius: 5px;
+                        padding: 0 6px;
+                        text-align: center;
+                    }
+                }
+            }
+
         }
+}
+
+#side_menu {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: $header_height;
+    background: $main_color;
+    @include sp {
+        width: 45%;
+        top: 59px;
+        display: none;
+        &.active {
+            display: block;
+        }
+    }
+    > ul {
+        padding: 0 15px 0px 25px;
+        list-style: none;
+        @include sp {
+            padding: 0 15px 0 15px;
+        }
+        > li {
+            padding: 25px 0;
+            font-size: 20px;
+            @include sp {
+                padding: 20px 0;
+            }
+            > a {
+                text-decoration: none;
+                color: #ffffff;
+                font-weight: bold;
+                letter-spacing: 1px;
+                @include sp {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+
+.sp_sidebar {
+    display: none;
+    @include sp {
+        display: block;
+        font-size: 28px;
+        margin-right: 15px;
+    }
+    .fa-bars {
+        @include sp {
+            color: #ffffff;
+        }
+    }
 }
