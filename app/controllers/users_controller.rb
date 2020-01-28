@@ -22,9 +22,16 @@ class UsersController < ApplicationController
         end
     end
 
+    def event
+        @name_params = params[:name]
+        @user_id = params[:id]
+        @records = TrainingRecord.where(user_id: @user_id)
+    end
+
     def show
         @user = User.find_by(id: params[:id])
         @records = TrainingRecord.where(user_id: params[:id]).order(created_at: "DESC")
+
     end
 
     private
@@ -32,3 +39,4 @@ class UsersController < ApplicationController
             params.require(:user).permit(:name,:email,:password, :introduction, :password_confirmation,:picture)
         end
 end
+

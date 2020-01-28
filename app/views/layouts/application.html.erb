@@ -51,7 +51,7 @@
         <% end %>
       </li>
       <li>
-        <%= link_to "/records" do %>
+        <%= link_to "/records/#{current_user.id}/events" do %>
         <%= icon("fas", "clipboard-list") %>
         種目別記録
         <% end %>

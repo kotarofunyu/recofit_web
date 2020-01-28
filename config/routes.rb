@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'training_record/edit'
   get '/records/event/:name' => 'training_record#event'
   get '/records/:id' => 'training_record#show'
+  get '/records/:id/events/' => 'training_record#eventindex'
   delete '/records/:id' => 'training_record#destroy'
   get 'sessions/new'
 
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
   post 'users/create' => 'users#create'
   get '/users/:id' => 'users#show'
   patch '/users/update/:id' => 'users#update'
+  get '/users/:id/events/:name' => 'users#event'
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
@@ -26,3 +28,4 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
+

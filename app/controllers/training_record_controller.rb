@@ -50,6 +50,13 @@ class TrainingRecordController < ApplicationController
     redirect_to("/records")
   end
 
+  # 種目別の種目一覧ページ
+  def eventindex
+    @user_params = params[:id]
+    @records = TrainingRecord.where(user_id: @user_params)
+    
+  end
+
   # 種目別の一覧ページ
   def event
     @events = Event.where(name: params[:name]).order(created_at: "DESC")
