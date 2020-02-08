@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get '/records/event/:name' => 'training_record#event'
   get '/records/:id' => 'training_record#show'
   get '/records/:id/events/' => 'training_record#eventindex'
+  get '/records/:id/edit' => 'training_record#edit'
+  patch '/records/:id/update' => 'training_record#update'
   delete '/records/:id' => 'training_record#destroy'
   get 'sessions/new'
 

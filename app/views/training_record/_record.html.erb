@@ -47,6 +47,7 @@
     <%= link_to "/records/#{record.id}", method: :delete, data: { confirm: "本当に削除しますか？"} do %>
     <%= icon("fas", "trash") %>
     <% end %>
+    <%= link_to "編集","/records/#{record.id}/edit", method: :get %>
     <% end %>
     <% end %>
 </li>

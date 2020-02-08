@@ -17,6 +17,8 @@
 //= require_tree .
 //= require cocoon
 $(function() {
+  // var sideMenuWidth = $('#side_menu').width();
+  // $('#contents').css('padding-left',sideMenuWidth+'px');
 
     $(document).on('click', '.menu_right', function() {
         $('.dropdown').toggleClass('active');

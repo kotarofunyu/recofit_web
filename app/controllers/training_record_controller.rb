@@ -21,7 +21,7 @@ class TrainingRecordController < ApplicationController
 
   # フォームからの記録をDBに登録する処理
   def create
-    @record = TrainingRecord.new(training_record_params)
+    @record = TrainingRecord.new(create_training_record_params)
     if @record.save
       redirect_to("/records")
     end
@@ -38,6 +38,15 @@ class TrainingRecordController < ApplicationController
   end
 
   def edit
+    @record = TrainingRecord.find_by(id: params[:id])
+
+  end
+
+  def update
+    @record = TrainingRecord.find_by(id: params[:id])
+    @record.update_attributes!(update_training_record_params)
+    # redirect_to("/records")
+    render plain: params.inspect
   end
 
   # 記録削除
@@ -54,7 +63,6 @@ class TrainingRecordController < ApplicationController
   def eventindex
     @user_params = params[:id]
     @records = TrainingRecord.where(user_id: @user_params)
-    
   end
 
   # 種目別の一覧ページ
@@ -64,9 +72,14 @@ class TrainingRecordController < ApplicationController
 
   # ストロングパラメーター
   private
-    def training_record_params
+      def create_training_record_params
       # 小テーブルの種目テーブルも同時にパラメータ取得
-        params.require(:training_record).permit(:comment, :picture, event_attributes:[:id, :part, :name, set_datum_attributes:[:weight, :rep, :set]]).merge(user_id: current_user.id)
+        params.require(:training_record).permit(:comment, :picture, event_attributes:[:part, :name, :_destroy, set_datum_attributes:[:weight, :rep, :set, :_destroy]]).merge(user_id: current_user.id)
+    end
+
+    def update_training_record_params
+      # 小テーブルの種目テーブルも同時にパラメータ取得
+        params.require(:training_record).permit(:comment, :picture, event_attributes:[:id,:part, :name, :_destroy, set_datum_attributes:[:id,:weight, :rep, :set, :_destroy]]).merge(user_id: current_user.id)
     end
 
     def menu_name_params
