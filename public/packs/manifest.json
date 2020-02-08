@@ -1,24 +1,44 @@
 {
-  "application.js": "/packs/js/application-0c50d5e5af380dfe3b4e.js",
-  "application.js.map": "/packs/js/application-0c50d5e5af380dfe3b4e.js.map",
+  "application.js": "/packs/js/application-2181adcc3224cdc0c9c1.js",
+  "application.js.map": "/packs/js/application-2181adcc3224cdc0c9c1.js.map",
+  "ch.js": "/packs/js/ch-926fe14c7c4b8e6ecfbd.js",
+  "ch.js.map": "/packs/js/ch-926fe14c7c4b8e6ecfbd.js.map",
+  "components/index.js": "/packs/js/components/index-777d14fe03e51c08b859.js",
+  "components/index.js.map": "/packs/js/components/index-777d14fe03e51c08b859.js.map",
   "entrypoints": {
     "application": {
       "js": [
-        "/packs/js/application-0c50d5e5af380dfe3b4e.js"
+        "/packs/js/application-2181adcc3224cdc0c9c1.js"
       ],
       "js.map": [
-        "/packs/js/application-0c50d5e5af380dfe3b4e.js.map"
+        "/packs/js/application-2181adcc3224cdc0c9c1.js.map"
+      ]
+    },
+    "ch": {
+      "js": [
+        "/packs/js/ch-926fe14c7c4b8e6ecfbd.js"
+      ],
+      "js.map": [
+        "/packs/js/ch-926fe14c7c4b8e6ecfbd.js.map"
+      ]
+    },
+    "components/index": {
+      "js": [
+        "/packs/js/components/index-777d14fe03e51c08b859.js"
+      ],
+      "js.map": [
+        "/packs/js/components/index-777d14fe03e51c08b859.js.map"
       ]
     },
     "hello_vue": {
       "js": [
-        "/packs/js/hello_vue-36fe9628c52b901a37fb.js"
+        "/packs/js/hello_vue-56f47951e96eb59ed311.js"
       ],
       "js.map": [
-        "/packs/js/hello_vue-36fe9628c52b901a37fb.js.map"
+        "/packs/js/hello_vue-56f47951e96eb59ed311.js.map"
       ]
     }
   },
-  "hello_vue.js": "/packs/js/hello_vue-36fe9628c52b901a37fb.js",
-  "hello_vue.js.map": "/packs/js/hello_vue-36fe9628c52b901a37fb.js.map"
+  "hello_vue.js": "/packs/js/hello_vue-56f47951e96eb59ed311.js",
+  "hello_vue.js.map": "/packs/js/hello_vue-56f47951e96eb59ed311.js.map"
 }
