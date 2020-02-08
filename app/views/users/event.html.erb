@@ -1,0 +1,19 @@
+<div class="wrapper">
+    <ul>
+        <% @records.each do |record| %>
+        <% nameitem = record.event.where(name: @name_params) %>
+        <% nameitem.each do |item| %>
+        <li>
+            <dl>
+                <dt><%= item.name %></dt>
+                <% item.set_datum.each do |set| %>
+                <dd>
+                    <%= set.weight %> x <%= set.rep %> x <%= set.set %>
+                </dd>
+            </dl>
+            <% end %>
+            <% end %>
+        </li>
+        <% end %>
+    </ul>
+</div>

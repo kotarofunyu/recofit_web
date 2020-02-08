@@ -1,0 +1,17 @@
+<%= form_for(@record, url: "/records/#{@record.id}/update") do |f| %>
+<%= f.text_area :comment, :placeholder => "今日のトレーニングはどうだった？" %>
+<%= f.fields_for :event do |i| %>
+<%= render 'event_fields', f: i %>
+<% end %>
+
+<div class="links">
+    <%= link_to_add_association "種目を追加", f, :event %>
+</div>
+<div class="register_picture">
+    <%= f.label :picture, class: "label" do %>
+    <%= icon("far", "image") %>
+    <%= f.file_field :picture, class: "register_picture_button" %>
+    <% end %>
+</div>
+<%= f.submit "記録する" %>
+<% end %>

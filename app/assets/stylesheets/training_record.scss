@@ -103,14 +103,34 @@ $icon_color: #000;
     }
 }
 
-.event_index {
-    width: 800px;
-    margin: 0 auto;
+// .event_index {
+//     width: 800px;
+//     margin: 0 auto;
+//     @include sp {
+//         width: 100%;
+//     }
+//     ul {
+//         list-style: none;
+//     }
+// }
+
+.event_index > ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
     @include sp {
-        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
     }
-    ul {
-        list-style: none;
+    > li {
+        border: 1px solid #000;
+        width: 30%;
+        padding: 20px;
+        text-align: center;
+        margin-bottom: 15px;
+        @include sp {
+            width: 48%;
+        }
     }
 }
 

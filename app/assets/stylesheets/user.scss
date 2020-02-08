@@ -5,7 +5,8 @@
 @import "./variables";
 
 .wrapper {
-    width: 800px;
+    // width: 800px;
+    width: 85%;
     margin: 0 auto;
     @include sp {
         width: 90%;

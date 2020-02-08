@@ -88,6 +88,13 @@ $header_height: 65px;
     padding-top: 100px;
 }
 
+#contents {
+    padding-left: 250px;
+    @include sp {
+        padding-left: 0;
+    }
+}
+
 header {
     width: 100%;
     height: $header_height;
