@@ -1,6 +1,7 @@
 <div class="signup wrapper">
     <div class="row">
         <%= form_for(@user,:url => {:controller => :users, :action => :create }) do |f| %>
+        <%= render 'shared/errors',object: @user %>
         <dl>
             <dt>ユーザー名<span>*</span></dt>
             <dd><%= f.text_field :name, class:'form-control' %></dd>

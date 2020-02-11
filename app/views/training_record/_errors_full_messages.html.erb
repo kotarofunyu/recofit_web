@@ -1,0 +1,8 @@
+<% if @record.errors.any? %>
+<% @record.errors.full_messages.each do |message| %>
+<p><%=record.errors.count %></p>
+<p><%= message %></p>
+<% end %>
+<% else %>
+<p>エラーはありません</p>
+<% end %>
