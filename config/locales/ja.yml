@@ -1,4 +1,23 @@
 ja:
+    activerecord:
+      models:
+        training_record: "トレーニング記録"
+        event: "種目"
+        set_datum: "セット"
+        user: "ユーザー"
+      attributes:
+        training_record:
+          comment: "コメント"
+        event:
+          name: "種目名"
+        set_datum:
+          weight: "重量"
+          rep: "レップ"
+          set: "セット"
+        user:
+          name: "ユーザー名"
+          email: "メールアドレス"
+          password: "パスワード"
     datetime:
       distance_in_words:
         half_a_minute: "30秒前後"

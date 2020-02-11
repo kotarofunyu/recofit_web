@@ -1,4 +1,5 @@
-<%= form_for(@record,:url => {:controller => :training_record, :action => :create}) do |f| %>
+<%= form_for(@record,:url => {:controller => :training_record, :action => :create},local: true) do |f| %>
+<%= render 'shared/errors', object: @record %>
 <%= f.text_area :comment, :placeholder => "今日のトレーニングはどうだった？" %>
 <%= f.fields_for :event do |i| %>
 <%= render 'event_fields', f: i %>
@@ -25,10 +26,7 @@
                 記録したい種目がない場合は登録することができます。
             </dt>
             <dd>
-                <%= form_for(@menuname, :url => {:controller => :training_record, :action => :register}) do |a| %>
-                <%= a.text_field :name %>
-                <%= a.submit "種目を登録する" %>
-                <% end %>
+
             </dd>
         </dl>
     </div>

@@ -11,6 +11,9 @@ gem 'carrierwave', '1.2.2'
 gem 'mini_magick', '4.7.0'
 gem 'jquery-rails'
 
+# エラーメッセージの日本語化
+gem 'rails-i18n'
+
 #フォームを動的に追加するgem
 gem 'cocoon'
 
