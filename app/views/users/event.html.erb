@@ -1,18 +1,8 @@
 <div class="wrapper">
     <%= javascript_pack_tag 'ch' %>
     <div id="chart">
-        <navbar></navbar>
-        <div v-for="record in records">
-            {{ record.comment}}
-            <div v-for="event in record.event">
-                {{ event.name }}
-                <div v-for="set in event.set">
-                {{set.weight}} x
-                {{set.rep}} x
-                {{set.set}}
-                </div>
-            </div>
-        </div>
+    <button @click="displayGraph">グラフ表示</button>
+        <canvas id="myChart"></canvas>
     </div>
     <ul>
         <% @records.each do |record| %>

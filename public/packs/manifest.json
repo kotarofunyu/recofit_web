@@ -3,10 +3,10 @@
   "application.js.map": "/packs/js/application-942b3c8595691a1b2311.js.map",
   "bar-chart.js": "/packs/js/bar-chart-c44680af7d390e8706f4.js",
   "bar-chart.js.map": "/packs/js/bar-chart-c44680af7d390e8706f4.js.map",
-  "ch.js": "/packs/js/ch-038fd7533022ff12a2df.js",
-  "ch.js.map": "/packs/js/ch-038fd7533022ff12a2df.js.map",
-  "components/graph.js": "/packs/js/components/graph-7a17442e3e3168ed8f48.js",
-  "components/graph.js.map": "/packs/js/components/graph-7a17442e3e3168ed8f48.js.map",
+  "ch.js": "/packs/js/ch-02f5f8d1b37465217239.js",
+  "ch.js.map": "/packs/js/ch-02f5f8d1b37465217239.js.map",
+  "components/graph.js": "/packs/js/components/graph-ac2bfb8f347df905f562.js",
+  "components/graph.js.map": "/packs/js/components/graph-ac2bfb8f347df905f562.js.map",
   "components/index.js": "/packs/js/components/index-1b84753f284036fb627f.js",
   "components/index.js.map": "/packs/js/components/index-1b84753f284036fb627f.js.map",
   "entrypoints": {
@@ -28,18 +28,18 @@
     },
     "ch": {
       "js": [
-        "/packs/js/ch-038fd7533022ff12a2df.js"
+        "/packs/js/ch-02f5f8d1b37465217239.js"
       ],
       "js.map": [
-        "/packs/js/ch-038fd7533022ff12a2df.js.map"
+        "/packs/js/ch-02f5f8d1b37465217239.js.map"
       ]
     },
     "components/graph": {
       "js": [
-        "/packs/js/components/graph-7a17442e3e3168ed8f48.js"
+        "/packs/js/components/graph-ac2bfb8f347df905f562.js"
       ],
       "js.map": [
-        "/packs/js/components/graph-7a17442e3e3168ed8f48.js.map"
+        "/packs/js/components/graph-ac2bfb8f347df905f562.js.map"
       ]
     },
     "components/index": {
@@ -57,8 +57,18 @@
       "js.map": [
         "/packs/js/hello_vue-af7c02a939c5a239a4cd.js.map"
       ]
+    },
+    "store": {
+      "js": [
+        "/packs/js/store-9e600f258a601292203d.js"
+      ],
+      "js.map": [
+        "/packs/js/store-9e600f258a601292203d.js.map"
+      ]
     }
   },
   "hello_vue.js": "/packs/js/hello_vue-af7c02a939c5a239a4cd.js",
-  "hello_vue.js.map": "/packs/js/hello_vue-af7c02a939c5a239a4cd.js.map"
+  "hello_vue.js.map": "/packs/js/hello_vue-af7c02a939c5a239a4cd.js.map",
+  "store.js": "/packs/js/store-9e600f258a601292203d.js",
+  "store.js.map": "/packs/js/store-9e600f258a601292203d.js.map"
 }

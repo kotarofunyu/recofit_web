@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   #API
   namespace :api, format: 'json' do
     resources :training_record
+    get 'weight' => 'training_record#weight'
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
