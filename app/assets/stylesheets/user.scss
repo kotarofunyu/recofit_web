@@ -21,6 +21,68 @@
             width: 80px;
         }
     }
+    > .user_index {
+        h1 {
+            font-size: 25px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        ul {
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            @include sp {
+                justify-content: center;
+            }
+            li {
+                width: 48%;
+                border: 1px solid #FCD997;
+                background: #FCD997;
+                padding: 10px;
+                margin-bottom: 15px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                position: relative;
+                z-index: 1;
+                box-shadow: rgba(0,0,0,0.3) 5px 5px 8px;
+                @include sp {
+                    width: 80%;
+                    align-items: flex-start;
+                }
+                .user_img {
+                    width: 20%;
+                    img {
+                        width: 100%;
+                    }
+                }
+                .user_info {
+                    width: 70%;
+                    .name {
+                        margin-bottom: 5px;
+                        a {
+                            color: $main_color;
+                            text-decoration: none;
+                            font-size: 18px;
+                            font-weight: bold;
+                            letter-spacing: 1px;
+                        }
+                    }
+                    .intro {
+                        font-size: 14px;
+                        line-height: 1.5;
+                        text-align: justify;
+                    }
+                }
+                .icons {
+                    position: absolute;
+                    bottom: 10px;
+                    right: 10px;
+                }
+            }
+        }
+    }
     .user_trainingrecord {
         margin-top: 50px;
         > ul {
@@ -83,6 +145,7 @@
         }
     }
 }
+
 .signup {
     .row {
         width: 500px;

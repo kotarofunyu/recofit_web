@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   post 'menu_register/create' => 'training_record#register'
 
   # ユーザーここから
+  get '/users/' => 'users#index'
   get '/users/new' => 'users#new'
   post 'users/create' => 'users#create'
   get '/users/:id' => 'users#show'
