@@ -101,10 +101,17 @@ $header_height: 65px;
     background: #ffeac3;
     margin-bottom: 20px;
     padding: 10px;
+    @include sp {
+        width: 100%;
+    }
     ul {
         list-style: none;
         line-height: 1.5;
     }
+}
+
+li.record a {
+    text-decoration: none;
 }
 
 header {
