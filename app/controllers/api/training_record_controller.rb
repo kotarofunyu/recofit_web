@@ -8,4 +8,10 @@ class Api::TrainingRecordController < ApplicationController
         @set = SetDatum.all
 
     end
+
+    def usersweight
+        param = params[:name]
+        eventname = URI.decode(param)
+        @event = Event.where(name: eventname)
+    end
 end

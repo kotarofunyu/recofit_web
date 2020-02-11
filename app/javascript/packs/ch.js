@@ -24,9 +24,15 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         },
         mounted: function(){
-            axios.get('/api/weight').then(response=>{
+            var urlBeforeDecode = location.href
+            var urlDecoded = decodeURI(urlBeforeDecode)
+            var item = urlDecoded.split("/")
+            console.log(item[4]+item[6])
+            var event = item[6].decode
+            axios.get("/api/"+item[4]+"/"+"ベンチプレス").then(response=>{
                 // var sample = response.data.set.map(set=>set.weight)
                 // console.log(sample)
+                console.log(response)
                 this.data = response.data.set.map(set=>set.weight)
                 this.labels = response.data.set.map(set=>set.created_at)
                 this.displayGraph();
