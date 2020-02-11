@@ -1,11 +1,12 @@
 import Vue from 'vue/dist/vue.esm.js'
 import axios from 'axios'
-import Index from './components/index.vue'
+// import Index from './components/index.vue'
+import Graph from './components/graph.vue'
 document.addEventListener("DOMContentLoaded", function() {
     var app = new Vue({
         el: '#chart',
         components: {
-          'navbar': Index,
+          'navbar': Graph,
         },
         data: {
             records: []

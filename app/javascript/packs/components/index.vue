@@ -11,6 +11,7 @@ import { Bar } from 'vue-chartjs'
 
 var BarChart = {
   extends: Bar,
+  props: ['chartData', 'options'],
   mounted () {
     this.renderChart({
       //ラベル ここを日付にする

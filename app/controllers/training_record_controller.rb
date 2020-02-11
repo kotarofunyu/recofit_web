@@ -45,8 +45,8 @@ class TrainingRecordController < ApplicationController
   def update
     @record = TrainingRecord.find_by(id: params[:id])
     @record.update_attributes!(update_training_record_params)
-    # redirect_to("/records")
-    render plain: params.inspect
+    redirect_to("/records")
+    # render plain: params.inspect
   end
 
   # 記録削除
