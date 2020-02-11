@@ -95,6 +95,18 @@ $header_height: 65px;
     }
 }
 
+// エラー部分
+.errors {
+    width: 50%;
+    background: #ffeac3;
+    margin-bottom: 20px;
+    padding: 10px;
+    ul {
+        list-style: none;
+        line-height: 1.5;
+    }
+}
+
 header {
     width: 100%;
     height: $header_height;

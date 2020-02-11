@@ -19,14 +19,12 @@ class UsersController < ApplicationController
     end
 
     def update
-        user = User.find_by(id: params[:id])
-        if user.id == current_user.id
-            if user.update_attributes(update_user_params)
-                flash[:success] = "ユーザー情報を編集しました。"
-                redirect_to("/users/#{user.id}")
-            else
-                render 'edit'
-            end
+        @user = User.find_by(id: params[:id])
+        if @user.update_attributes(update_user_params)
+            flash[:success] = "ユーザー情報を編集しました。"
+            redirect_to("/users/#{@user.id}")
+        else
+            render 'edit'
         end
     end
 

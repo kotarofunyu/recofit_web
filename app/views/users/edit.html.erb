@@ -1,4 +1,5 @@
-<div class="wrapper"><%= form_for(@user, url: "/users/#{@user.id}/update") do |f| %>
+<div class="wrapper">
+<%= form_for(@user, url: "/users/#{@user.id}/update") do |f| %>
     <%= render 'shared/errors',object: @user %>
     <dl>
         <dt>ユーザー名<span>*</span></dt>
@@ -12,6 +13,6 @@
         <dt>プロフィール<span>*</span></dt>
         <dd> <%= f.text_area :introduction, class:'form-control' %></dd>
     </dl>
-    <%= f.submit "記録する" %>
+    <%= f.submit "更新する" %>
     <% end %>
 </div>
