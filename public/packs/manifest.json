@@ -3,8 +3,8 @@
   "application.js.map": "/packs/js/application-942b3c8595691a1b2311.js.map",
   "bar-chart.js": "/packs/js/bar-chart-c44680af7d390e8706f4.js",
   "bar-chart.js.map": "/packs/js/bar-chart-c44680af7d390e8706f4.js.map",
-  "ch.js": "/packs/js/ch-8a5384f8e2798790d6f5.js",
-  "ch.js.map": "/packs/js/ch-8a5384f8e2798790d6f5.js.map",
+  "ch.js": "/packs/js/ch-3657c50cea4d03ff8655.js",
+  "ch.js.map": "/packs/js/ch-3657c50cea4d03ff8655.js.map",
   "components/graph.js": "/packs/js/components/graph-ac2bfb8f347df905f562.js",
   "components/graph.js.map": "/packs/js/components/graph-ac2bfb8f347df905f562.js.map",
   "components/index.js": "/packs/js/components/index-1b84753f284036fb627f.js",
@@ -28,10 +28,10 @@
     },
     "ch": {
       "js": [
-        "/packs/js/ch-8a5384f8e2798790d6f5.js"
+        "/packs/js/ch-3657c50cea4d03ff8655.js"
       ],
       "js.map": [
-        "/packs/js/ch-8a5384f8e2798790d6f5.js.map"
+        "/packs/js/ch-3657c50cea4d03ff8655.js.map"
       ]
     },
     "components/graph": {
@@ -58,17 +58,27 @@
         "/packs/js/hello_vue-af7c02a939c5a239a4cd.js.map"
       ]
     },
-    "store": {
+    "sample": {
       "js": [
-        "/packs/js/store-9e600f258a601292203d.js"
+        "/packs/js/sample-dcf46e4abaf2159582ba.js"
       ],
       "js.map": [
-        "/packs/js/store-9e600f258a601292203d.js.map"
+        "/packs/js/sample-dcf46e4abaf2159582ba.js.map"
+      ]
+    },
+    "store": {
+      "js": [
+        "/packs/js/store-2257da2ee8bcb98b9377.js"
+      ],
+      "js.map": [
+        "/packs/js/store-2257da2ee8bcb98b9377.js.map"
       ]
     }
   },
   "hello_vue.js": "/packs/js/hello_vue-af7c02a939c5a239a4cd.js",
   "hello_vue.js.map": "/packs/js/hello_vue-af7c02a939c5a239a4cd.js.map",
-  "store.js": "/packs/js/store-9e600f258a601292203d.js",
-  "store.js.map": "/packs/js/store-9e600f258a601292203d.js.map"
+  "sample.js": "/packs/js/sample-dcf46e4abaf2159582ba.js",
+  "sample.js.map": "/packs/js/sample-dcf46e4abaf2159582ba.js.map",
+  "store.js": "/packs/js/store-2257da2ee8bcb98b9377.js",
+  "store.js.map": "/packs/js/store-2257da2ee8bcb98b9377.js.map"
 }
