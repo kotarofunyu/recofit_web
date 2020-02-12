@@ -29,12 +29,16 @@ document.addEventListener("DOMContentLoaded", function() {
             // var item = urlDecoded.split("/")
             // console.log(item[4]+item[6])
             // var event = item[6].decode
-            axios.get("/api/weight").then(response=>{
-                var sample = response.data.set.map(set=>set.weight)
+            var url = location.href
+            var items = url.split("/")
+            console.log(items[4])
+            axios.get("/api/benchpress/"+items[4]).then(response=>{
+                console.log(response)
+                var sample = response.data.weight.map(weight=>weight.weight)
                 // console.log(sample)
-                // console.log(response)
-                this.data = response.data.set.map(set=>set.weight)
-                this.labels = response.data.set.map(set=>set.created_at)
+                
+                this.data = response.data.weight.map(weight=>weight.weight)
+                this.labels = response.data.weight.map(weight=>weight.created_at)
                 this.displayGraph();
             })
         }

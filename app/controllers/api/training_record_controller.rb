@@ -10,8 +10,7 @@ class Api::TrainingRecordController < ApplicationController
     end
 
     def usersweight
-        param = params[:name]
-        eventname = URI.decode(param)
-        @event = Event.where(name: eventname)
+        @event = SetDatum.joins({:event => :training_record}).where(:training_records => {:user_id => params[:id]},:events => {:name => "ベンチプレス"})
     end
+
 end

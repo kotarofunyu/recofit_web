@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   namespace :api, format: 'json' do
     resources :training_record
     get 'weight' => 'training_record#weight'
-    get '/users/:id/events/:name' => 'training_record#usersweight'
+    get 'benchpress/:id' => 'training_record#usersweight'
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
