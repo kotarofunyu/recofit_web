@@ -1,64 +1,90 @@
 {
-  "application.js": "/packs/js/application-942b3c8595691a1b2311.js",
-  "application.js.map": "/packs/js/application-942b3c8595691a1b2311.js.map",
-  "bar-chart.js": "/packs/js/bar-chart-89ebf99434c5983e4ec3.js",
-  "bar-chart.js.map": "/packs/js/bar-chart-89ebf99434c5983e4ec3.js.map",
-  "ch.js": "/packs/js/ch-21e6db899e61200553a9.js",
-  "ch.js.map": "/packs/js/ch-21e6db899e61200553a9.js.map",
-  "components/graph.js": "/packs/js/components/graph-4be76b251c060114b906.js",
-  "components/graph.js.map": "/packs/js/components/graph-4be76b251c060114b906.js.map",
-  "components/index.js": "/packs/js/components/index-76cdd814108196e3edc5.js",
-  "components/index.js.map": "/packs/js/components/index-76cdd814108196e3edc5.js.map",
+  "application.js": "/packs/application-393cbf75e173656acf37.js",
+  "application.js.map": "/packs/application-393cbf75e173656acf37.js.map",
+  "bar-chart.js": "/packs/bar-chart-393cbf75e173656acf37.js",
+  "bar-chart.js.map": "/packs/js/bar-chart-0ea6897486d526c4e955.hot-update.js.map",
+  "ch.js": "/packs/ch-393cbf75e173656acf37.js",
+  "ch.js.map": "/packs/js/ch-0ea6897486d526c4e955.hot-update.js.map",
+  "components/graph.js": "/packs/components/graph-393cbf75e173656acf37.js",
+  "components/graph.js.map": "/packs/js/components/graph-0ea6897486d526c4e955.hot-update.js.map",
+  "components/index.js": "/packs/components/index-393cbf75e173656acf37.js",
+  "components/index.js.map": "/packs/js/components/index-0ea6897486d526c4e955.hot-update.js.map",
   "entrypoints": {
     "application": {
       "js": [
-        "/packs/js/application-942b3c8595691a1b2311.js"
+        "/packs/application-393cbf75e173656acf37.js"
       ],
       "js.map": [
-        "/packs/js/application-942b3c8595691a1b2311.js.map"
+        "/packs/application-393cbf75e173656acf37.js.map"
       ]
     },
     "bar-chart": {
       "js": [
-        "/packs/js/bar-chart-89ebf99434c5983e4ec3.js"
+        "/packs/bar-chart-393cbf75e173656acf37.js"
       ],
       "js.map": [
-        "/packs/js/bar-chart-89ebf99434c5983e4ec3.js.map"
+        "/packs/bar-chart-393cbf75e173656acf37.js.map",
+        "/packs/js/bar-chart-0ea6897486d526c4e955.hot-update.js.map"
       ]
     },
     "ch": {
       "js": [
-        "/packs/js/ch-21e6db899e61200553a9.js"
+        "/packs/ch-393cbf75e173656acf37.js"
       ],
       "js.map": [
-        "/packs/js/ch-21e6db899e61200553a9.js.map"
+        "/packs/ch-393cbf75e173656acf37.js.map",
+        "/packs/js/ch-0ea6897486d526c4e955.hot-update.js.map"
       ]
     },
     "components/graph": {
       "js": [
-        "/packs/js/components/graph-4be76b251c060114b906.js"
+        "/packs/components/graph-393cbf75e173656acf37.js"
       ],
       "js.map": [
-        "/packs/js/components/graph-4be76b251c060114b906.js.map"
+        "/packs/components/graph-393cbf75e173656acf37.js.map",
+        "/packs/js/components/graph-0ea6897486d526c4e955.hot-update.js.map"
       ]
     },
     "components/index": {
       "js": [
-        "/packs/js/components/index-76cdd814108196e3edc5.js"
+        "/packs/components/index-393cbf75e173656acf37.js"
       ],
       "js.map": [
-        "/packs/js/components/index-76cdd814108196e3edc5.js.map"
+        "/packs/components/index-393cbf75e173656acf37.js.map",
+        "/packs/js/components/index-0ea6897486d526c4e955.hot-update.js.map"
       ]
     },
     "hello_vue": {
       "js": [
-        "/packs/js/hello_vue-af7c02a939c5a239a4cd.js"
+        "/packs/hello_vue-393cbf75e173656acf37.js"
       ],
       "js.map": [
-        "/packs/js/hello_vue-af7c02a939c5a239a4cd.js.map"
+        "/packs/hello_vue-393cbf75e173656acf37.js.map"
+      ]
+    },
+    "sample": {
+      "js": [
+        "/packs/sample-393cbf75e173656acf37.js"
+      ],
+      "js.map": [
+        "/packs/sample-393cbf75e173656acf37.js.map",
+        "/packs/js/sample-0ea6897486d526c4e955.hot-update.js.map"
+      ]
+    },
+    "store": {
+      "js": [
+        "/packs/store-393cbf75e173656acf37.js"
+      ],
+      "js.map": [
+        "/packs/store-393cbf75e173656acf37.js.map",
+        "/packs/js/store-0ea6897486d526c4e955.hot-update.js.map"
       ]
     }
   },
-  "hello_vue.js": "/packs/js/hello_vue-af7c02a939c5a239a4cd.js",
-  "hello_vue.js.map": "/packs/js/hello_vue-af7c02a939c5a239a4cd.js.map"
+  "hello_vue.js": "/packs/hello_vue-393cbf75e173656acf37.js",
+  "hello_vue.js.map": "/packs/hello_vue-393cbf75e173656acf37.js.map",
+  "sample.js": "/packs/sample-393cbf75e173656acf37.js",
+  "sample.js.map": "/packs/js/sample-0ea6897486d526c4e955.hot-update.js.map",
+  "store.js": "/packs/store-393cbf75e173656acf37.js",
+  "store.js.map": "/packs/js/store-0ea6897486d526c4e955.hot-update.js.map"
 }
