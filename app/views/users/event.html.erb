@@ -1,8 +1,10 @@
 <div class="wrapper">
     <div id="chart">
-        <div>Now loading...</div>
-        <button @click="displayGraph">グラフ表示</button>
-        <canvas id="myChart"></canvas>
+        <div v-show="loading">グラフを生成しています...</div>
+        <div v-show="!loading" class="chatwrap">
+            <button @click="showEl">グラフ表示</button>
+            <canvas id="myChart"></canvas>
+        </div>
     </div>
     <ul>
         <% @records.each do |record| %>
