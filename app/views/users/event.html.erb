@@ -1,4 +1,11 @@
 <div class="wrapper">
+    <div id="chart">
+        <div v-show="loading">グラフを生成しています...</div>
+        <div v-show="!loading" class="chatwrap">
+            <button @click="showEl">グラフ表示</button>
+            <canvas id="myChart"></canvas>
+        </div>
+    </div>
     <ul>
         <% @records.each do |record| %>
         <% nameitem = record.event.where(name: @name_params) %>
@@ -17,3 +24,4 @@
         <% end %>
     </ul>
 </div>
+<%= javascript_pack_tag 'ch' %>
