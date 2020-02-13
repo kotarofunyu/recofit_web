@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
 
-  get '/' => "home#top"
+    get '/' => "home#top"
 
   # 記録ここから
   get 'records' => 'training_record#index'
   post 'training_record/create' => 'training_record#create'
-  get 'training_record/edit'
   get '/records/event/:name' => 'training_record#event'
   get '/records/:id' => 'training_record#show'
   get '/records/:id/events/' => 'training_record#eventindex'
@@ -18,10 +17,12 @@ Rails.application.routes.draw do
   post 'menu_register/create' => 'training_record#register'
 
   # ユーザーここから
+  get '/users/' => 'users#index'
   get '/users/new' => 'users#new'
   post 'users/create' => 'users#create'
   get '/users/:id' => 'users#show'
-  patch '/users/update/:id' => 'users#update'
+  get '/users/:id/edit' => 'users#edit'
+  patch '/users/:id/update' => 'users#update'
   get '/users/:id/events/:name' => 'users#event'
 
   get 'login' => 'sessions#new'

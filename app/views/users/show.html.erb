@@ -29,6 +29,11 @@
                 </dd>
             </dl>
         </div>
+        <% if current_user.id === @user.id %>
+        <div class="edit">
+            <%=link_to "プロフィールを編集する", "/users/#{@user.id}/edit"%>
+        </div>
+        <% end %>
         <div class="user_events">
             <h1><%= @user.name %>の記録を種目別で見る</h1>
             <ul>

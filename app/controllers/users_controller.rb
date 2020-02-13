@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+
+    def index
+        @users = User.all
+    end
     def new
         @user = User.new
     end
@@ -14,11 +18,17 @@ class UsersController < ApplicationController
         end
     end
 
+    def edit
+        @user = User.find_by(id: params[:id])
+    end
+
     def update
-        user = User.find_by(id: params[:id])
-        if user.id == current_user.id
-            user.update(user_params)
-            redirect_to("/users/#{user.id}")
+        @user = User.find_by(id: params[:id])
+        if @user.update_attributes(update_user_params)
+            flash[:success] = "ユーザー情報を編集しました。"
+            redirect_to("/users/#{@user.id}")
+        else
+            render 'edit'
         end
     end
 
@@ -37,6 +47,10 @@ class UsersController < ApplicationController
     private
         def user_params
             params.require(:user).permit(:name,:email,:password, :introduction, :password_confirmation,:picture)
+        end
+
+        def update_user_params
+            params.require(:user).permit(:id,:name,:email,:passowrd,:introduction,:password_confirmation,:picture)
         end
 end
 

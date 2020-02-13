@@ -1,4 +1,5 @@
 <%= form_for(@record, url: "/records/#{@record.id}/update") do |f| %>
+<%= render 'shared/errors',object: @record %>
 <%= f.text_area :comment, :placeholder => "今日のトレーニングはどうだった？" %>
 <%= f.fields_for :event do |i| %>
 <%= render 'event_fields', f: i %>

@@ -23,7 +23,10 @@ class TrainingRecordController < ApplicationController
   def create
     @record = TrainingRecord.new(create_training_record_params)
     if @record.save
+      flash[:success] ="投稿しました！"
       redirect_to("/records")
+    else
+      render 'index'
     end
   end
 
@@ -44,8 +47,12 @@ class TrainingRecordController < ApplicationController
 
   def update
     @record = TrainingRecord.find_by(id: params[:id])
-    @record.update_attributes!(update_training_record_params)
-    redirect_to("/records")
+    if @record.update_attributes(update_training_record_params)
+      flash[:success] = "記録を編集しました"
+      redirect_to("/records")
+    else
+      render 'edit'
+    end
     # render plain: params.inspect
   end
 

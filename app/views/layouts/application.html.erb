@@ -42,6 +42,7 @@
     <% end %>
   </header>
   <%# サイドメニュー %>
+  <% if logged_in %>
   <div id="side_menu">
     <ul>
       <li>
@@ -57,7 +58,7 @@
         <% end %>
       </li>
       <li>
-        <%= link_to "/records" do %>
+        <%= link_to "/users/" do %>
         <%= icon("fas", "users") %>
         ユーザー
         <% end %>
@@ -70,6 +71,7 @@
       </li>
     </ul>
   </div>
+  <% end %>
   <% flash.each do |message_type, message| %>
   <div class="alert alert-<%= message_type %>"><%= message %></div>
   <% end %>

@@ -69,6 +69,7 @@
       "js.map": [
         "/packs/sample-4ed7766bbddc470b5516.js.map",
         "/packs/js/sample-393cbf75e173656acf37.hot-update.js.map"
+
       ]
     },
     "store": {
