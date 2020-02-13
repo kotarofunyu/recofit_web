@@ -29,6 +29,14 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   post '/test_login' => 'sessions#test_login'
   delete 'logout' => 'sessions#destroy'
+
+  #API
+  namespace :api, format: 'json' do
+    resources :training_record
+    get 'weight' => 'training_record#weight'
+    get 'benchpress/:id' => 'training_record#usersweight'
+    get 'event/:id/' => 'training_record#userseventweight'
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
 
