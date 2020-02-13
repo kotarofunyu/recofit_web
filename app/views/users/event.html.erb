@@ -1,7 +1,7 @@
 <div class="wrapper">
-    <%= javascript_pack_tag 'ch' %>
     <div id="chart">
-    <button @click="displayGraph">グラフ表示</button>
+        <div>Now loading...</div>
+        <button @click="displayGraph">グラフ表示</button>
         <canvas id="myChart"></canvas>
     </div>
     <ul>
@@ -22,3 +22,4 @@
         <% end %>
     </ul>
 </div>
+<%= javascript_pack_tag 'ch' %>

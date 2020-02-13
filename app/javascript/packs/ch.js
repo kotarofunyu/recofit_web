@@ -1,6 +1,6 @@
 import Vue from 'vue/dist/vue.esm.js'
 import axios from 'axios'
-import Graph from './components/graph.vue'
+import { Bar } from 'vue-chartjs'
 document.addEventListener("DOMContentLoaded", function() {
     var app = new Vue({
         el: '#chart',
@@ -24,19 +24,12 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         },
         mounted: function(){
-            // var urlBeforeDecode = location.href
-            // var urlDecoded = decodeURI(urlBeforeDecode)
-            // var item = urlDecoded.split("/")
-            // console.log(item[4]+item[6])
-            // var event = item[6].decode
             var url = location.href
             var items = url.split("/")
-            console.log(items[4])
-            axios.get("/api/benchpress/"+items[4]).then(response=>{
+            console.log(items[4] + items[6])
+            console.log("/api/event/"+items[4]+"?name="+items[6])
+            axios.get("/api/event/"+items[4]+"?name="+items[6]).then(response=>{
                 console.log(response)
-                var sample = response.data.weight.map(weight=>weight.weight)
-                // console.log(sample)
-                
                 this.data = response.data.weight.map(weight=>weight.weight)
                 this.labels = response.data.weight.map(weight=>weight.created_at)
                 this.displayGraph();

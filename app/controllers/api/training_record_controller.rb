@@ -13,4 +13,8 @@ class Api::TrainingRecordController < ApplicationController
         @event = SetDatum.joins({:event => :training_record}).where(:training_records => {:user_id => params[:id]},:events => {:name => "ベンチプレス"})
     end
 
+    def userseventweight 
+        @event = SetDatum.joins({:event => :training_record}).where(:training_records => {:user_id => params[:id]},:events => {:name => params[:name]})
+    end
+
 end
