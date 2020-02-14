@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   get '/users/:id' => 'users#show'
   get '/users/:id/edit' => 'users#edit'
   patch '/users/:id/update' => 'users#update'
-  get '/users/:id/events/:name' => 'users#event'
+  get '/users/:id/events/' => 'users#event'
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
@@ -35,7 +35,7 @@ Rails.application.routes.draw do
     resources :training_record
     get 'weight' => 'training_record#weight'
     get 'benchpress/:id' => 'training_record#usersweight'
-    get 'event/:id/' => 'training_record#userseventweight'
+    get 'event/:id/' => 'training_record#user_event'
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

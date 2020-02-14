@@ -1,0 +1,8 @@
+$decoratedColor: #FCD997;
+
+.listItemDecorated {
+    background: $decoratedColor;
+    border: 1px solid $decoratedColor;
+    box-shadow: rgba(0,0,0,0.3) 5px 5px 8px;
+    list-style: none;
+}

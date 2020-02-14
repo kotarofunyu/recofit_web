@@ -3,7 +3,7 @@
         <h1>ユーザー一覧</h1>
         <ul>
             <% @users.each do |user| %>
-            <li class="user">
+            <li class="user listItemDecorated">
                 <div class="user_img">
                     <% if user.picture.present? %>
                     <%=link_to "/users/#{user.id}" do %>

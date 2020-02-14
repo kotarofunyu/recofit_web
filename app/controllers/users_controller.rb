@@ -33,9 +33,10 @@ class UsersController < ApplicationController
     end
 
     def event
-        @name_params = params[:name]
+        @name_params = params[:event_name]
         @user_id = params[:id]
-        @records = TrainingRecord.where(user_id: @user_id)
+        @user = User.find_by(id: @user_id)
+        @records = TrainingRecord.joins(:event).where(user_id: @user_id, :events => {name: @name_params})
     end
 
     def show

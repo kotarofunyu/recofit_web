@@ -1,15 +1,17 @@
 <div class="wrapper event_index">
     <% if @records.present? %>
-    <% @records.each do |record| %>
     <ul>
-        <% record.event.each do |item| %>
+        <% @records.each do |record| %>
         <li>
-            <%=link_to "#{item.name}","/users/#{record.user_id}/events/#{item.name}"%>
+            <%=link_to "#{record.name}","/users/#{@user_params}/events/?event_name=#{record.name}"%>
         </li>
         <% end %>
     </ul>
-    <% end %>
+
     <% else %>
-    <h1>まだその種目はないようです。</h1>
+    <p>
+        まだ種目はないようです。
+        <%=link_to "登録しませんか？", "/records/" %>
+    </p>
     <% end %>
 </div>

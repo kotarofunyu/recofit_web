@@ -1,9 +1,8 @@
 <div class="wrapper">
-    <div class="record_detail">
+    <div class="record_detail listItemDecorated">
         <h1>
             <% user = User.find_by(id: @record.user_id) %>
             <%= user.name %>
-            <%= @record.created_at %>の記録
         </h1>
 
         <div class="comment">
@@ -36,6 +35,10 @@
             <%= image_tag @record.picture.url %>
         </div>
         <% end %>
+
+        <div class="date">
+        <%= @record.created_at.to_s(:datetime) %>
+        </div>
 
         <div class="button">
             <% if logged_in %>
