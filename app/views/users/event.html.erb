@@ -1,27 +1,33 @@
 <div class="wrapper">
-    <div id="chart">
-        <div v-show="loading">グラフを生成しています...</div>
-        <div v-show="!loading" class="chatwrap">
-            <button @click="showEl">グラフ表示</button>
-            <canvas id="myChart"></canvas>
+    <div class="userEvent">
+        <h1><%=@user.name %>の<%= @name_params %>の記録</h1>
+        <div id="chart">
+            <div v-show="loading">グラフを生成しています...</div>
+            <div v-show="!loading" class="chatwrap">
+                <button @click="displayGraph">グラフ表示</button>
+                <canvas id="myChart"></canvas>
+            </div>
         </div>
+        <ul>
+            <% @records.each do |record| %>
+            <% nameitem = record.event.where(name: @name_params) %>
+            <% nameitem.each do |item| %>
+            <li class="listItemDecorated">
+                <dl>
+                    <dt><%= item.created_at.to_s(:date) %>の記録</dt>
+                    <dd>
+                        <ol>
+                            <% item.set_datum.each do |set| %>
+                            <li><%= set.weight %> x <%= set.rep %> x <%= set.set %></li>
+                            <% end %>
+                        </ol>
+                    </dd>
+                </dl>
+                <% end %>
+                <%=link_to "親記録を見る", "/records/#{record.id}",class:"parentRecord" %>
+            </li>
+            <% end %>
+        </ul>
     </div>
-    <ul>
-        <% @records.each do |record| %>
-        <% nameitem = record.event.where(name: @name_params) %>
-        <% nameitem.each do |item| %>
-        <li>
-            <dl>
-                <dt><%= item.name %></dt>
-                <% item.set_datum.each do |set| %>
-                <dd>
-                    <%= set.weight %> x <%= set.rep %> x <%= set.set %>
-                </dd>
-            </dl>
-            <% end %>
-            <% end %>
-        </li>
-        <% end %>
-    </ul>
 </div>
 <%= javascript_pack_tag 'ch' %>

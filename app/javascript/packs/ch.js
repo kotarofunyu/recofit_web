@@ -4,8 +4,10 @@ import axios from 'axios'
 
 // document.addEventListener("DOMContentLoaded", function() {
     const url = location.href
-    const items = url.split("/")
-    const axiosGetUrl = "/api/event/"+items[4]+"?name="+items[6]
+    const userID = url.split("/")[4]
+    const params = document.location.search
+    const eventName = params.split("=")[1]
+    const axiosGetUrl = "/api/event/" + userID + "/?event_name=" + eventName
     var app = new Vue({
         el: '#chart',
         data: {

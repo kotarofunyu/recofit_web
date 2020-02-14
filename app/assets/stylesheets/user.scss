@@ -37,8 +37,6 @@
             }
             li {
                 width: 48%;
-                border: 1px solid #FCD997;
-                background: #FCD997;
                 padding: 10px;
                 margin-bottom: 15px;
                 display: flex;
@@ -46,7 +44,6 @@
                 align-items: center;
                 position: relative;
                 z-index: 1;
-                box-shadow: rgba(0,0,0,0.3) 5px 5px 8px;
                 @include sp {
                     width: 80%;
                     align-items: flex-start;
@@ -140,6 +137,55 @@
                             }
                         }
                     }
+                }
+            }
+        }
+    }
+    .userEvent {
+        h1 {
+            text-align: center;
+            font-size: 25px;
+            letter-spacing: 2px;
+            margin: 0 0 50px 0;
+            @include sp {
+                font-size: 20px;
+            }
+        }
+        > ul {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 100px;
+            > li {
+                width: 30%;
+                min-height: 200px;
+                margin: 0 0 40px 0;
+                padding: 15px 20px;
+                position: relative;
+                @include sp {
+                    width: 100%;
+                }
+                dl {
+                    dt {
+                        font-size: 18px;
+                        font-weight: bold;
+                        letter-spacing: 1px;
+                        margin-bottom: 15px;
+                    }
+                    dd {
+                        ol {
+                            line-height: 1.5;
+                            list-style-position: inside;
+                            li {
+                                font-weight: bold;
+                            }
+                        }
+                    }
+                }
+                .parentRecord {
+                    position: absolute;
+                    bottom: 15px;
+                    right: 15px;
                 }
             }
         }
