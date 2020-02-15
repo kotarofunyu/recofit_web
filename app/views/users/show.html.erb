@@ -24,30 +24,33 @@
         <div id="userItems" class="userItems">
             <ul class="buttons">
                 <li class="button" v-bind:class="{active : isActive === '1'}">
-                    <input type="radio" id="tab1" name="tab" value="1" v-model="isActive" >
-                    <label for="tab1">記録一覧</label>
+                    <label for="tab1">
+                        <input type="radio" id="tab1" name="tab" value="1" v-model="isActive">
+                        記録一覧
+                    </label>
                 </li>
                 <li class="button" v-bind:class="{active : isActive === '2'}">
-                    <input type="radio" id="tab2" name="tab" value="2" v-model="isActive" >
-                    <label for="tab2">種目別</label>
+                    <label for="tab2">
+                        <input type="radio" id="tab2" name="tab" value="2" v-model="isActive">種目別
+                    </label>
                 </li>
                 <li class="button" v-bind:class="{active : isActive === '3'}">
-                    <input type="radio" id="tab3" name="tab" value="3" v-model="isActive" >
-                    <label for="tab3">その他</label>
+                    <label for="tab3">
+                        <input type="radio" id="tab3" name="tab" value="3" v-model="isActive">
+                        その他
+                    </label>
                 </li>
             </ul>
             <ul class="items">
                 <li v-if="isActive === '1'">
-                    <ul>
+                    <ul class="recordIndex">
                         <%= render partial: 'record', collection: @records %>
                     </ul>
                 </li>
                 <li v-else-if="isActive === '2'">
-                    <ul>
-                        <% @records.each do |record| %>
-                        <% record.event.each do |item| %>
-                        <li><%=link_to "#{item.name}", "/users/#{@user.id}/events/#{item.name}" %></li>
-                        <% end %>
+                    <ul class="recordEvent">
+                        <% @users_event.each do |event| %>
+                        <li><%=link_to "#{event.name}", "/users/#{@user.id}/events/?event_name=#{event.name}" %></li>
                         <% end %>
                     </ul>
                 </li>
