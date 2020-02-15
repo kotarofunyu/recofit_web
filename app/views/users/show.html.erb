@@ -1,54 +1,61 @@
 <div class="user">
     <div class="wrapper">
         <div class="user_info">
-            <h1>ユーザー基本情報</h1>
-            <%= image_tag @user.picture.url if @user.picture? %>
-            <%= image_tag ('noicon.png') if @user.picture.blank? %>
-            <dl>
-                <dt>
-                    ユーザー名
-                </dt>
-                <dd>
+            <div class="profile">
+                <div class="userImage">
+                    <%= image_tag @user.picture.url if @user.picture? %>
+                    <%= image_tag ('noicon.png') if @user.picture.blank? %>
+                </div>
+                <div class="userName">
                     <%= @user.name %>
-                </dd>
-            </dl>
-            <dl>
-                <dt>
-                    メールアドレス
-                </dt>
-                <dd>
-                    <%= @user.email %>
-                </dd>
-            </dl>
-            <dl>
-                <dt>
-                    プロフィール
-                </dt>
-                <dd>
+                </div>
+                <div class="userIntro">
                     <%= @user.introduction if @user.introduction? %>
-                </dd>
-            </dl>
-        </div>
-        <% if current_user.id === @user.id %>
-        <div class="edit">
-            <%=link_to "プロフィールを編集する", "/users/#{@user.id}/edit"%>
-        </div>
-        <% end %>
-        <div class="user_events">
-            <h1><%= @user.name %>の記録を種目別で見る</h1>
-            <ul>
-                <% @records.each do |record| %>
-                    <% record.event.each do |item| %>
-                    <li><%=link_to "#{item.name}", "/users/#{@user.id}/events/#{item.name}" %></li>
+                </div>
+                <% if current_user.id === @user.id %>
+                <div class="edit">
+                    <%=link_to "/users/#{@user.id}/edit" do %>
+                    <%= icon("fas", "edit") %>
                     <% end %>
+                </div>
                 <% end %>
-            </ul>
+            </div>
         </div>
-        <div class="user_trainingrecord">
-            <h1><%= @user.name %>の記録一覧</h1>
-            <ul>
-                <%= render partial: 'record', collection: @records %>
+        <div id="userItems" class="userItems">
+            <ul class="buttons">
+                <li class="button" v-bind:class="{active : isActive === '1'}">
+                    <input type="radio" id="tab1" name="tab" value="1" v-model="isActive" >
+                    <label for="tab1">記録一覧</label>
+                </li>
+                <li class="button" v-bind:class="{active : isActive === '2'}">
+                    <input type="radio" id="tab2" name="tab" value="2" v-model="isActive" >
+                    <label for="tab2">種目別</label>
+                </li>
+                <li class="button" v-bind:class="{active : isActive === '3'}">
+                    <input type="radio" id="tab3" name="tab" value="3" v-model="isActive" >
+                    <label for="tab3">その他</label>
+                </li>
+            </ul>
+            <ul class="items">
+                <li v-if="isActive === '1'">
+                    <ul>
+                        <%= render partial: 'record', collection: @records %>
+                    </ul>
+                </li>
+                <li v-else-if="isActive === '2'">
+                    <ul>
+                        <% @records.each do |record| %>
+                        <% record.event.each do |item| %>
+                        <li><%=link_to "#{item.name}", "/users/#{@user.id}/events/#{item.name}" %></li>
+                        <% end %>
+                        <% end %>
+                    </ul>
+                </li>
+                <li v-else-if="isActive === '3'">
+                    <p>その他</p>
+                </li>
             </ul>
         </div>
     </div>
 </div>
+<%= javascript_pack_tag 'tab.js' %>

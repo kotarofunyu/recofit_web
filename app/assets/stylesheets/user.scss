@@ -17,8 +17,34 @@
             display: flex;
             justify-content: space-around;
         }
-        > img {
+        img {
             width: 80px;
+        }
+        .profile {
+            position: relative;
+            width: 60%;
+            max-width: 600px;
+            margin: 0 auto;
+            div {
+                margin: 0 auto;
+                text-align: center;
+            }
+            .userName {
+                margin-top: 15px;
+                font-size: 20px;
+                font-weight: bold;
+                letter-spacing: 2px;
+            }
+            .userIntro {
+                margin-top: 15px;
+                letter-spacing: 1px;
+                line-height: 1.5;
+            }
+            .edit {
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
         }
     }
     > .user_index {
@@ -76,6 +102,48 @@
                     position: absolute;
                     bottom: 10px;
                     right: 10px;
+                }
+            }
+        }
+    }
+    .userItems {
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2px;
+            list-style: none;
+            .button {
+                width: 33.3%;
+                text-align: center;
+                font-weight: bold;
+                border: 1px solid $main_color;
+                padding: 10px 0;
+                transition: 1s;
+
+            }
+            .active {
+                background: $main_color;
+                color: #ffffff;
+                transition: 0.5s;
+            }
+        }
+        .items {
+            margin-top: 25px;
+            list-style: none;
+            li {
+                transition: 1s;
+                > ul {
+                    display: flex;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+                    list-style: none;
+                    > li {
+                        width: 49%;
+                        height: 300px;
+                        overflow-y: scroll;
+                        margin-bottom: 15px;
+                        padding: 10px;
+                    }
                 }
             }
         }
