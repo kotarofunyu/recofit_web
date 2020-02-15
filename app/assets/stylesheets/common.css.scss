@@ -6,3 +6,55 @@ $decoratedColor: #FCD997;
     box-shadow: rgba(0,0,0,0.3) 5px 5px 8px;
     list-style: none;
 }
+
+.user_image {
+    width: 50px;
+}
+
+.record {
+    > .title {
+        margin: 0 0 10px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        > .username {
+            color: #000000;
+            > a {
+                display: flex;
+                align-items: center;
+                color: orange;
+                font-weight: bold;
+                text-decoration: none;
+                > img {
+                    width: 60px;
+                    margin: 0 10px 0 0;
+                }
+            }
+        }
+    }
+    > .comment {
+        margin: 0 0 12px 0;
+        padding: 20px 0;
+        border-bottom: 1px solid #000;
+        line-height: 1.5;
+    }
+    > ol {
+        margin: 0 0 25px 0;
+        padding: 0 0 0 20px;
+        line-height: 1.5;
+        > li {
+            margin: 0 0 15px 0;
+            .set_list {
+                display: flex;
+                list-style-type: none;
+                li {
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+    > a {
+        font-weight: bold;
+        text-decoration: none;
+    }
+}

@@ -223,6 +223,7 @@ header {
     position: fixed;
     top: $header_height;
     background: $main_color;
+    z-index: 100;
     @include sp {
         width: 45%;
         top: 59px;

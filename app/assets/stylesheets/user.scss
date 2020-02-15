@@ -17,8 +17,37 @@
             display: flex;
             justify-content: space-around;
         }
-        > img {
+        img {
             width: 80px;
+        }
+        .profile {
+            position: relative;
+            width: 60%;
+            max-width: 600px;
+            margin: 0 auto;
+            @include sp {
+                width: 100%;
+            }
+            div {
+                margin: 0 auto;
+                text-align: center;
+            }
+            .userName {
+                margin-top: 15px;
+                font-size: 20px;
+                font-weight: bold;
+                letter-spacing: 2px;
+            }
+            .userIntro {
+                margin-top: 15px;
+                letter-spacing: 1px;
+                line-height: 1.5;
+            }
+            .edit {
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
         }
     }
     > .user_index {
@@ -80,6 +109,86 @@
             }
         }
     }
+    .userItems {
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2px;
+            list-style: none;
+            .button {
+                width: 33.3%;
+                height: 40px;
+                text-align: center;
+                font-weight: bold;
+                border: 1px solid $main_color;
+                transition: 0.5s;
+                label {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                    @include sp {
+                        font-size: 14px;
+                    }
+                }
+            }
+            .active {
+                background: $main_color;
+                color: #ffffff;
+                transition: 0.5s;
+            }
+        }
+        .items {
+            margin-top: 25px;
+            list-style: none;
+            li {
+                transition: 1s;
+                > ul.recordIndex {
+                    display: flex;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+                    list-style: none;
+                    > li {
+                        width: 49%;
+                        height: 300px;
+                        overflow-y: scroll;
+                        margin-bottom: 15px;
+                        padding: 15px 25px;
+                        @include sp {
+                            width: 100%;
+                        }
+                    }
+                }
+                >ul.recordEvent {
+                    display: flex;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+                    list-style: none;
+                    > li {
+                        width: 48%;
+                        border: 1px solid #000;
+                        text-align: center;
+                        padding: 15px;
+                        margin-bottom: 20px;
+                        .title {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            .username a {
+                                display: flex;
+                                align-items: center;
+                            }
+                        }
+                        ol {
+                            list-style-position: inside;
+                        }
+                    }
+                }
+            }
+        }
+    }
     .user_trainingrecord {
         margin-top: 50px;
         > ul {
@@ -91,7 +200,6 @@
             }
             > li {
                 width: 48%;
-                border: 1px solid #000;
                 margin-top: 20px;
                 padding: 15px 15px 20px 15px;
                 list-style: none;
