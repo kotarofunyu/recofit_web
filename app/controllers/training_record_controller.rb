@@ -68,7 +68,7 @@ class TrainingRecordController < ApplicationController
 
   # 種目別の種目一覧ページ
   def eventindex
-    @user_params = params[:id]
+    @user_params = params[:user_id]
     # @records = TrainingRecord.where(user_id: @user_params)
     @records = Event.joins(:training_record).where(:training_records => {user_id: @user_params}).select("events.name").distinct
   end

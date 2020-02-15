@@ -3,7 +3,7 @@
     <ul>
         <% @records.each do |record| %>
         <li>
-            <%=link_to "#{record.name}","/users/#{@user_params}/events/?event_name=#{record.name}"%>
+            <%=link_to "#{record.name}","/users/events/?user_id=#{@user_params}&event_name=#{record.name}"%>
         </li>
         <% end %>
     </ul>

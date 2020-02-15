@@ -4,7 +4,7 @@ class Api::TrainingRecordController < ApplicationController
     end
 
     def user_event
-        @event = SetDatum.joins({:event => :training_record}).where(:training_records => {:user_id => params[:id]},:events => {:name => params[:event_name]})
+        @event = SetDatum.joins({:event => :training_record}).where(:training_records => {:user_id => params[:user_id]},:events => {:name => params[:event_name]})
     end
 
 end

@@ -3,11 +3,10 @@ import { Bar } from 'vue-chartjs'
 import axios from 'axios'
 
 // document.addEventListener("DOMContentLoaded", function() {
-    const url = location.href
-    const userID = url.split("/")[4]
-    const params = document.location.search
-    const eventName = params.split("=")[1]
-    const axiosGetUrl = "/api/event/" + userID + "/?event_name=" + eventName
+    const urlItems = location.search.split('&')
+    const userID = urlItems[0].split('=')[1]
+    const eventName = urlItems[1].split('=')[1]
+    const axiosGetUrl = "/api/events/?user_id=" + userID+"&event_name=" + eventName
     var app = new Vue({
         el: '#chart',
         data: {
