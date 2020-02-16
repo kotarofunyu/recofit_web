@@ -132,6 +132,9 @@
                     @include sp {
                         font-size: 14px;
                     }
+                    input {
+                        display: none;
+                    }
                 }
             }
             .active {
