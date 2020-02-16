@@ -110,7 +110,7 @@
         }
     }
     .userItems {
-        .buttons {
+        > .buttons {
             display: flex;
             justify-content: space-between;
             margin-bottom: 2px;
@@ -150,16 +150,6 @@
                     justify-content: space-between;
                     flex-wrap: wrap;
                     list-style: none;
-                    > li {
-                        width: 49%;
-                        height: 300px;
-                        overflow-y: scroll;
-                        margin-bottom: 15px;
-                        padding: 15px 25px;
-                        @include sp {
-                            width: 100%;
-                        }
-                    }
                 }
                 >ul.recordEvent {
                     display: flex;
@@ -197,55 +187,6 @@
             justify-content: space-between;
             @include sp {
                 flex-direction: column;
-            }
-            > li {
-                width: 48%;
-                margin-top: 20px;
-                padding: 15px 15px 20px 15px;
-                list-style: none;
-                @include sp {
-                    width: 100%;
-                }
-                .title {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    .username
-                        > a {
-                            display: flex;
-                            align-items: center;
-                            > img {
-                                width: 60px;
-                                margin-right: 10px;
-                            }
-                        }
-                }
-                .comment {
-                    margin-bottom: 12px;
-                    padding: 20px 0;
-                    border-bottom: 1px solid #000;
-                    line-height: 1.5;
-                }
-                ol {
-                    margin-bottom: 25px;
-                    padding-left: 20px;
-                    line-height: 1.5;
-                    > li {
-                        margin-bottom: 15px;
-                        a {
-                            color: $main_color;
-                            font-weight: bold;
-                            text-decoration: none;
-                        }
-                        .set_list {
-                            display: flex;
-                            list-style: none;
-                            li {
-                                margin-right: 5px;
-                            }
-                        }
-                    }
-                }
             }
         }
     }

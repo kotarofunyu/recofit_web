@@ -44,7 +44,7 @@
             <ul class="items">
                 <li v-if="isActive === '1'">
                     <ul class="recordIndex">
-                        <%= render partial: 'record', collection: @records %>
+                        <%= render partial: 'shared/record', collection: @records %>
                     </ul>
                 </li>
                 <li v-else-if="isActive === '2'">
