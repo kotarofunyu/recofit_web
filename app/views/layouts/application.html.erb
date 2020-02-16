@@ -52,7 +52,7 @@
         <% end %>
       </li>
       <li>
-        <%= link_to "/records/#{current_user.id}/events" do %>
+        <%= link_to "/records/events/?user_id=#{current_user.id}" do %>
         <%= icon("fas", "clipboard-list") %>
         種目別記録
         <% end %>
