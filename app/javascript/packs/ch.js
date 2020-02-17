@@ -24,9 +24,21 @@ import axios from 'axios'
                     datasets: [{
                         label: '重量の遷移',
                         data: this.data,
-                        backgroundColor:'#EE9428'
+                        backgroundColor:'rgba(231,130,32,0.9)'
                     }]
-                  }
+                  },
+                options: {
+                    scales: {
+                        yAxes: [
+                            {
+                                ticks: {
+                                    beginAtZero: true,
+                                    min: 0
+                                }
+                            }
+                        ]
+                    }
+                }
                 });
             },
         },
