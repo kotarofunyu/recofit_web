@@ -1,18 +1,23 @@
-<div class="wrapper">
-<%= form_for(@user, url: "/users/#{@user.id}/update") do |f| %>
-    <%= render 'shared/errors',object: @user %>
-    <dl>
-        <dt>ユーザー名<span>*</span></dt>
-        <dd><%= f.text_field :name, class:'form-control' %></dd>
-    </dl>
-    <dl>
-        <dt>メールアドレス<span>*</span></dt>
-        <dd> <%= f.email_field :email, class:'form-control' %></dd>
-    </dl>
-    <dl>
-        <dt>プロフィール<span>*</span></dt>
-        <dd> <%= f.text_area :introduction, class:'form-control' %></dd>
-    </dl>
-    <%= f.submit "更新する" %>
-    <% end %>
+<div class="userEdit">
+    <div class="wrapper">
+        <div class="user_info">
+            <div class="profile">
+                <%= form_for(@user, url: "/users/#{@user.id}/update") do |f| %>
+                <%= render 'shared/errors',object: @user %>
+                <div class="userImage">
+                    <%= image_tag @user.picture.url if @user.picture? %>
+                    <%= image_tag ('noicon.png') if @user.picture.blank? %>
+                    <%= f.file_field :picture, class: "register_profile_image" %>
+                </div>
+                <div class="userName">
+                    <%= f.text_field :name, class:'form-control' %>
+                </div>
+                <div class="userIntro">
+                    <%= f.text_area :introduction, class:'form-control' %>
+                </div>
+                <%= f.submit "更新する" %>
+                <% end %>
+            </div>
+        </div>
+    </div>
 </div>
