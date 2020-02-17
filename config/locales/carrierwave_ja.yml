@@ -1,0 +1,5 @@
+ja:
+    errors:
+        messages:
+            max_size_error: "画像は8MB以下しかアップロードできません"
+            carrierwave_integrity_error: "は許可されていないファイルタイプです"
