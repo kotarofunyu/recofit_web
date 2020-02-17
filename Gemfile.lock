@@ -345,6 +345,7 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
+    rmagick (4.0.0)
     ruby_dep (1.5.0)
     rubyzip (2.0.0)
     sass (3.7.4)
@@ -417,6 +418,7 @@ DEPENDENCIES
   cocoon
   coffee-rails (~> 4.2)
   fog (= 1.42)
+  fog-aws
   font-awesome-sass
   jbuilder (~> 2.5)
   jquery-rails
@@ -427,6 +429,7 @@ DEPENDENCIES
   puma (~> 3.11)
   rails (~> 5.2.3)
   rails-i18n
+  rmagick
   sass-rails (~> 5.0)
   selenium-webdriver
   spring

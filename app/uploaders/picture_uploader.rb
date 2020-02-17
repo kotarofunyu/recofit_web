@@ -43,6 +43,14 @@ class PictureUploader < CarrierWave::Uploader::Base
     1..8.megabytes
   end
 
+  if Rails.env.development?
+    storage :file
+  elsif Rails.env.test?
+    storage :file
+  else
+    storage :fog
+  end
+
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   # def filename
