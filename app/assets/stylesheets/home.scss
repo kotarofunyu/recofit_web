@@ -62,6 +62,7 @@ header {
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
             &.register {
                 background: #fff;
                 color: #000000;
@@ -71,6 +72,9 @@ header {
                 background: #F77200;
                 color: #ffffff;
                 border: 1px solid #F77200;
+            }
+            &:hover {
+                opacity: 0.8;
             }
         }
     }
