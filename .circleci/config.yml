@@ -6,7 +6,7 @@ jobs:
       - image: circleci/ruby:2.6.3-node-browsers
         environment:
           RAILS_ENV: test
-          DB_HOST: localhost:3306
+          DB_HOST: 127.0.0.1
           DB_USERNAME: root
           DB_PASSWORD: kota1171997117
       - image: circleci/mysql:5.7
@@ -21,7 +21,7 @@ jobs:
           command: bundle install --path vendor/bundle
       - run:
           name: データベースの起動を待機
-          command: dockerize -wait tcp://localhost:3306 -timeout 1m
+          command: dockerize -wait tcp://127.0.0.1 -timeout 1m
       - run:
           name: データベースのセットアップ
           command: bundle exec rake db:schema:load
