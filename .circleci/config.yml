@@ -8,7 +8,6 @@ jobs:
           RAILS_ENV: test
       - image: circleci/mysql:5.7
         environment:
-          MYSQL_ALLOW_EMPTY_PASSWORD: false
           MYSQL_ROOT_PASSWORD: kota171997117
           MYSQL_DATABASE: root
     working_directory: ~/repo
@@ -23,7 +22,7 @@ jobs:
       - run:
           name: データベースのセットアップ
           command: bundle exec rake db:schema:load
-      - run: 
+      - run:
           name: テストの実行
           command: bundle exec rspec
 
