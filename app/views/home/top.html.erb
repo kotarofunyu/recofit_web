@@ -19,7 +19,8 @@
             <div class="button-wrap">
                 <%=link_to'ユーザー登録','/users/new' ,class:'button register'%>
                 <%=link_to'ログイン','/login' ,class:'button login'%>
-                <%=link_to'テストユーザーログイン','/' ,class:'testUser'%>
+                <%=link_to "テストユーザーログイン", "/test_login", method: :post,class:'testUser' %>
+                <%=link_to'とりあえずみんなの記録を見てみる','/records' ,class:'noLogin'%>
             </div>
         </div>
     </div>

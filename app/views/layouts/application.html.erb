@@ -22,7 +22,11 @@
     <% end %>
     <% if logged_in %>
     <div class="user_area menu_right">
+    <% if current_user.picture.present? %>
       <%= image_tag current_user.picture.url, class: "user_image" %>
+      <% else %>
+      <%= image_tag 'noicon.png',class: "user_image" %>
+      <% end %>
       <%= icon("fas","angle-down") %>
       <ul class="dropdown">
         <li><%= current_user.name %></li>

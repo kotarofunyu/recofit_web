@@ -1,27 +1,50 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-#contents {
-    padding-left: 0!important;
-}
+@import "./variables";
+// #contents {
+//     padding-left: 0!important;
+// }
 
-header {
-    display: none!important;
-}
+// header {
+//     display: none!important;
+// }
 
-.wrapper {
-    width: 100%!important;
-    padding-top: 0 !important;
-}
+// .wrapper {
+//     width: 100%!important;
+//     padding-top: 0 !important;
+// }
 
-.row {
-    display: flex;
-    width: 100%;
-}
-
-.row > div {
-    width: 50%;
-    padding: 120px 80px;
+.home {
+    header {
+        background: none;
+    }
+    .wrapper {
+        width: 100%;
+        height: 100vh;
+        padding-top: 0;
+        @include sp {
+            height: auto;
+        }
+        .row {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            @include sp {
+                flex-direction: column-reverse;
+                flex-wrap: wrap;
+            }
+            > div {
+                width: 50%;
+                padding: 120px 80px;
+                @include sp {
+                    width: 100%;
+                    padding: 100px 40px;
+                }
+            }
+            
+        }
+    }
 }
 
 .left-wrap {
@@ -76,6 +99,15 @@ header {
             &:hover {
                 opacity: 0.8;
             }
+        }
+        .testUser,
+        .noLogin {
+            text-decoration: none;
+            color: $main_color;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 1.5;
+            display: block;
         }
     }
 }

@@ -1,5 +1,8 @@
 class SessionsController < ApplicationController
   def new
+    if logged_in
+      redirect_to "/records"
+    end
   end
 
   def create
