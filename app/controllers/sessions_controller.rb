@@ -1,5 +1,8 @@
 class SessionsController < ApplicationController
   def new
+    if logged_in
+      redirect_to "/records"
+    end
   end
 
   def create
@@ -8,6 +11,8 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       #ログインする
       log_in user
+      # フラッシュメッセージ
+      flash[:notice] = "#{user.name}でログインしました。"
       # 特定のページにリダイレクトする
       redirect_to('/records')
     else

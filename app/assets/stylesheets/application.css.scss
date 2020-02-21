@@ -130,7 +130,9 @@ header {
         display: flex;
         align-items: center;
         > .user_image {
+            width: auto;
             height: 90%;
+            border-radius: 50%;
         }
         .fa-angle-down {
             @include sp {
@@ -212,6 +214,23 @@ header {
             }
 
         }
+}
+
+// フラッシュメッセージ
+.alert {
+    width: 300px;
+    height: 50px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255,165,0,0.7);
+    font-weight: bold;
+    font-size: 18px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
 }
 
 #side_menu {

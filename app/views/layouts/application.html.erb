@@ -16,20 +16,22 @@
     <div class="sp_sidebar">
       <%= icon("fas", "bars") %>
     </div>
-    <%=link_to "/", target: "_blank" do %>
+    <%=link_to "/" do %>
     <%= image_tag "app_icon.png", class:"logo" %>
     RecoFit
     <% end %>
     <% if logged_in %>
     <div class="user_area menu_right">
+      <% if current_user.picture.present? %>
       <%= image_tag current_user.picture.url, class: "user_image" %>
+      <% else %>
+      <%= image_tag 'noicon.png',class: "user_image" %>
+      <% end %>
       <%= icon("fas","angle-down") %>
       <ul class="dropdown">
         <li><%= current_user.name %></li>
         <li><%= link_to "ユーザーページ", "/users/#{current_user.id}" %></li>
         <li><%= link_to "ログアウト", logout_path, method: :delete, class:"header_button logout" %></li>
-        <li>aaa</li>
-        <li>aaa</li>
       </ul>
     </div>
     <% else %>
@@ -75,8 +77,13 @@
   <% flash.each do |message_type, message| %>
   <div class="alert alert-<%= message_type %>"><%= message %></div>
   <% end %>
+  <% if flash[:notice] %>
+  <div class="flash">
+    <%= flash[:notice] %>
+  </div>
+  <% end %>
   <div id="contents">
-  <%= yield %>
+    <%= yield %>
 
   </div>
 </body>

@@ -1,3 +1,27 @@
-<h1>
-    トレーニング記録
-</h1>
+<div class="wrapper">
+    <div class="row">
+        <div class="left-wrap">
+            <div class="points">
+                <ul>
+                    <li>トレーニングを記録しよう</li>
+                    <li>SNSのように記録をシェア</li>
+                    <li>グラフで成長がわかりやすい</li>
+                </ul>
+            </div>
+            <div class="img-wrap">
+                <%=image_tag 'top_image.jpg' %>
+            </div>
+        </div>
+        <div class="right-wrap">
+            <div class="logo-wrap">
+                <%= image_tag 'app_icon.png' %>RecoFit
+            </div>
+            <div class="button-wrap">
+                <%=link_to'ユーザー登録','/users/new' ,class:'button register'%>
+                <%=link_to'ログイン','/login' ,class:'button login'%>
+                <%=link_to "テストユーザーログイン", "/test_login", method: :post,class:'testUser' %>
+                <%=link_to'とりあえずみんなの記録を見てみる','/records' ,class:'noLogin'%>
+            </div>
+        </div>
+    </div>
+</div>
