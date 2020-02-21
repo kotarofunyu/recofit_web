@@ -11,7 +11,9 @@
 #
 default: &default
   adapter: mysql2
-  encoding: utf8
+  encoding: utf8mb4
+  charset: utf8mb4
+  collation: utf8mb4_bin
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
   password: kota1171997117
@@ -27,7 +29,7 @@ development:
 test:
   <<: *default
   database: kochanapp_test
-  host: 127.0.0.1:3306
+  host: localhost:3306
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
