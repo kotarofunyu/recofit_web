@@ -7,13 +7,12 @@ jobs:
         environment:
           RAILS_ENV: test
           DB_HOST: 127.0.0.1
-          DB_USERNAME: 'root'
-          DB_PASSWORD: ''
+          DB_USERNAME: root
+          DB_PASSWORD: kota1171997117
       - image: circleci/mysql:5.7
         environment:
-          MYSQL_ALLOW_EMPTY_PASSWORD: true
-          MYSQL_ROOT_PASSWORD: ''
-          MYSQL_DATABASE: ci_test
+          MYSQL_ROOT_PASSWORD: kota1171997117
+          MYSQL_DATABASE: kochanapp_test
     working_directory: ~/repo
     steps:
       - checkout
