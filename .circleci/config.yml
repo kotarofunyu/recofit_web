@@ -17,7 +17,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          name: bundle installの結果をrestore
+          name: bundle installの結果をリストア
           keys:
             - v1-dependencies-{{ checksum "Gemfile.lock"}}
             - v1-dependencies-
