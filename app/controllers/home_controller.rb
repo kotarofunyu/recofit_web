@@ -1,7 +1,5 @@
 class HomeController < ApplicationController
   def top
-    if logged_in
-      redirect_to('/records')
-    end
+    redirect_to('/records') if logged_in
   end
 end

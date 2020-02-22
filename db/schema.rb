@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_24_115136) do
-
+ActiveRecord::Schema.define(version: 20_200_124_115_136) do
   create_table "events", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -52,5 +51,4 @@ ActiveRecord::Schema.define(version: 2020_01_24_115136) do
     t.datetime "updated_at", null: false
     t.string "picture"
   end
-
 end
