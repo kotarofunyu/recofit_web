@@ -1,8 +1,7 @@
 class PostsController < ApplicationController
-
   # 投稿を全て取得してviewで使えるように定義する && 日時の降順にソート
   def index
-    @posts = Post.all.order(updated_at: "DESC")
+    @posts = Post.all.order(updated_at: 'DESC')
   end
 
   # 新規作成
@@ -12,5 +11,5 @@ class PostsController < ApplicationController
 
   # 入力エリアからのデータを受け取る
 
-  #データを保存する
+  # データを保存する
 end

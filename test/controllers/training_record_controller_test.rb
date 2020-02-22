@@ -20,5 +20,4 @@ class TrainingRecordControllerTest < ActionDispatch::IntegrationTest
     get training_record_destroy_url
     assert_response :success
   end
-
 end

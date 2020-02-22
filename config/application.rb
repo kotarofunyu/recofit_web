@@ -12,12 +12,11 @@ module Kochanapp
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
 
-    #時間帯を日本に変更
+    # 時間帯を日本に変更
     config.time_zone = 'Tokyo'
 
-    #日本語
+    # 日本語
     config.i18n.default_locale = :ja
-
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
@@ -25,4 +24,3 @@ module Kochanapp
     # the framework and any gems in your application.
   end
 end
-

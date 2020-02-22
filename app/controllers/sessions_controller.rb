@@ -1,22 +1,20 @@
 class SessionsController < ApplicationController
   def new
-    if logged_in
-      redirect_to "/records"
-    end
+    redirect_to '/records' if logged_in
   end
 
   def create
     user = User.find_by(email: params[:session][:email].downcase)
     # 認証に成功した場合
-    if user && user.authenticate(params[:session][:password])
-      #ログインする
+    if user&.authenticate(params[:session][:password])
+      # ログインする
       log_in user
       # フラッシュメッセージ
       flash[:notice] = "#{user.name}でログインしました。"
       # 特定のページにリダイレクトする
       redirect_to('/records')
     else
-      #エラーメッセージの表示
+      # エラーメッセージの表示
       flash.now[:danger] = 'メールアドレスもしくはパスワードが正しくありません。'
       render 'new'
     end

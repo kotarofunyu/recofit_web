@@ -1,0 +1,49 @@
+version: 2.1
+
+jobs:
+  test:
+    docker:
+      - image: circleci/ruby:2.6.3-node-browsers
+        environment:
+          RAILS_ENV: test
+          DB_HOST: 127.0.0.1
+          DB_USERNAME: root
+          DB_PASSWORD: kota1171997117
+      - image: circleci/mysql:5.7
+        environment:
+          MYSQL_ROOT_PASSWORD: kota1171997117
+          MYSQL_DATABASE: kochanapp_test
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - restore_cache:
+          name: bundle installの結果をrestore
+          keys:
+            - v1-dependencies-{{ checksum "Gemfile.lock"}}
+            - v1-dependencies-
+      - run:
+          name: bundle install
+          command: bundle install --path vendor/bundle
+      - save_cache:
+          name: bundle installの結果をキャッシュ
+          paths: ./vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+      - run:
+          name: データベースの起動を待機
+          command: dockerize -wait tcp://127.0.0.1:3306 -timeout 1m
+      - run:
+          name: データベースのセットアップ
+          command: bundle exec rake db:schema:load
+      - run:
+          name: RSpecのテストを実行
+          command: bundle exec rspec
+      - run:
+          name:  RuboCopのテストを実行
+          command: bundle exec rubocop
+
+
+workflows:
+  version: 2
+  workflows:
+    jobs:
+      - test

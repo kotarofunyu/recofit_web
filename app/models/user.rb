@@ -4,6 +4,6 @@ class User < ApplicationRecord
     has_secure_password
     mount_uploader :picture, PictureUploader
     def full_name
-        return name
+        name
     end
 end
