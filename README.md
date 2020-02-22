@@ -6,7 +6,7 @@ Ruby on Rails 5.2.4.1
 ローカル開発環境
 Mac OS Catalina
 Docker
-*Docker-composeでアプリサーバーとDBサーバーを構築してオーケストレーション
+*Docker-composeでapサーバーとDBサーバーを構築してオーケストレーション
 MySQL 5.7
 
 検証環境
