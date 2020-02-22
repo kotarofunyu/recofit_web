@@ -15,6 +15,7 @@ AllCops:
         - 'Gemfile'
         - 'Rakefile'
         - 'app/channels/**/*'
+        - 'vendor/**/*'
 Layout/IndentationWidth:
     Enabled: false
 Style/FrozenStringLiteralComment:
