@@ -1,20 +1,71 @@
 version: '3'
 services:
+    # MySQL
     db:
         image: mysql:5.7
         environment:
-            MYSQL_ROOT_PASSWORD: kota1171997117 # 後の作業で必要になってくる情報
-            MYSQL_DATABASE: root
+            MYSQL_ROOT_PASSWORD: ${ROOT_PASSWORD}
+            MYSQL_DATABASE: ${DATABASE}
         ports:
-            - "3306:3306"
-
-    web:
-        build: .
-        command:
-            bundle exec rails s -p 3000 -b '0.0.0.0' && bin/webpack-dev-server
+            - "3308:3308"
         volumes:
-            - .:/kochanapp
-        ports:
-            - "3000:3000"
-        links:
+            - ./mysql/data:/var/lib/mysql
+    # Rails
+    app: &app_base
+        build: .
+        volumes:
+            - .:/recofit
+            - public-data:/recofit/public
+            - tmp-data:/recofit/tmp
+            - log-data:/recofit/log
+        depends_on:
             - db
+            - redis
+        environment:
+            REDIS_HOST: redis
+            REDIS_PORT: 6379
+            WEBPACK_DEV_SERVER_HOST: webpack
+        tty: true
+        stdin_open: true
+    #Rails-webpacker
+    webpack:
+        <<: *app_base
+        command: "bin/webpack-dev-server"
+        volumes:
+            - .:/recofit
+            - public-data:/recofit/public
+            - tmp-data:/recofit/tmp
+            - log-data:/recofit/log
+        environment:
+            WEBPACKER_DEV_SERVER_HOST: 0.0.0.0
+        ports:
+            - 3035:3035
+        depends_on:
+            - app
+        tty: false
+        stdin_open: false
+    # nginx
+    web:
+        build:
+            context: ./nginx
+        volumes:
+            - ./nginx/nginx.conf:/etc/nginx/conf.d/recofit.conf
+            - public-data:/recofit/public
+            - tmp-data:/recofit/tmp
+        ports:
+            - 80:80
+        depends_on:
+            - app
+    # redis
+    redis:
+        image: redis:latest
+        ports:
+            - 6379:6379
+        volumes:
+            - redis:/data
+        command: redis-server --appendonly yes
+volumes:
+    public-data:
+    tmp-data:
+    log-data:
+    redis:

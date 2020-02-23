@@ -1,6 +1,7 @@
 version: 2.1
 
 jobs:
+  # CI
   test:
     docker:
       - image: circleci/ruby:2.6.3-node-browsers
@@ -40,6 +41,7 @@ jobs:
       - run:
           name:  RuboCopのテストを実行
           command: bundle exec rubocop
+  #CD
 
 
 workflows:

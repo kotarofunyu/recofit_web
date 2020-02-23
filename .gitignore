@@ -7,6 +7,12 @@
 # Ignore bundler config.
 /.bundle
 
+# Ignore docker-related directories and files
+/mysql
+/nginx/public-data
+/nginx/tmp-data
+
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*

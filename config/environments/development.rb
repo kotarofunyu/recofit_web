@@ -1,10 +1,18 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
+  # config.cache_store = :redis_store, {
+  #   host: "redis",
+  #   port: 6379,
+  #   db: 0
+  # },{
+  #   expires_in: 90.minutes
+  # }
 
+  config.session_store :redis_store, servers: 'redis://redis:6379/0', expire_in: 1.day
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
-  config.cache_classes = false
+  config.cache_classes = true
 
   # Do not eager load code on boot.
   config.eager_load = false
