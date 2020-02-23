@@ -11,6 +11,7 @@
 /mysql
 /nginx/public-data
 /nginx/tmp-data
+/.env
 
 
 # Ignore all logfiles and tempfiles.
