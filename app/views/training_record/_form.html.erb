@@ -1,6 +1,6 @@
 <%= form_for(@record,:url => {:controller => :training_record, :action => :create},local: true, html:{id:'form'}) do |f| %>
 <%= render 'shared/errors', object: @record %>
-<%= f.text_area :comment, :placeholder => "今日のトレーニングはどうだった？" ,'v-model'=>'comment' %>
+<%= f.text_area :comment, :placeholder => "今日のトレーニングを記録しよう" ,'v-model'=>'comment' %>
 <div class="commentCounter" v-bind:class="{warning : commentCount > 100}">
     文字数 {{ commentCount }}/100
 </div>
