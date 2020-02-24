@@ -37,7 +37,7 @@ jobs:
           command: bundle exec rake db:schema:load
       - run:
           name: webpackerでコンパイル
-          command: RAILS_ENV=test bundle exec rails webpacker:compile
+          command: RAILS_ENV=test bin/webpack
       - run:
           name: RSpecのテストを実行
           command: bundle exec rspec
