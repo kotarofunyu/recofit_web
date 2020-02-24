@@ -13,7 +13,7 @@ services:
     # Rails
     app: &app_base
         build: .
-        command: bash -c 'rm -f tmp/pids/server.pid && rails server'
+        command: bash -c 'rm -f tmp/pids/server.pid && bundle exec rails s'
         volumes:
             - .:/recofit
             - public-data:/recofit/public
@@ -32,11 +32,6 @@ services:
     webpack:
         <<: *app_base
         command: bash -c 'rm -f tmp/pids/server.pid && bin/webpack-dev-server'
-        volumes:
-            - .:/recofit
-            - public-data:/recofit/public
-            - tmp-data:/recofit/tmp
-            - log-data:/recofit/log
         environment:
             WEBPACKER_DEV_SERVER_HOST: 0.0.0.0
         ports:

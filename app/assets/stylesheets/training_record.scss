@@ -99,6 +99,14 @@ i {
                 font-weight: bold;
             }
         }
+        input[type="checkbox"] {
+            -webkit-appearance: checkbox;
+        }
+        p {
+            font-size: 14px;
+            font-weight: bold;
+            color: $main_color;
+        }
         input[type="submit"] {
             width: 250px;
             height: 50px;
