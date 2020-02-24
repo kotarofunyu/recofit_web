@@ -24,5 +24,3 @@ RUN mkdir -p $APP_ROOT/tmp/sockets
 
 VOLUME /recofit/public
 VOLUME /recofit/tmp
-
-CMD ["rails","server"]
