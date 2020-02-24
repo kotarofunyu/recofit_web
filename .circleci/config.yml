@@ -35,8 +35,9 @@ jobs:
       - run:
           name: データベースのセットアップ
           command: bundle exec rake db:schema:load
+      # RSpecにおいて、webpackerのエラーが出るので、こちらのコマンドでコンパイルする。
       - run:
-          name: コンパイル
+          name: アセットをコンパイル
           command: bundle exec rails assets:precompile
       - run:
           name: RSpecのテストを実行
