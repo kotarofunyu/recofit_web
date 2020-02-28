@@ -4,12 +4,12 @@
 筋トレ記録アプリ  
 ### 使用技術  
 #### 言語・フレームワーク  
-バックエンド  
+**バックエンド**  
 Ruby2.6.3    
 Ruby on Rails 5  
   
-フロントエンド
-JavaScript
+**フロントエンド**  
+JavaScript  
 Vue.js
 #### 開発環境  
 Docker
