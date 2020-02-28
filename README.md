@@ -19,7 +19,10 @@ Docker
 2. Nginx (Web)
 3. MySQL (DB)
 4. Redis (Cache Store)
-5. Webpack (webpacker)
+5. Webpack (webpacker)  
+  
+ブラウザからのリクエストはRailsに搭載されているpumaだけでも捌けるが、大量アクセスや機能性を考慮し、
+Nginxとpumaをsocket通信させて、Nginxがブラウザからのリクエストをpumaに投げる方式を採用。
 
 #### その他  
 CircleCIでCIパイプラインの構築  
