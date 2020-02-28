@@ -1,17 +1,26 @@
-# README
+## RecoFit
 
-Ruby 2.6.3
-Ruby on Rails 5.2.4.1
-
-ローカル開発環境
-Mac OS Catalina
+### Overview  
+筋トレ記録アプリ  
+### 使用技術  
+#### 言語・フレームワーク  
+バックエンド  
+Ruby2.6.3    
+Ruby on Rails 5  
+  
+フロントエンド
+JavaScript
+Vue.js
+#### 開発環境  
 Docker
-*Docker-composeでapサーバーとDBサーバーを構築してオーケストレーション
-MySQL 5.7
 
-検証環境
-Heroku
+#### コンテナ構成
+1. App (Rails)
+2. Nginx (Web)
+3. MySQL (DB)
+4. Redis (Cache Store)
+5. Webpack (webpacker)
 
-バージョン管理
-Herokuへデプロイ前→bitbucket
-Herokuへデプロイ後→Github
+#### その他  
+CircleCIでCIパイプラインの構築  
+GitHubでIssueとブランチを連携してプルリクベースの開発
