@@ -15,7 +15,7 @@ Vue.js
 Docker
 
 #### コンテナ構成
-1. App (Rails)
+1. Rails (App)
 2. Nginx (Web)
 3. MySQL (DB)
 4. Redis (Cache Store)
