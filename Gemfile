@@ -34,7 +34,7 @@ gem 'mysql2', '>= 0.4.4', '< 0.6.0', groups: %w[test development],require: false
 gem 'pg', '~> 0.19.0', group: :production, require: false
 
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 3.12'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
