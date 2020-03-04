@@ -14,6 +14,10 @@ services:
             RECOFIT_DB_USER: ${RECOFIT_DB_USER}
             RECOFIT_DB_PASSWORD: ${RECOFIT_DB_PASSWORD}
             REDIS_HOST: ${REDIS_HOST}
+            AWS_S3_BUCKET: ${AWS_S3_BUCKET}
+            AWS_S3_REGION: ${AWS_S3_REGION}
+            AWS_IAM_ACCESS_KEY_ID: ${AWS_IAM_ACCESS_KEY_ID}
+            AWS_IAM_ACCESS_KEY: ${AWS_IAM_ACCESS_KEY}
         tty: true
         stdin_open: true
     # nginx
