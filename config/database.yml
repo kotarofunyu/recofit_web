@@ -51,14 +51,15 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-# production:
-#   <<: *default
-#   database: kochanapp_production
-#   username: kochanapp
-#   password: <%= ENV['KOCHANAPP_DATABASE_PASSWORD'] %>
 production:
   <<: *default
-  adapter: postgresql
-  database: mydatabase
-  encoding: unicode
-  pool: 5
+  database: recofit_production
+  host: <%= ENV['RECOFIT_DB_HOST'] %>
+  username: <%= ENV['RECOFIT_DB_USER']
+  password: <%= ENV['RECOFIT_DB_PASSWORD'] %>
+# production:
+#   <<: *default
+#   adapter: postgresql
+#   database: mydatabase
+#   encoding: unicode
+#   pool: 5
