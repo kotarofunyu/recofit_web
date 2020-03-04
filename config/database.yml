@@ -55,7 +55,7 @@ production:
   <<: *default
   database: recofit_production
   host: <%= ENV['RECOFIT_DB_HOST'] %>
-  username: <%= ENV['RECOFIT_DB_USER']
+  username: <%= ENV['RECOFIT_DB_USER'] %>
   password: <%= ENV['RECOFIT_DB_PASSWORD'] %>
 # production:
 #   <<: *default
