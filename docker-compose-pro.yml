@@ -11,7 +11,7 @@ services:
             - log-data:/recofit/log
         environment:
             RECOFIT_DB_HOST: ${RECOFIT_DB_HOST}
-            RECOFIT_DB_USER: ${RECOFIT_DB_USE}
+            RECOFIT_DB_USER: ${RECOFIT_DB_USER}
             RECOFIT_DB_PASSWORD: ${RECOFIT_DB_PASSWORD}
             REDIS_HOST: ${REDIS_HOST}
         tty: true
