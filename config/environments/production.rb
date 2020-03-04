@@ -1,6 +1,13 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  config.session_store :redis_store, servers: ENV['REDIS_HOST'], expire_in: 1.day
+  config.session_store :redis_store,
+    servers: {
+        host: ENV['REDIS_HOST'],
+        port: 6379,
+        db: 0,
+        namespace: 'sessions'
+      },
+      expire_in: 1.day
   # Code is not reloaded between requests.
   config.cache_classes = true
 
