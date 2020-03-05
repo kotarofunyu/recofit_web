@@ -47,7 +47,7 @@ jobs:
       image: circleci/classic:edge
     steps:
       - checkout
-      - add_ssh_keys:
+      - add_ssh_keys
       - run: ssh ${USER_NAME}@${HOST_NAME} 'mkdir successdebug'
 
 workflows:
@@ -58,3 +58,6 @@ workflows:
       - deploy:
           requires:
             - test
+          filters:
+            branches:
+              only: master
