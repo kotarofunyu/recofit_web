@@ -43,12 +43,32 @@ jobs:
           command: bundle exec rubocop
   #CD
   deploy:
-    machine:
-      image: circleci/classic:edge
+    docker:
+      - image: circleci/python:3.6-jessie
+      - image: buildpack-deps:trusty
+    working_directory: ~/
     steps:
-      - checkout
-      - add_ssh_keys
-      - run: ssh ${USER_NAME}@${HOST_NAME} 'mkdir successdebug'
+      - run: sudo pip install awscli
+      - run:
+          name: "authorize-security-group-ingress"
+          command: |
+            IP=`curl -s ifconfig.me`
+            echo "#!/bin/bash" > ./sg.sh
+            echo "aws configure set region ap-northeast-1" >> ./sg.sh
+            echo "aws ec2 authorize-security-group-ingress --group-id sg-0d771de46ad7bb458 --protocol tcp --port 22 --cidr ${IP}/32" >> ./sg.sh
+            bash ./sg.sh
+      - add_ssh_keys:
+      - run:
+          name: deploy
+          command: ssh -oStrictHostKeyChecking=no ${USER_NAME}@${HOST_NAME} 'mkdir success'
+      - run:
+          name: "revoke-security-group-ingress"
+          command: |
+            IP=`curl -s ifconfig.me`
+            echo "#!/bin/bash" > ./sg.sh
+            echo "aws configure set region ap-northeast-1" >> ./sg.sh
+            echo "aws ec2 revoke-security-group-ingress --group-id sg-0d771de46ad7bb458 --protocol tcp --port 22 --cidr ${IP}/32" >> ./sg.sh
+            bash ./sg.sh
 
 workflows:
   version: 2
