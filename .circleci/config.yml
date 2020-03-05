@@ -49,8 +49,8 @@ jobs:
     working_directory: ~/
     steps:
       - run:
-        name: aws-cliインストール
-        command: sudo pip install awscli
+          name: aws-cliインストール
+          command: sudo pip install awscli
       - run:
           name: "authorize-security-group-ingress"
           command: |
