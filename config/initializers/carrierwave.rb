@@ -1,4 +1,3 @@
-# 下記の三行は入れていた方がいいらしい
 require 'carrierwave/storage/abstract'
 require 'carrierwave/storage/file'
 require 'carrierwave/storage/fog'

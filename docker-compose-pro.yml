@@ -1,3 +1,4 @@
+# 本番環境用docker-compose.ymlファイル
 version: '3'
 services:
     # Rails
