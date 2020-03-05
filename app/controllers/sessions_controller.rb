@@ -28,7 +28,7 @@ class SessionsController < ApplicationController
 
   # テストユーザーでログインする
   def test_login
-    session[:user_id] = 2
+    session[:user_id] = 1
     redirect_to('/records')
   end
 end
