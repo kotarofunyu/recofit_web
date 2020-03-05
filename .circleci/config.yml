@@ -62,7 +62,7 @@ jobs:
       - add_ssh_keys
       - run:
           name: deploy
-          command: ssh -oStrictHostKeyChecking=no ${USER_NAME}@${HOST_NAME} 'mkdir success'
+          command: ssh -oStrictHostKeyChecking=no ${USER_NAME}@${HOST_NAME} 'cd recofit && git pull origin master'
       - run:
           name: "revoke-security-group-ingress"
           command: |
