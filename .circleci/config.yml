@@ -3,8 +3,48 @@ version: 2.1
 orbs:
   aws-ecr: circleci/aws-ecr@6.0.0
   aws-ecs: circleci/aws-ecs@0.0.8
-#
-workflows:
+
+jobs:
+  test:
+    docker:
+      - image: circleci/ruby:2.6.3-node-browsers
+        environment:
+          RAILS_ENV: test
+          DB_HOST: 127.0.0.1
+          DB_USERNAME: root
+          DB_PASSWORD: kota1171997117
+      - image: circleci/mysql:5.7
+        environment:
+          MYSQL_ROOT_PASSWORD: kota1171997117
+          MYSQL_DATABASE: recofit_test
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - restore_cache:
+          name: bundle installの結果をリストア
+          keys:
+            - v1-dependencies-{{ checksum "Gemfile.lock"}}
+            - v1-dependencies-
+      - run:
+          name: bundle install
+          command: bundle install --path vendor/bundle
+      - save_cache:
+          name: bundle installの結果をキャッシュ
+          paths: ./vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+      - run:
+          name: データベースの起動を待機
+          command: dockerize -wait tcp://127.0.0.1:3306 -timeout 1m
+      - run:
+          name: データベースのセットアップ
+          command: bundle exec rake db:schema:load
+      - run:
+          name: RSpecのテストを実行
+          command: bundle exec rspec
+      - run:
+          name:  RuboCopのテストを実行
+          command: bundle exec rubocop
+  #CD to ECS
   build_and_deploy:
     jobs:
       - aws-ecr/build-and-push-image:
@@ -18,77 +58,16 @@ workflows:
           family: '${ECS_TASK}'
           cluster-name: '${ECS_CLUSTER}'
           service-name: '${ECS_SERVICE}'
-          container-image-name-updates: 'container=app,image-and-tag=${AWS_ECR_ACCOUNT_URL}/recofit_app:${CIRCLE_SHA1}'
-# version: 2.1
+          container-image-name-updates: 'container=app,image-and-tag=${AWS_ECR_ACCOUNT_URL}/${MY_APP}:${CIRCLE_SHA1}'
 
-# jobs:
-#   # CI
-#   test:
-#     docker:
-#       - image: circleci/ruby:2.6.3-node-browsers
-#         environment:
-#           RAILS_ENV: test
-#           DB_HOST: 127.0.0.1
-#           DB_USERNAME: root
-#           DB_PASSWORD: kota1171997117
-#       - image: circleci/mysql:5.7
-#         environment:
-#           MYSQL_ROOT_PASSWORD: kota1171997117
-#           MYSQL_DATABASE: recofit_test
-#     working_directory: ~/repo
-#     steps:
-#       - checkout
-#       - restore_cache:
-#           name: bundle installの結果をリストア
-#           keys:
-#             - v1-dependencies-{{ checksum "Gemfile.lock"}}
-#             - v1-dependencies-
-#       - run:
-#           name: bundle install
-#           command: bundle install --path vendor/bundle
-#       - save_cache:
-#           name: bundle installの結果をキャッシュ
-#           paths: ./vendor/bundle
-#           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
-#       - run:
-#           name: データベースの起動を待機
-#           command: dockerize -wait tcp://127.0.0.1:3306 -timeout 1m
-#       - run:
-#           name: データベースのセットアップ
-#           command: bundle exec rake db:schema:load
-#       - run:
-#           name: RSpecのテストを実行
-#           command: bundle exec rspec
-#       - run:
-#           name:  RuboCopのテストを実行
-#           command: bundle exec rubocop
-#   #CD to ECS
-#   deploy:
-#     orbs:
-#       aws-ecr: circleci/aws-ecr@6.0.0
-#       aws-ecs: circleci/aws-ecs@0.0.8
-#     steps:
-#       - aws-ecr/build-and-push-image:
-#           region: ${AWS_REGION}
-#           account-url: ${AWS_ECR_ACCOUNT_URL}
-#           repo: '${MY_APP}'
-#           tag: "${CIRCLE_SHA1}"
-#       - aws-ecs/deploy-service-update:
-#           requires:
-#             - aws-ecr/build-and-push-image
-#           family: '${ECS_TASK}'
-#           cluster-name: '${ECS_CLUSTER}'
-#           service-name: '${ECS_SERVICE}'
-#           container-image-name-updates: 'container=${MY_APP}-container,tag=${CIRCLE_SHA1}'
-
-# workflows:
-#   version: 2
-#   test_and_deploy:
-#     jobs:
-#       - test
-#       - deploy:
-#           requires:
-#             - test
-#           filters:
-#             branches:
-#               only: master
+workflows:
+  version: 2
+  test_and_deploy:
+    jobs:
+      - test
+      - build_and_deploy:
+          requires:
+            - test
+          filters:
+            branches:
+              only: master
