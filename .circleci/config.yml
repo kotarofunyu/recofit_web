@@ -41,7 +41,7 @@ jobs:
       - run:
           name:  RuboCopのテストを実行
           command: bundle exec rubocop
-  #CD
+  #CD to ECS
   deploy:
     orbs:
       aws-ecr: circleci/aws-ecr@6.0.0
