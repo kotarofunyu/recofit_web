@@ -8,7 +8,8 @@
 **インフラ**  
 AWSの各種サービス  
 構成は以下  
-ECS + RDS + ElastiCache + ALB + Route53 + VPC  
+Elastic Container Service(ECS) + RDS + ElastiCache + ALB + Route53 + VPC  
+本番環境でもコンテナ基盤を使用
   
 **バックエンド**  
 Ruby2.6.3    
