@@ -46,7 +46,7 @@ jobs:
           command: bundle exec rubocop
   #CD to ECS
   build_and_deploy:
-    jobs:
+    steps:
       - aws-ecr/build-and-push-image:
           region: AWS_REGION
           account-url: AWS_ECR_ACCOUNT_URL
