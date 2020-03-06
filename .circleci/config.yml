@@ -43,34 +43,22 @@ jobs:
           command: bundle exec rubocop
   #CD
   deploy:
-    docker:
-      - image: circleci/python:3.6-jessie
-      - image: buildpack-deps:trusty
-    working_directory: ~/
+    orbs:
+      aws-ecr: circleci/aws-ecr@6.0.0
+      aws-ecs: circleci/aws-ecs@0.0.8
     steps:
-      - run:
-          name: aws-cliインストール
-          command: sudo pip install awscli
-      - run:
-          name: "authorize-security-group-ingress"
-          command: |
-            IP=`curl -s ifconfig.me`
-            echo "#!/bin/bash" > ./sg.sh
-            echo "aws configure set region ap-northeast-1" >> ./sg.sh
-            echo "aws ec2 authorize-security-group-ingress --group-id sg-0d771de46ad7bb458 --protocol tcp --port 22 --cidr ${IP}/32" >> ./sg.sh
-            bash ./sg.sh
-      - add_ssh_keys
-      - run:
-          name: deploy
-          command: ssh -oStrictHostKeyChecking=no ${USER_NAME}@${HOST_NAME} 'cd recofit && git pull origin master && docker-compose -f docker-compose-pro.yml restart'
-      - run:
-          name: "revoke-security-group-ingress"
-          command: |
-            IP=`curl -s ifconfig.me`
-            echo "#!/bin/bash" > ./sg.sh
-            echo "aws configure set region ap-northeast-1" >> ./sg.sh
-            echo "aws ec2 revoke-security-group-ingress --group-id sg-0d771de46ad7bb458 --protocol tcp --port 22 --cidr ${IP}/32" >> ./sg.sh
-            bash ./sg.sh
+      - aws-ecr/build-and-push-image:
+          region: ${AWS_REGION}
+          account-url: ${AWS_ECR_ACCOUNT_URL}
+          repo: '${MY_APP}'
+          tag: "${CIRCLE_SHA1}"
+      - aws-ecs/deploy-service-update:
+          requires:
+            - aws-ecr/build-and-push-image
+          family: '${ECS_TASK}'
+          cluster-name: '${ECS_CLUSTER}'
+          service-name: '${ECS_SERVICE}'
+          container-image-name-updates: 'container=${MY_APP}-container,tag=${CIRCLE_SHA1}'
 
 workflows:
   version: 2
