@@ -3,7 +3,14 @@
 ### Overview  
 筋トレ記録アプリ  
 ### 使用技術  
-#### 言語・フレームワーク  
+#### 言語・フレームワーク・インフラ  
+  
+**インフラ**  
+AWSの各種サービス  
+構成は以下  
+Elastic Container Service(ECS) + RDS + ElastiCache + ALB + Route53 + VPC  
+本番環境でもコンテナ基盤を使用
+  
 **バックエンド**  
 Ruby2.6.3    
 Ruby on Rails 5  
@@ -25,8 +32,8 @@ Docker
 Nginxとpumaをsocket通信させて、Nginxがブラウザからのリクエストをpumaに投げる方式を採用。
 
 #### その他  
-**CircleCIでCIパイプラインの構築**  
-→GitHubにコミット&プッシュすると自動テスト&静的コード解析が走り、テストをパスするとマージされます。  
+**CircleCIでCI/CDパイプラインの構築**  
+→GitHubへのプッシュで、自動テスト&自動デプロイ
   
 **GitHubでIssueとブランチを連携してプルリクベースの開発**  
 →OSSや実際の開発で採用されているフローをシミュレーションしたいなと思ったので。
