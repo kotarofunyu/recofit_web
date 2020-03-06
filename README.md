@@ -3,7 +3,13 @@
 ### Overview  
 筋トレ記録アプリ  
 ### 使用技術  
-#### 言語・フレームワーク  
+#### 言語・フレームワーク・インフラ  
+  
+**インフラ**  
+AWSの各種サービス  
+構成は以下  
+ECS + RDS + ElastiCache + ALB + Route53 + VPC  
+  
 **バックエンド**  
 Ruby2.6.3    
 Ruby on Rails 5  
