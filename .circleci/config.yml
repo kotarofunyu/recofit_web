@@ -11,14 +11,14 @@ workflows:
           region: AWS_REGION
           account-url: AWS_ECR_ACCOUNT_URL
           repo: '${MY_APP}'
-          tag: "latest"
+          tag: "${CIRCLE_SHA1}"
       - aws-ecs/deploy-service-update:
           requires:
             - aws-ecr/build-and-push-image
           family: '${ECS_TASK}'
           cluster-name: '${ECS_CLUSTER}'
           service-name: '${ECS_SERVICE}'
-          container-image-name-updates: 'container=app,tag=latest'
+          container-image-name-updates: 'container=app,image-and-tag=${AWS_ECR_ACCOUNT_URL}/recofit_app:${CIRCLE_SHA1}'
 # version: 2.1
 
 # jobs:
