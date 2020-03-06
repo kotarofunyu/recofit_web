@@ -31,7 +31,7 @@ Docker
 Nginxとpumaをsocket通信させて、Nginxがブラウザからのリクエストをpumaに投げる方式を採用。
 
 #### その他  
-**CircleCIでCIパイプラインの構築**  
+**CircleCIでCI/CDパイプラインの構築**  
 →GitHubにコミット&プッシュすると自動テスト&静的コード解析が走り、テストをパスするとマージされます。  
   
 **GitHubでIssueとブランチを連携してプルリクベースの開発**  
