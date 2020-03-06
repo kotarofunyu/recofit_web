@@ -18,7 +18,7 @@ workflows:
           family: '${ECS_TASK}'
           cluster-name: '${ECS_CLUSTER}'
           service-name: '${ECS_SERVICE}'
-          container-image-name-updates: 'container=${MY_APP}-container,tag=${CIRCLE_SHA1}'
+          container-image-name-updates: 'container=${MY_APP},tag=${CIRCLE_SHA1}'
 # version: 2.1
 
 # jobs:
