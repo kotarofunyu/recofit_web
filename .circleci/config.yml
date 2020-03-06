@@ -1,9 +1,5 @@
 version: 2.1
 
-orbs:
-  aws-ecr: circleci/aws-ecr@6.0.0
-  aws-ecs: circleci/aws-ecs@0.0.8
-
 jobs:
   test:
     docker:
@@ -46,19 +42,9 @@ jobs:
           command: bundle exec rubocop
   #CD to ECS
   build_and_deploy:
-    steps:
-      - aws-ecr/build-and-push-image:
-          region: AWS_REGION
-          account-url: AWS_ECR_ACCOUNT_URL
-          repo: '${MY_APP}'
-          tag: "${CIRCLE_SHA1}"
-      - aws-ecs/deploy-service-update:
-          requires:
-            - aws-ecr/build-and-push-image
-          family: '${ECS_TASK}'
-          cluster-name: '${ECS_CLUSTER}'
-          service-name: '${ECS_SERVICE}'
-          container-image-name-updates: 'container=app,image-and-tag=${AWS_ECR_ACCOUNT_URL}/${MY_APP}:${CIRCLE_SHA1}'
+    orbs:
+      aws-ecr: circleci/aws-ecr@6.0.0
+      aws-ecs: circleci/aws-ecs@1.1.0
 
 workflows:
   version: 2
@@ -66,8 +52,16 @@ workflows:
     jobs:
       - test
       - build_and_deploy:
-          requires:
-            - test
-          filters:
-            branches:
-              only: master
+          jobs:
+            - aws-ecr/build-and-push-image:
+              region: AWS_REGION
+              account-url: AWS_ECR_ACCOUNT_URL
+              repo: '${MY_APP}'
+              tag: "${CIRCLE_SHA1}"
+            - aws-ecs/deploy-service-update:
+                requires:
+                  - aws-ecr/build-and-push-image
+                family: '${ECS_TASK}'
+                cluster-name: '${ECS_CLUSTER}'
+                service-name: '${ECS_SERVICE}'
+                container-image-name-updates: 'container=app,image-and-tag=${AWS_ECR_ACCOUNT_URL}/${MY_APP}:${CIRCLE_SHA1}'
