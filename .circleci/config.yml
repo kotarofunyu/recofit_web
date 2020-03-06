@@ -10,15 +10,15 @@ workflows:
       - aws-ecr/build-and-push-image:
           region: AWS_REGION
           account-url: AWS_ECR_ACCOUNT_URL
-          repo: '${MY_APP_PREFIX}-sample'
+          repo: '${MY_APP}'
           tag: "${CIRCLE_SHA1}"
       - aws-ecs/deploy-service-update:
           requires:
             - aws-ecr/build-and-push-image
-          family: '${MY_APP_PREFIX}-task'
-          cluster-name: '${MY_APP_PREFIX}-cluster'
-          service-name: '${MY_APP_PREFIX}-service'
-          container-image-name-updates: 'container=${MY_APP_PREFIX}-container,tag=${CIRCLE_SHA1}'
+          family: '${MY_APP}'
+          cluster-name: '${ECS_CLUSTER}'
+          service-name: '${ECS_SERVICE}'
+          container-image-name-updates: 'container=${MY_APP}-container,tag=${CIRCLE_SHA1}'
 # version: 2.1
 
 # jobs:
