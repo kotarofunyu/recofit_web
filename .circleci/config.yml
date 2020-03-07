@@ -49,6 +49,7 @@ workflows:
   test_and_deploy:
     jobs:
       - test
+      # dockerイメージのビルド & ECRへプッシュ
       - aws-ecr/build-and-push-image:
           requires:
             - test
@@ -56,6 +57,7 @@ workflows:
           account-url: AWS_ECR_ACCOUNT_URL
           repo: '${MY_APP}'
           tag: "${CIRCLE_SHA1}"
+      # ECSで新リビジョンのタスク定義を作成して、サービスに指定するタスク定義のリビジョンを最新のものに更新する
       - aws-ecs/deploy-service-update:
           requires:
             - aws-ecr/build-and-push-image
