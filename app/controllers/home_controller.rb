@@ -3,6 +3,5 @@ class HomeController < ApplicationController
     redirect_to('/records') if logged_in
   end
 
-  def about
-  end
+  def about end
 end
