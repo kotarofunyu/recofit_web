@@ -55,7 +55,8 @@ workflows:
           requires:
             - test
           filters:
-            only: master
+            branches:
+              only: master
           region: AWS_REGION
           account-url: AWS_ECR_ACCOUNT_URL
           repo: '${MY_APP}'
