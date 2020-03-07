@@ -115,3 +115,147 @@
 .img-wrap img {
     width: 100%;
 }
+
+.aboutPage {
+    section {
+        padding: 100px 0;
+        .section-wrap {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        h1 {
+            font-size: 30px;
+            line-height: 1.5;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+    }
+    .top {
+        h1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            img {
+                margin-right: 15px;
+            }
+        }
+        .intro {
+            p {
+                font-size: 16px;
+                line-height: 3;
+                text-align: center;
+                span {
+                    font-size: 25px;
+                    font-weight: bold;
+                    line-height: 1.5;
+                    display: block;
+                }
+            }
+        }
+    }
+    .feature {
+        background: $main_color;
+        ul {
+            list-style-type: none;
+            li {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                border: 5px solid #000;
+                border-radius: 10px;
+                background: #fff;
+                margin-bottom: 30px;
+                padding: 20px;
+                div {
+                    width: 60%;
+                    dt {
+                        font-size: 20px;
+                        font-weight: bold;
+                        line-height: 1.5;
+                        margin-bottom: 30px;
+                    }
+                    dd {
+                        font-size: 16px;
+                        line-height: 1.5;
+                    }
+                }
+                img {
+                    width: 300px;
+                    height: auto;
+                }
+            }
+        }
+    }
+    .faq {
+        ul {
+            list-style-type: none;
+            li {
+                border: 4px solid $main_color;
+                border-radius: 10px;
+                padding: 20px 10px;
+                margin-bottom: 15px;
+                dt {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                    font-size: 20px;
+                    font-weight: bold;
+                    line-height: 1.5;
+                    i {
+                        font-size: 28px;
+                        margin-right: 10px;
+                    }
+                }
+                dd {
+                    padding-left: 30px;
+                    margin-top: 20px;
+                    line-height: 1.5;
+                }
+            }
+        }
+    }
+    .schedule {
+        .contents-wrap {
+            width: 70%;
+            margin: 0 auto;
+            background: grey;
+            padding: 10px;
+            ul {
+                line-height: 2;
+                list-style-position: inside;
+                font-size: 20px;
+            }
+        }
+    }
+    .profile {
+        .row {
+            align-items: center;
+            justify-content: space-between;
+            > div {
+                width: 48%;
+                padding: 0;
+            }
+            .contents-wrap {
+                dl {
+                    line-height: 1.5;
+                    margin-bottom: 10px;
+                    dt {
+                        font-size: 20px;
+                        font-weight: bold;
+                    }
+                    dd {
+                        font-size: 18px;
+                        ul {
+                            list-style-type: none;
+                            line-height: 1.8;
+                            li {
+                                margin-bottom: 5px;
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}

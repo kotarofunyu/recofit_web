@@ -1,0 +1,314 @@
+.home header {
+  background: none;
+}
+
+.home .wrapper {
+  width: 100%;
+  height: 100vh;
+  padding-top: 0;
+}
+
+@media (max-width: 440px) {
+  .home .wrapper {
+    height: auto;
+  }
+}
+
+.home .wrapper .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 440px) {
+  .home .wrapper .row {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
+.home .wrapper .row > div {
+  width: 50%;
+  padding: 120px 80px;
+}
+
+@media (max-width: 440px) {
+  .home .wrapper .row > div {
+    width: 100%;
+    padding: 100px 40px;
+  }
+}
+
+.left-wrap ul {
+  list-style: none;
+}
+
+.left-wrap ul li {
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 2;
+}
+
+.right-wrap {
+  background: #ffd591;
+}
+
+.right-wrap .logo-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.right-wrap .logo-wrap img {
+  margin-right: 10px;
+}
+
+.right-wrap .button-wrap {
+  margin-top: 100px;
+}
+
+.right-wrap .button-wrap .button {
+  display: block;
+  text-decoration: none;
+  width: 100%;
+  height: 45px;
+  border-radius: 10px;
+  margin: 30px auto;
+  text-align: center;
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+          box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.right-wrap .button-wrap .button.register {
+  background: #fff;
+  color: #000000;
+  border: 1px solid #fff;
+}
+
+.right-wrap .button-wrap .button.login {
+  background: #F77200;
+  color: #ffffff;
+  border: 1px solid #F77200;
+}
+
+.right-wrap .button-wrap .button:hover {
+  opacity: 0.8;
+}
+
+.right-wrap .button-wrap .testUser,
+.right-wrap .button-wrap .noLogin {
+  text-decoration: none;
+  color: orange;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 1.5;
+  display: block;
+}
+
+.img-wrap img {
+  width: 100%;
+}
+
+.aboutPage section {
+  padding: 100px 0;
+}
+
+.aboutPage section .section-wrap {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.aboutPage section h1 {
+  font-size: 30px;
+  line-height: 1.5;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.aboutPage .top h1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.aboutPage .top h1 img {
+  margin-right: 15px;
+}
+
+.aboutPage .top .intro p {
+  font-size: 16px;
+  line-height: 3;
+  text-align: center;
+}
+
+.aboutPage .top .intro p span {
+  font-size: 25px;
+  font-weight: bold;
+  line-height: 1.5;
+  display: block;
+}
+
+.aboutPage .feature {
+  background: orange;
+}
+
+.aboutPage .feature ul {
+  list-style-type: none;
+}
+
+.aboutPage .feature ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border: 5px solid #000;
+  border-radius: 10px;
+  background: #fff;
+  margin-bottom: 30px;
+  padding: 20px;
+}
+
+.aboutPage .feature ul li div {
+  width: 60%;
+}
+
+.aboutPage .feature ul li div dt {
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+
+.aboutPage .feature ul li div dd {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.aboutPage .feature ul li img {
+  width: 300px;
+  height: auto;
+}
+
+.aboutPage .faq ul {
+  list-style-type: none;
+}
+
+.aboutPage .faq ul li {
+  border: 4px solid orange;
+  border-radius: 10px;
+  padding: 20px 10px;
+  margin-bottom: 15px;
+}
+
+.aboutPage .faq ul li dt {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+.aboutPage .faq ul li dt i {
+  font-size: 28px;
+  margin-right: 10px;
+}
+
+.aboutPage .faq ul li dd {
+  padding-left: 30px;
+  margin-top: 20px;
+  line-height: 1.5;
+}
+
+.aboutPage .schedule .contents-wrap {
+  width: 70%;
+  margin: 0 auto;
+  background: grey;
+  padding: 10px;
+}
+
+.aboutPage .schedule .contents-wrap ul {
+  line-height: 2;
+  list-style-position: inside;
+  font-size: 20px;
+}
+
+.aboutPage .profile .row {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.aboutPage .profile .row > div {
+  width: 48%;
+  padding: 0;
+}
+
+.aboutPage .profile .row .contents-wrap dl {
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.aboutPage .profile .row .contents-wrap dl dt {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.aboutPage .profile .row .contents-wrap dl dd {
+  font-size: 18px;
+}
+
+.aboutPage .profile .row .contents-wrap dl dd ul {
+  list-style-type: none;
+  line-height: 1.8;
+}
+
+.aboutPage .profile .row .contents-wrap dl dd ul li {
+  margin-bottom: 5px;
+}
+/*# sourceMappingURL=home.css.map */

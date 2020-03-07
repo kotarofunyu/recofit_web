@@ -1,7 +1,6 @@
 import Vue from 'vue/dist/vue.esm.js'
 import { Bar } from 'vue-chartjs'
 import axios from 'axios'
-// document.addEventListener("DOMContentLoaded", function() {
     const urlItems = location.search.split('&')
     const userID = urlItems[0].split('=')[1]
     const eventName = urlItems[1].split('=')[1]
@@ -54,4 +53,3 @@ import axios from 'axios'
                 )
         }
       });
-// });
