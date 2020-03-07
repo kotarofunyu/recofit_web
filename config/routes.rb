@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
     get '/' => "home#top"
+    get 'about' => "home#about"
 
     # 記録ここから
     get 'records' => 'training_record#index'

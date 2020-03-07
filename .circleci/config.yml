@@ -51,14 +51,18 @@ workflows:
       - test
       # dockerイメージのビルド & ECRへプッシュ
       - aws-ecr/build-and-push-image:
+          # テストをパスしたら実行
           requires:
             - test
+          filters:
+            only: master
           region: AWS_REGION
           account-url: AWS_ECR_ACCOUNT_URL
           repo: '${MY_APP}'
           tag: "${CIRCLE_SHA1}"
-      # ECSで新リビジョンのタスク定義を作成して、サービスに指定するタスク定義のリビジョンを最新のものに更新する
+      # ECSで新リビジョンのタスク定義を作成し、サービスに指定するタスク定義のリビジョンを最新に更新する
       - aws-ecs/deploy-service-update:
+          # イメージのビルド & プッシュが成功したら実行
           requires:
             - aws-ecr/build-and-push-image
           family: '${ECS_TASK}'
