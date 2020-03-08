@@ -119,15 +119,26 @@
 .aboutPage {
     section {
         padding: 100px 0;
+        @include sp {
+            padding: 70px 0;
+        }
         .section-wrap {
             max-width: 1000px;
             margin: 0 auto;
+            padding: 0 50px;
+            @include sp {
+                padding: 0 20px;
+            }
         }
         h1 {
             font-size: 30px;
             line-height: 1.5;
             text-align: center;
             margin-bottom: 60px;
+            @include sp {
+                font-size: 25px;
+                margin-bottom: 35px;
+            }
         }
     }
     .top {
@@ -149,6 +160,9 @@
                     font-weight: bold;
                     line-height: 1.5;
                     display: block;
+                    @include sp {
+                        font-size: 18px;
+                    }
                 }
             }
         }
@@ -166,13 +180,23 @@
                 background: #fff;
                 margin-bottom: 30px;
                 padding: 20px;
+                @include sp {
+                    flex-direction: column-reverse;
+                }
                 div {
                     width: 60%;
+                    @include sp {
+                        width: 100%;
+                        margin-bottom: 15px;
+                    }
                     dt {
                         font-size: 20px;
                         font-weight: bold;
                         line-height: 1.5;
                         margin-bottom: 30px;
+                        @include sp {
+                            margin-bottom: 10px;
+                        }
                     }
                     dd {
                         font-size: 16px;
@@ -182,6 +206,9 @@
                 img {
                     width: 300px;
                     height: auto;
+                    @include sp {
+                        width: 100%;
+                    }
                 }
             }
         }
@@ -201,6 +228,9 @@
                     font-size: 20px;
                     font-weight: bold;
                     line-height: 1.5;
+                    @include sp {
+                        font-size: 16px;
+                    }
                     i {
                         font-size: 28px;
                         margin-right: 10px;
@@ -215,25 +245,44 @@
         }
     }
     .schedule {
+        background: #f5f5f5;
         .contents-wrap {
             width: 70%;
             margin: 0 auto;
-            background: grey;
             padding: 10px;
+            border: 5px solid #000;
+            border-radius: 10px;
+            @include sp {
+                width: 100%;
+            }
             ul {
                 line-height: 2;
                 list-style-position: inside;
                 font-size: 20px;
+                @include sp {
+                    font-size: 16px;
+                }
             }
         }
     }
     .profile {
+        background: $main_color;
         .row {
+            background: #ffffff;
+            border: 5px solid #000;
+            border-radius: 10px;
+            padding: 25px 20px;
             align-items: center;
             justify-content: space-between;
+            @include sp {
+                flex-direction: column;
+            }
             > div {
                 width: 48%;
                 padding: 0;
+                @include sp {
+                    width: 100%;
+                }
             }
             .contents-wrap {
                 dl {
@@ -255,6 +304,31 @@
                     }
                 }
 
+            }
+        }
+    }
+    .credit {
+        .section-wrap {
+            width: 70%;
+            margin: 0 auto;
+            border: 5px solid #000;
+            border-radius: 10px;
+            padding: 20px 35px;
+            @include sp {
+                width: 80%;
+            }
+            ol {
+                line-height: 2;
+                li {
+                    margin-bottom: 10px;
+                    dt {
+                        font-size: 20px;
+                        font-weight: bold;
+                    }
+                    dd {
+                        font-size: 16px;
+                    }
+                }
             }
         }
     }

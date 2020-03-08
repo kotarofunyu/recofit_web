@@ -17,6 +17,7 @@
         <section class="feature">
             <div class="section-wrap">
                 <h1>
+                    <%=icon("fas","laugh") %>
                     RecoFitの特徴
                 </h1>
                 <ul>
@@ -74,6 +75,7 @@
         <section class="faq">
             <div class="section-wrap">
                 <h1>
+                    <%=icon("fas", "question-circle") %>
                     よくある質問
                 </h1>
                 <ul id="qa">
@@ -135,6 +137,7 @@
         <section class="schedule">
             <div class="section-wrap">
                 <h1>
+                    <%=icon("fas","code")%>
                     今後の実装予定
                 </h1>
                 <div class="contents-wrap">
@@ -156,9 +159,10 @@
         </section>
         <section class="profile">
             <div class="section-wrap">
-            <h1>
-                開発者プロフィール
-            </h1>
+                <h1>
+                    <%=icon("fas","user") %>
+                    開発者プロフィール
+                </h1>
                 <div class="row">
                     <div class="img-wrap">
                         <%=image_tag('developer.jpeg') %>
@@ -193,33 +197,33 @@
             </div>
         </section>
         <section class="credit">
+            <h1>
+                <%=icon("fas","copyright") %>
+                クレジット
+            </h1>
             <div class="section-wrap">
-                <ul>
+                <ol>
+                    <% @credits = {
+                        "freepik" => "https://www.freepik.com/",
+                        "FLATICON" => "https://www.flaticon.com/"
+                        }
+                    %>
+                    <% @credits.each do |item| %>
                     <li>
                         <dl>
-                            <dt>Vector</dt>
+                            <dt>
+                                <%=item[0] %>
+                            </dt>
                             <dd>
-                                URL
+                                <a href="<%=item[1]%>">
+                                    <%=item[1] %>
+                                </a>
+
                             </dd>
                         </dl>
                     </li>
-                    <li>
-                        <dl>
-                            <dt>Vector</dt>
-                            <dd>
-                                URL
-                            </dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <dl>
-                            <dt>Vector</dt>
-                            <dd>
-                                URL
-                            </dd>
-                        </dl>
-                    </li>
-                </ul>
+                    <% end %>
+                </ol>
             </div>
         </section>
     </div>

@@ -138,9 +138,22 @@
   padding: 100px 0;
 }
 
+@media (max-width: 440px) {
+  .aboutPage section {
+    padding: 70px 0;
+  }
+}
+
 .aboutPage section .section-wrap {
   max-width: 1000px;
   margin: 0 auto;
+  padding: 0 50px;
+}
+
+@media (max-width: 440px) {
+  .aboutPage section .section-wrap {
+    padding: 0 20px;
+  }
 }
 
 .aboutPage section h1 {
@@ -148,6 +161,13 @@
   line-height: 1.5;
   text-align: center;
   margin-bottom: 60px;
+}
+
+@media (max-width: 440px) {
+  .aboutPage section h1 {
+    font-size: 25px;
+    margin-bottom: 35px;
+  }
 }
 
 .aboutPage .top h1 {
@@ -179,6 +199,12 @@
   display: block;
 }
 
+@media (max-width: 440px) {
+  .aboutPage .top .intro p span {
+    font-size: 18px;
+  }
+}
+
 .aboutPage .feature {
   background: orange;
 }
@@ -204,8 +230,24 @@
   padding: 20px;
 }
 
+@media (max-width: 440px) {
+  .aboutPage .feature ul li {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+}
+
 .aboutPage .feature ul li div {
   width: 60%;
+}
+
+@media (max-width: 440px) {
+  .aboutPage .feature ul li div {
+    width: 100%;
+    margin-bottom: 15px;
+  }
 }
 
 .aboutPage .feature ul li div dt {
@@ -213,6 +255,12 @@
   font-weight: bold;
   line-height: 1.5;
   margin-bottom: 30px;
+}
+
+@media (max-width: 440px) {
+  .aboutPage .feature ul li div dt {
+    margin-bottom: 10px;
+  }
 }
 
 .aboutPage .feature ul li div dd {
@@ -223,6 +271,12 @@
 .aboutPage .feature ul li img {
   width: 300px;
   height: auto;
+}
+
+@media (max-width: 440px) {
+  .aboutPage .feature ul li img {
+    width: 100%;
+  }
 }
 
 .aboutPage .faq ul {
@@ -251,6 +305,12 @@
   line-height: 1.5;
 }
 
+@media (max-width: 440px) {
+  .aboutPage .faq ul li dt {
+    font-size: 16px;
+  }
+}
+
 .aboutPage .faq ul li dt i {
   font-size: 28px;
   margin-right: 10px;
@@ -262,11 +322,22 @@
   line-height: 1.5;
 }
 
+.aboutPage .schedule {
+  background: #f5f5f5;
+}
+
 .aboutPage .schedule .contents-wrap {
   width: 70%;
   margin: 0 auto;
-  background: grey;
   padding: 10px;
+  border: 5px solid #000;
+  border-radius: 10px;
+}
+
+@media (max-width: 440px) {
+  .aboutPage .schedule .contents-wrap {
+    width: 100%;
+  }
 }
 
 .aboutPage .schedule .contents-wrap ul {
@@ -275,7 +346,21 @@
   font-size: 20px;
 }
 
+@media (max-width: 440px) {
+  .aboutPage .schedule .contents-wrap ul {
+    font-size: 16px;
+  }
+}
+
+.aboutPage .profile {
+  background: orange;
+}
+
 .aboutPage .profile .row {
+  background: #ffffff;
+  border: 5px solid #000;
+  border-radius: 10px;
+  padding: 25px 20px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -284,9 +369,24 @@
           justify-content: space-between;
 }
 
+@media (max-width: 440px) {
+  .aboutPage .profile .row {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
 .aboutPage .profile .row > div {
   width: 48%;
   padding: 0;
+}
+
+@media (max-width: 440px) {
+  .aboutPage .profile .row > div {
+    width: 100%;
+  }
 }
 
 .aboutPage .profile .row .contents-wrap dl {
@@ -310,5 +410,36 @@
 
 .aboutPage .profile .row .contents-wrap dl dd ul li {
   margin-bottom: 5px;
+}
+
+.aboutPage .credit .section-wrap {
+  width: 70%;
+  margin: 0 auto;
+  border: 5px solid #000;
+  border-radius: 10px;
+  padding: 20px 35px;
+}
+
+@media (max-width: 440px) {
+  .aboutPage .credit .section-wrap {
+    width: 80%;
+  }
+}
+
+.aboutPage .credit .section-wrap ol {
+  line-height: 2;
+}
+
+.aboutPage .credit .section-wrap ol li {
+  margin-bottom: 10px;
+}
+
+.aboutPage .credit .section-wrap ol li dt {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.aboutPage .credit .section-wrap ol li dd {
+  font-size: 16px;
 }
 /*# sourceMappingURL=home.css.map */
