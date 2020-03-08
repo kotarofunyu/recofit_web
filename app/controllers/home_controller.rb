@@ -4,6 +4,6 @@ class HomeController < ApplicationController
   end
 
   def about
-    render :layout => 'application'
+    render layout: 'application'
   end
 end

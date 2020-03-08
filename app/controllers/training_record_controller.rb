@@ -59,10 +59,10 @@ class TrainingRecordController < ApplicationController
   def destroy
     # 削除対象の記録を取得
     @record = TrainingRecord.find_by(id: params[:id])
+
     # 削除対象の記録を削除する
-    if @record.destroy
-      flash[:success] = '記録を削除しました'
-    end
+    flash[:success] = '記録を削除しました' if @record.destroy
+
     # 記録一覧へリダイレクトする
     redirect_to('/records')
   end
