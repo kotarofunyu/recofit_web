@@ -20,7 +20,7 @@ default: &default
 
 development:
   <<: *default
-  host: db
+  host: <%= ENV.fetch('DB_HOST') {db} %>
   database: recofit_development
 
 # Warning: The database defined as "test" will be erased and
