@@ -49,6 +49,7 @@ class TrainingRecordController < ApplicationController
       flash[:success] = '記録を編集しました'
       redirect_to('/records')
     else
+      flash[:danger] = '編集できませんでした。エラーを確認してください。'
       render 'edit'
     end
     # render plain: params.inspect
@@ -58,8 +59,10 @@ class TrainingRecordController < ApplicationController
   def destroy
     # 削除対象の記録を取得
     @record = TrainingRecord.find_by(id: params[:id])
+
     # 削除対象の記録を削除する
-    @record.destroy
+    flash[:success] = '記録を削除しました' if @record.destroy
+
     # 記録一覧へリダイレクトする
     redirect_to('/records')
   end
@@ -67,7 +70,7 @@ class TrainingRecordController < ApplicationController
   # 種目別の種目一覧ページ
   def eventindex
     @user_params = params[:user_id]
-    # @records = TrainingRecord.where(user_id: @user_params)
+    @user = User.find_by(id: @user_params)
     @records = Event.joins(:training_record).where(training_records: { user_id: @user_params }).select('events.name').distinct
   end
 

@@ -1,13 +1,18 @@
-<div class="wrapper event_index">
+<div class="wrapper userEventIndex">
+    <h1>
+        <%=@user.name%>の記録済みの種目一覧
+    </h1>
+    <p>
+        種目をクリックすると、その種目の記録が確認できます。
+    </p>
     <% if @records.present? %>
     <ul>
         <% @records.each do |record| %>
-        <li>
+        <li class="eventItem">
             <%=link_to "#{record.name}","/users/events/?user_id=#{@user_params}&event_name=#{record.name}"%>
         </li>
         <% end %>
     </ul>
-
     <% else %>
     <p>
         まだ種目はないようです。

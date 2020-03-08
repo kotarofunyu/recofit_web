@@ -3,10 +3,20 @@
         <div class="left-wrap">
             <div class="points">
                 <ul>
-                    <li>トレーニングを記録しよう</li>
-                    <li>SNSのように記録をシェア</li>
-                    <li>グラフで成長がわかりやすい</li>
-                    <li>種目別に成長がわかる</li>
+                    <%
+                @points = [
+                    "トレーニングを記録しよう",
+                    "SNSのように記録をシェア",
+                    "グラフで成長がわかりやすい",
+                    "種目別に成長がわかる"
+                ]
+                %>
+                    <% @points.each do |point| %>
+                    <li>
+                        <%=icon("fas","star") %>
+                        <%=point %>
+                    </li>
+                    <% end %>
                 </ul>
             </div>
             <div class="img-wrap">
@@ -18,10 +28,25 @@
                 <%= image_tag 'app_icon.png' %>RecoFit
             </div>
             <div class="button-wrap">
-                <%=link_to'ユーザー登録','/users/new' ,class:'button register'%>
+                <%=link_to'ユーザー登録','/users/new' ,class:'button register' %>
                 <%=link_to'ログイン','/login' ,class:'button login'%>
-                <%=link_to "テストユーザーログイン", "/test_login", method: :post,class:'testUser' %>
-                <%=link_to'とりあえずみんなの記録を見てみる','/records' ,class:'noLogin'%>
+                <ul>
+                    <li>
+                        <%=link_to "/test_login", method: :post,class:'testUser' do %>
+                        <%= icon("fas", "user-check") %>テストユーザーログイン
+                        <% end %>
+                    </li>
+                    <li>
+                        <%=link_to '/records' ,class:'noLogin' do %>
+                        <%= icon("fas", "clipboard-list") %>とりあえずみんなの記録を見てみる
+                        <% end %>
+                    </li>
+                    <li>
+                        <%=link_to '/about', class: 'aboutLink' do %>
+                        <%= icon("fas", "info-circle") %>RecoFitについて
+                        <% end %>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>

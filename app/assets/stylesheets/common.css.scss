@@ -1,9 +1,9 @@
 @import "./variables";
-$decoratedColor: #FCD997;
 
 .listItemDecorated {
-    background: $decoratedColor;
-    border: 1px solid $decoratedColor;
+    background: #fff;
+    border: 5px solid $main_color;
+    border-radius: 10px;
     box-shadow: rgba(0,0,0,0.3) 5px 5px 8px;
     list-style: none;
 }

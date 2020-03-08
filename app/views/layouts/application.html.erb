@@ -74,18 +74,22 @@
     </ul>
   </div>
   <% end %>
-  <% flash.each do |message_type, message| %>
-  <div class="alert alert-<%= message_type %>"><%= message %></div>
-  <% end %>
-  <% if flash[:notice] %>
-  <div class="flash">
-    <%= flash[:notice] %>
-  </div>
-  <% end %>
-  <div id="contents">
-    <%= yield %>
 
+  <% flash.each do |message_type, message| %>
+  <div id="alert" class="alert alert-<%= message_type %>">
+    <%= message %>
+    <%=icon("fas", "window-close")%>
   </div>
+  <% end %>
+
+  <% if logged_in %>
+  <div id="contents" class="master-wrap">
+    <% else %>
+    <div id="contents">
+      <% end %>
+      <%= yield %>
+
+    </div>
 </body>
 
 </html>

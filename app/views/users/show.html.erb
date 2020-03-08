@@ -12,12 +12,14 @@
                 <div class="userIntro">
                     <%= @user.introduction if @user.introduction? %>
                 </div>
+                <% if logged_in %>
                 <% if current_user.id === @user.id %>
                 <div class="edit">
                     <%=link_to "/users/#{@user.id}/edit" do %>
                     <%= icon("fas", "edit") %>
                     <% end %>
                 </div>
+                <% end %>
                 <% end %>
             </div>
         </div>
@@ -50,7 +52,8 @@
                 <li v-else-if="isActive === '2'">
                     <ul class="recordEvent">
                         <% @users_event.each do |event| %>
-                        <li><%=link_to "#{event.name}", "/users/events/?user_id=#{@user.id}&event_name=#{event.name}" %></li>
+                        <li><%=link_to "#{event.name}", "/users/events/?user_id=#{@user.id}&event_name=#{event.name}" %>
+                        </li>
                         <% end %>
                     </ul>
                 </li>

@@ -13,8 +13,16 @@
     <%= f.submit "ログイン", class: "btn btn-primary" %>
     <% end %>
     <ul class="other">
-      <li><%=link_to "テストユーザーはこちらからログイン", "/test_login", method: :post %></li>
-      <li>RecoFitを使ってフィットネスをより楽しくしませんか？ <%= link_to "ユーザー登録する", '/users/new' %></li>
+      <li>
+        <%=link_to "/test_login", method: :post do %>
+        <%= icon("fas", "user-check") %>テストユーザーで簡単ログイン
+        <% end %>
+      </li>
+      <li>
+        <%= link_to '/users/new' do %>
+        <%= icon("fas", "door-open") %>ユーザー登録する
+        <% end %>
+      </li>
     </ul>
   </div>
 </div>

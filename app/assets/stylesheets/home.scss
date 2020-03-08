@@ -42,7 +42,6 @@
                     padding: 100px 40px;
                 }
             }
-            
         }
     }
 }
@@ -54,6 +53,9 @@
             font-size: 18px;
             font-weight: bold;
             line-height: 2;
+            i {
+                color: yellow;
+            }
         }
     }
 }
@@ -100,14 +102,26 @@
                 opacity: 0.8;
             }
         }
-        .testUser,
-        .noLogin {
-            text-decoration: none;
-            color: $main_color;
-            font-weight: bold;
-            font-size: 14px;
-            line-height: 1.5;
-            display: block;
+        ul {
+            list-style-type: none;
+            li {
+                a {
+                    text-decoration: none;
+                    color: #000;
+                    font-weight: bold;
+                    font-size: 14px;
+                    line-height: 2;
+                    display: block;
+                    i {
+                        width: 18px;
+                        margin-right: 5px;
+                        color: #F77200;
+                    }
+                }
+                &:hover {
+                    opacity: 0.5;
+                }
+            }
         }
     }
 }
@@ -117,6 +131,9 @@
 }
 
 .aboutPage {
+    > .wrapper {
+        width: 100% !important;
+    }
     section {
         padding: 100px 0;
         @include sp {
@@ -168,7 +185,6 @@
         }
     }
     .feature {
-        background: $main_color;
         ul {
             list-style-type: none;
             li {
@@ -266,12 +282,12 @@
         }
     }
     .profile {
-        background: $main_color;
         .row {
             background: #ffffff;
-            border: 5px solid #000;
+            border: 5px solid $main_color;
             border-radius: 10px;
             padding: 25px 20px;
+            display: flex;
             align-items: center;
             justify-content: space-between;
             @include sp {

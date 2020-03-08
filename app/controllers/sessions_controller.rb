@@ -23,12 +23,13 @@ class SessionsController < ApplicationController
   # ログアウト
   def destroy
     log_out
-    redirect_to('/records')
+    redirect_to('/')
   end
 
   # テストユーザーでログインする
   def test_login
     session[:user_id] = 1
+    flash[:notice] = 'テストユーザーでログインしました。'
     redirect_to('/records')
   end
 end
