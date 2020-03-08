@@ -88,7 +88,7 @@ $header_height: 65px;
     padding-top: 100px;
 }
 
-#contents {
+#contents.master-wrap {
     padding-left: 250px;
     @include sp {
         padding-left: 0;
@@ -130,8 +130,8 @@ header {
         display: flex;
         align-items: center;
         > .user_image {
-            width: auto;
-            height: 90%;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
         }
         .fa-angle-down {
@@ -159,7 +159,9 @@ header {
             }
         }
         .user_image {
-            width: 50px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
             margin-right: 5px;
             @include sp {
                 height: 90%;
@@ -218,19 +220,27 @@ header {
 
 // フラッシュメッセージ
 .alert {
-    width: 300px;
-    height: 50px;
+    width: 30%;
+    padding: 20px 10px;
     margin: 0 auto;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     background: rgba(255,165,0,0.7);
     font-weight: bold;
     font-size: 18px;
     position: fixed;
-    top: 0;
+    top: 80px;
     right: 0;
     left: 0;
+    @include sp {
+        width: 70%;
+    }
+    i {
+        cursor: pointer;
+        position: absolute;
+        right: 10px;
+    }
 }
 
 #side_menu {
@@ -252,7 +262,7 @@ header {
         padding: 0 15px 0px 25px;
         list-style: none;
         @include sp {
-            padding: 0 15px 0 15px;
+            padding: 0 10px 0 10px;
         }
         > li {
             padding: 25px 0;
@@ -267,6 +277,10 @@ header {
                 letter-spacing: 1px;
                 @include sp {
                     font-size: 14px;
+                }
+                i {
+                    width: 26px;
+                    text-align: center;
                 }
             }
         }

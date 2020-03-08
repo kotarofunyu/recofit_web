@@ -18,7 +18,9 @@
             justify-content: space-around;
         }
         img {
-            width: 80px;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
         }
         .profile {
             position: relative;
@@ -329,5 +331,12 @@
         color: #fff;
         font-size: 14px;
         box-shadow: 5px 5px 8px rgba(0,0,0,0.3);
+    }
+}
+
+.user {
+    > .wrapper {
+        max-width: 1000px;
+        width: 85%;
     }
 }
