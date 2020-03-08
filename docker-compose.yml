@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 services:
     # MySQL
     db:
@@ -13,7 +13,7 @@ services:
     # Rails
     app: &app_base
         build: .
-        command: bash -c 'rm -f tmp/pids/server.pid'
+        command: bash -c 'rm -f tmp/pids/server.pid && rails server'
         volumes:
             - .:/recofit
             - public-data:/recofit/public
@@ -23,6 +23,7 @@ services:
             - db
             - redis
         environment:
+            DB_HOST: db
             REDIS_HOST: redis
             REDIS_PORT: 6379
             WEBPACK_DEV_SERVER_HOST: webpack

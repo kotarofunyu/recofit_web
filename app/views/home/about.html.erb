@@ -1,0 +1,231 @@
+<div class="aboutPage">
+    <div class="wrapper">
+        <section class="top">
+            <div class="section-wrap">
+                <h1>
+                    <%=image_tag('app_icon.png') %>
+                    RecoFitについて
+                </h1>
+                <div class="intro">
+                    <p>
+                        <span>"フィットネスをより楽しんでほしい"</span>
+                        そんな想いから、RecoFitは誕生しました。
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section class="feature">
+            <div class="section-wrap">
+                <h1>
+                    <%=icon("fas","laugh") %>
+                    RecoFitの特徴
+                </h1>
+                <ul>
+                    <li>
+                        <%=image_tag('feature1.png') %>
+                        <div>
+                            <dl>
+                                <dt>
+                                    シェアできるSNS型フィットネス記録アプリ
+                                </dt>
+                                <dd>
+                                    <p>
+                                        フィットネスは複数人でも楽しめるもの。
+                                        他の人と記録をシェアして、よりモチベーションを高め、理想の自分に一歩近づける。
+                                    </p>
+                                </dd>
+                            </dl>
+                        </div>
+                    </li>
+                    <li>
+                        <%=image_tag('feature2.png') %>
+                        <div>
+                            <dl>
+                                <dt>
+                                    フィットネスを細かく記録
+                                </dt>
+                                <dd>
+                                    <p>
+                                        人によって、重量も違えば、１回のセットで行うレップ、そしてセット数も違う。
+                                        それぞれが正確に、漏れなく、記録できることにこだわりました。
+                                    </p>
+                                </dd>
+                            </dl>
+                        </div>
+                    </li>
+                    <li>
+                        <%=image_tag('feature3.png') %>
+                        <div>
+                            <dl>
+                                <dt>
+                                    グラフで成長を感じる
+                                </dt>
+                                <dd>
+                                    <p>
+                                        記録の数字だけを眺めていても、成長を感じることって難しい。
+                                        グラフなら、直感的に成長を感じられる。
+                                    </p>
+                                </dd>
+                            </dl>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class="faq">
+            <div class="section-wrap">
+                <h1>
+                    <%=icon("fas", "question-circle") %>
+                    よくある質問
+                </h1>
+                <ul id="qa">
+                    <li>
+                        <dl>
+                            <dt @click="toggle('1001')">
+                                <%=icon('fas','question') %>
+                                グラフ機能を使うにはどうすれば良いですか？
+                            </dt>
+                            <dd v-if="show_contents.indexOf('1001') >= 0">
+                                <p>
+                                    サイドバーの「種目別記録」をクリックし、種目名をクリックしてください。
+                                </p>
+                            </dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt @click="toggle('1002')">
+                                <%=icon('fas','question') %>
+                                グラフ機能を使うにはどうすれば良いですか？
+                            </dt>
+                            <dd v-if="show_contents.indexOf('1002') >= 0">
+                                <p>
+                                    サイドバーの「種目別記録」をクリックし、種目名をクリックしてください。
+                                </p>
+                            </dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt @click="toggle('1003')">
+                                <%=icon('fas','question') %>
+                                セットを増やす方法はありますか？
+                            </dt>
+                            <dd v-if="show_contents.indexOf('1003') >= 0">
+                                <p>
+                                    セット記録フォームの下に「＋」アイコンがあるのでそちらをクリックすると入力蘭が増えます。
+                                </p>
+                            </dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt @click="toggle('1004')">
+                                <%=icon('fas','question') %>
+                                記録するときに、種目を増やす方法はありますか？
+                            </dt>
+                            <dd v-if="show_contents.indexOf('1004') >= 0">
+                                <p>
+                                    フォームの「種目を追加」をクリックすると増やすことができます。
+                                </p>
+                            </dd>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class="schedule">
+            <div class="section-wrap">
+                <h1>
+                    <%=icon("fas","code")%>
+                    今後の実装予定
+                </h1>
+                <div class="contents-wrap">
+                    <ul>
+                        <% @things = [
+                "ソーシャルログイン機能",
+                "記録のExcelエクスポート機能",
+                "体重記録機能",
+                "体脂肪率記録機能",
+                "マクロ栄養素計算機"
+                ]
+            %>
+                        <% @things.each do |thing| %>
+                        <li><%=thing %></li>
+                        <% end %>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="profile">
+            <div class="section-wrap">
+                <h1>
+                    <%=icon("fas","user") %>
+                    開発者プロフィール
+                </h1>
+                <div class="row">
+                    <div class="img-wrap">
+                        <%=image_tag('developer.jpeg') %>
+                    </div>
+                    <div class="contents-wrap">
+                        <dl>
+                            <dt>名前</dt>
+                            <dd>Kotaro</dd>
+                        </dl>
+                        <dl>
+                            <dt>経歴</dt>
+                            <dd>
+                                <ul>
+                                    <% @histories = [
+                                            "2016.4  早稲田大学入学",
+                                            "2019.2  PHPでプログラミング学習を開始。配列で挫折。",
+                                            "2019.3  早大を休学しエンジニアインターンを開始",
+                                            "2019.4  筋トレに目醒める",
+                                            "2019.6  フリーランスWebコーダーとして活動開始",
+                                            "2019.12  RecoFitの開発を開始",
+                                            "現在  新卒就活中(21卒) && RecoFitを継続開発中"
+                                        ]
+                                    %>
+                                    <% @histories.each do |item| %>
+                                    <li><%=item %></li>
+                                    <% end %>
+                                </ul>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="credit">
+            <h1>
+                <%=icon("fas","copyright") %>
+                クレジット
+            </h1>
+            <div class="section-wrap">
+                <ol>
+                    <% @credits = {
+                        "freepik" => "https://www.freepik.com/",
+                        "FLATICON" => "https://www.flaticon.com/"
+                        }
+                    %>
+                    <% @credits.each do |item| %>
+                    <li>
+                        <dl>
+                            <dt>
+                                <%=item[0] %>
+                            </dt>
+                            <dd>
+                                <a href="<%=item[1]%>">
+                                    <%=item[1] %>
+                                </a>
+
+                            </dd>
+                        </dl>
+                    </li>
+                    <% end %>
+                </ol>
+            </div>
+        </section>
+    </div>
+</div>
+<%= javascript_pack_tag 'faq.js' %>
