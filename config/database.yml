@@ -17,10 +17,11 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
   password: kota1171997117
-  host: db
+  # host: <%= ENV{'DB_HOST'} %>
 
 development:
   <<: *default
+  host: db
   database: recofit_development
 
 # Warning: The database defined as "test" will be erased and
