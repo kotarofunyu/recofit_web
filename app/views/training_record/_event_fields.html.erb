@@ -1,18 +1,13 @@
 <div class="nested-fields event_fields">
-    <dl class="event_item">
-        <dt class="event_item_title">
-            <strong>種目</strong>
-            <%= link_to_remove_association f do %>
-            <%= icon("fas", "minus-circle") %>
-            <% end %>
-        </dt>
-        <dd class="event_item_data">
+    <div class="event_item">
+        <%= link_to_remove_association f do %>
+        <%= icon("fas", "trash-alt") %>
+        <% end %>
+        <div id="eventItem" class="event_item_data" include="form-input-select()">
             <%= f.collection_select :name, MenuName.all, :name, :name,:prompt => "種目を選択する" %>
-            <%= f.select :part,[["大胸筋","大胸筋"],["広背筋","広背筋"],["腹直筋","腹直筋"],["大腿四頭筋","大腿四頭筋"],["上腕三頭筋","上腕三頭筋"],["上腕二頭筋","上腕二頭筋"]],:prompt => "部位を選択" %>
-            <%= icon("fas","info-circle") %>
             <%= f.fields_for :set_datum do |i| %>
             <table>
-                <tr>
+                <tr class="titles">
                     <th></th>
                     <td>重量</td>
                     <td>レップ数</td>
@@ -26,6 +21,6 @@
                 <%= icon("fas","plus-circle") %>
                 <% end %>
             </div>
-        </dd>
-    </dl>
+        </div>
+    </div>
 </div>

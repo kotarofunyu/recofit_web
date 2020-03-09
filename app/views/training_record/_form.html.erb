@@ -1,37 +1,24 @@
 <%= form_for(@record,:url => {:controller => :training_record, :action => :create},local: true, html:{id:'form'}) do |f| %>
 <%= render 'shared/errors', object: @record %>
 <%= f.text_area :comment, :placeholder => "今日のトレーニングはどうだった？" ,'v-model'=>'comment' %>
-<div class="commentCounter" v-bind:class="{warning : commentCount > 100}">
+<div class="commentCounter" v-bind:class="{warning : commentCount > 100}" v-cloak>
     文字数 {{ commentCount }}/100
 </div>
 <%= f.fields_for :event do |i| %>
 <%= render 'event_fields', f: i %>
 <% end %>
 
-<div class="links">
-    <%= link_to_add_association "種目を追加", f, :event %>
+<div class="links eventAdd">
+    <%= link_to_add_association f, :event do %>
+        <%=icon("fas","plus") %>種目を追加
+    <% end %>
 </div>
 <div class="register_picture">
     <%= f.label :picture, class: "label" do %>
-    <%= icon("far", "image") %>
+    <%= icon("far", "image") %>画像を追加
     <%= f.file_field :picture, class: "register_picture_button" %>
     <% end %>
 </div>
 <%= f.submit "記録する" %>
 <% end %>
-
-<% #リストにない種目の登録フォーム（クリックでモーダル表示)　%>
-<div class="modal register_nonexist_event">
-    <div class="modalBg"></div>
-    <div class="modalContents">
-        <dl>
-            <dt>
-                記録したい種目がない場合は登録することができます。
-            </dt>
-            <dd>
-
-            </dd>
-        </dl>
-    </div>
-</div>
 <%= javascript_pack_tag 'textareaCounter.js' %>

@@ -1,23 +1,24 @@
 <div class="wrapper">
-<div id="index">
-    <% if logged_in %>
-    <% #記録登録フォーム　%>
-    <section class="register">
-        <div class="register_record">
-            <div class="record_form">
-                <%= render 'form' %>
+    <div id="index">
+        <% if logged_in %>
+        <% #記録登録フォーム　%>
+        <section class="register">
+            <div class="register_record">
+                <div class="record_form">
+                    <%= render 'form' %>
+                </div>
             </div>
-        </div>
-    </section>
-    <% end %>
+        </section>
+        <% end %>
 
-    <% #記録一覧表示　%>
-    <section>
-        <div class="record_index">
-            <ul class="record_list">
-                <%= render partial: 'shared/record', collection: @records %>
-            </ul>
-        </div>
-    </section>
+        <% #記録一覧表示　%>
+        <section>
+            <div class="record_index">
+                <ul class="record_list">
+                    <%= render partial: 'shared/record', collection: @records %>
+                </ul>
+            </div>
+        </section>
+    </div>
 </div>
-</div>
+

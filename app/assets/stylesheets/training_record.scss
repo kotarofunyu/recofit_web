@@ -138,9 +138,35 @@ i {
     }
     .links {
         margin-top: 10px;
+        a {
+            color: $main_color;
+            text-decoration: none;
+            i {
+                color: $main_color;
+                margin-right: 10px;
+            }
+        }
+        &.eventAdd {
+            margin: 15px 0;
+            font-size: 14px;
+            i {
+                width: 40px;
+                text-align: center;
+            }
+        }
     }
     .register_picture {
         margin-top: 5px;
+        .label {
+            display: flex;
+            align-items: center;
+            color: $main_color;
+            font-size: 14px;
+            i {
+                margin-right: 10px;
+                color: $main_color;
+            }
+        }
     }
         textarea {
             width: 100%;
@@ -149,6 +175,7 @@ i {
             font-size: 16px;
             padding: 6px;
             resize: none;
+            border-radius: 5px;
         }
         div.commentCounter {
             font-size: 14px;
@@ -175,23 +202,26 @@ i {
             display: none;
         }
         .fa-image {
-            font-size: 45px;
+            font-size: 40px;
             cursor: pointer;
         }
 }
 
 .event_fields {
-        dl {
+        .event_item {
             border: 1px solid #ECF0F2;
             margin-top: 20px;
-            dt {
-                font-size: 16px;
-                padding: 10px;
+            position: relative;
+            > a {
+                position: absolute;
+                bottom: 10px;
+                right: 10px;
             }
-            dd {
+            .event_item_data {
                 font-size: 16px;
-                background: #ECF0F2;
-                padding: 15px 10px;
+                padding: 20px 25px;
+                background: #fff;
+                border: 5px ridge $main_color;
                 select {
                     outline:none;
                     -moz-appearance: none;
@@ -199,8 +229,9 @@ i {
                     text-overflow: '';
                     background: none transparent;
                     vertical-align: middle;
-                    font-size: 13px;
-                    color: inherit;
+                    color: #000;
+                    font-weight: bold;
+                    font-size: 15px;
                     -webkit-appearance: button;
                     -moz-appearance: button;
                     appearance: button;
@@ -209,9 +240,8 @@ i {
                     -moz-appearance: none;
                     height: 45px;
                     padding: 3px 12px;
-                    border:1px solid #ddd;
-                    color:#828c9a;
-                    width:40%;
+                    border:1px solid $main_color;
+                    width:80%;
                     border-radius:3px;
                 }
                 input[type="number"] {
@@ -220,9 +250,29 @@ i {
                     margin-right: 15px;
                     padding: 5px;
                     font-size: 14px;
+                    border:1px solid $main_color;
                 }
                 table {
                     margin-top: 15px;
+                    .titles {
+                        height: 25px;
+                        font-size: 14px;
+                        font-weight: bold;
+                    }
+                }
+                .set_datum_fields {
+                    height: 40px;
+                    i {
+                        opacity: 0;
+                        transition: 0.3s;
+                        color: $main_color;
+                    }
+                    &:hover {
+                        i {
+                            opacity: 1;
+                            transition: 0.3s;
+                        }
+                    }
                 }
             }
         }
@@ -377,4 +427,7 @@ i.fa-info-circle {
     }
 }
 
+[v-cloak] {
+    display: none;
+}
 
