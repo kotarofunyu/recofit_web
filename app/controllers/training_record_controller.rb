@@ -3,8 +3,8 @@ class TrainingRecordController < ApplicationController
   def index
     # 新規作成
     @record = TrainingRecord.new
-    recordEvent = @record.event.build
-    recordEvent.set_datum.build
+    record_event = @record.event.build
+    record_event.set_datum.build
 
     # 全ての投稿を取得して、作成日昇順でソートする
     @records = TrainingRecord.all.includes(:event).order(created_at: 'DESC')
@@ -46,10 +46,10 @@ class TrainingRecordController < ApplicationController
     @record = TrainingRecord.find_by(id: params[:id])
 
     # 未ログイン、もしくは他ユーザーの投稿編集を禁止
-    if !logged_in || current_user.id != @record.user_id
-      flash[:danger] = "他のユーザーの記録を編集することはできません。"
-      redirect_to("/records")
-    end
+    return if !logged_in || current_user.id != @record.user_id
+
+    flash[:danger] = '他のユーザーの記録を編集することはできません。'
+    redirect_to('/records')
   end
 
   # 編集を更新
@@ -69,14 +69,13 @@ class TrainingRecordController < ApplicationController
     # 削除対象の記録を取得
     @record = TrainingRecord.find_by(id: params[:id])
 
-    if logged_in && current_user.id === @record.user_id
+    if logged_in && current_user.id == @record.user_id
       @record.destroy
       flash[:success] = '記録を削除しました。'
-      redirect_to("/records")
     else
       flash[:danger] = '他ユーザーの記録削除は禁止です。'
-      redirect_to("/records")
     end
+    redirect_to('/records')
   end
 
   # 種目別の種目一覧ページ
