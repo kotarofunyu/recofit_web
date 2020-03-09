@@ -85,7 +85,8 @@ $icon_color: #000;
     > ul {
         list-style: none;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
+        flex-wrap: wrap;
         @include sp {
             flex-direction: row;
             flex-wrap: wrap;
