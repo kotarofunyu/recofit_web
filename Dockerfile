@@ -25,8 +25,5 @@ RUN mkdir -p $APP_ROOT/tmp/sockets
 ADD ./launch.sh $APP_ROOT/launch.sh
 RUN chmod +x $APP_ROOT/launch.sh
 
-# ここでコンパイルしてしまう（容量も大したことないので）
-RUN ["rake","assets:precompile"]
-
 VOLUME /recofit/public
 VOLUME /recofit/tmp
