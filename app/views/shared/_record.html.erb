@@ -4,15 +4,15 @@
             <% user_id = record.user_id %>
             <% user = User.find_by(id: user_id) %>
             <% if user.picture.present? %>
-            <%=link_to "/users/#{user_id}" do %>
-            <%= image_tag user.picture.url, class:"user_image" %>
-            <%= user.name %>
-            <% end %>
+                <%=link_to "/users/#{user_id}" do %>
+                    <%= image_tag user.picture.url, class:"user_image" %>
+                        <%= user.name %>
+                <% end %>
             <% else %>
-            <%= link_to "/users/#{user_id}" do %>
-            <%= image_tag ('noicon.png'), class:"user_image" %>
-            <%= user.name %>
-            <% end %>
+                <%= link_to "/users/#{user_id}" do %>
+                    <%= image_tag ('noicon.png'), class:"user_image" %>
+                    <%= user.name %>
+                <% end %>
             <% end %>
         </dt>
         <dd class="date"><%= time_ago_in_words(record.created_at) %>前</dd>
@@ -29,11 +29,11 @@
                         <dt><%= link_to "#{item.name}", "/records/event/#{item.name}" %></dt>
                         <dd>
                             <% item.set_datum.each do |set| %>
-                            <ul class="set_list">
-                                <li><%= set.weight %>kg</li>
-                                <li><%= set.rep %>レップ</li>
-                                <li><%= set.set %>セット</li>
-                            </ul>
+                                <ul class="set_list">
+                                    <li><%= set.weight %>kg</li>
+                                    <li><%= set.rep %>レップ</li>
+                                    <li><%= set.set %>セット</li>
+                                </ul>
                             <% end %>
                         </dd>
                     </dl>
@@ -49,17 +49,15 @@
     </div>
     <div class="buttons">
         <%=link_to "/records/#{record.id}" do %>
-        <%= icon("fas", "external-link-alt") %>
+            <%= icon("fas", "external-link-alt") %>
         <% end %>
-        <% if logged_in %>
-        <% if current_user.id == record.user_id %>
-        <%= link_to "/records/#{record.id}/edit" do %>
-        <%= icon("fas", "pen") %>
-        <% end %>
-        <%= link_to "/records/#{record.id}", method: :delete, data: { confirm: "本当に削除しますか？"} do %>
-        <%= icon("fas", "trash") %>
-        <% end %>
-        <% end %>
+        <% if logged_in && current_user.id == record.user_id %>
+            <%= link_to "/records/#{record.id}/edit" do %>
+                <%= icon("fas", "pen") %>
+            <% end %>
+            <%= link_to "/records/#{record.id}", method: :delete, data: { confirm: "本当に削除しますか？"} do %>
+                <%= icon("fas", "trash") %>
+            <% end %>
         <% end %>
     </div>
 </li>

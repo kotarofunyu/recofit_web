@@ -130,7 +130,8 @@ i {
     color: $icon_color;
 }
 
-.record_form {
+.record_form,
+.edit_training_record {
     width: 600px;
     margin: 0 auto 50px;
     @include sp {
@@ -149,6 +150,9 @@ i {
         &.eventAdd {
             margin: 15px 0;
             font-size: 14px;
+            @include sp {
+                font-size: 13px;
+            }
             i {
                 width: 40px;
                 text-align: center;
@@ -216,6 +220,11 @@ i {
                 position: absolute;
                 bottom: 10px;
                 right: 10px;
+                > i {
+                    opacity: 0;
+                    transition: 0.3s;
+                    color: $main_color;
+                }
             }
             .event_item_data {
                 font-size: 16px;
@@ -243,6 +252,11 @@ i {
                     border:1px solid $main_color;
                     width:80%;
                     border-radius:3px;
+                    @include sp {
+                        width: 100%;
+                        font-size: 12px;
+                        padding: 3px 5px;
+                    }
                 }
                 input[type="number"] {
                     width: 60px;
@@ -258,6 +272,10 @@ i {
                         height: 25px;
                         font-size: 14px;
                         font-weight: bold;
+                        @include sp {
+                            font-size: 12px;
+                            height: 15px;
+                        }
                     }
                 }
                 .set_datum_fields {
@@ -275,6 +293,17 @@ i {
                     }
                 }
             }
+        }
+        &:hover {
+            .event_item {
+                > a{
+                    i {
+                        opacity: 1;
+                        transition: 0.3s;
+                    }
+                }
+            }
+
         }
 }
 

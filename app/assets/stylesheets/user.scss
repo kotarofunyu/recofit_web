@@ -76,13 +76,16 @@
                 position: relative;
                 z-index: 1;
                 @include sp {
-                    width: 80%;
+                    width: 100%;
                     align-items: flex-start;
                 }
                 .user_img {
-                    width: 20%;
                     img {
-                        width: 100%;
+                        width: 75px;
+                        height: 75px;
+                        @include sp {
+
+                        }
                     }
                 }
                 .user_info {
