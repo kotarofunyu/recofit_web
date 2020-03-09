@@ -1,7 +1,7 @@
 # 本番環境のコンテナスタート時に以下を実行
 
-# DBマイグレーション
-rails db:migrate
+# Production環境へのDBマイグレーション
+rails db:migrate RAILS_ENV=production
 
-# サーバー起動
+# Productionモードでサーバー起動
 rails server -e production
