@@ -235,7 +235,7 @@ GEM
     fog-voxel (0.1.0)
       fog-core
       fog-xml
-    fog-vsphere (3.2.3)
+    fog-vsphere (3.2.5)
       fog-core
       rbvmomi (>= 1.9, < 3)
     fog-xenserver (1.0.0)
@@ -290,7 +290,7 @@ GEM
     mysql2 (0.5.3)
     netrc (0.11.0)
     nio4r (2.5.2)
-    nokogiri (1.10.8)
+    nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
     optimist (3.0.0)
     ovirt-engine-sdk (4.3.0)
@@ -471,6 +471,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   fog (= 1.42)
   fog-aws
+  fog-vsphere (= 3.2.5)
   font-awesome-sass
   jbuilder (~> 2.5)
   jquery-rails
