@@ -46,7 +46,7 @@ class TrainingRecordController < ApplicationController
     @record = TrainingRecord.find_by(id: params[:id])
 
     # 未ログイン、もしくは他ユーザーの投稿編集を禁止
-    return if !logged_in || current_user.id != @record.user_id
+    return unless !logged_in || current_user.id != @record.user_id
 
     flash[:danger] = '他のユーザーの記録を編集することはできません。'
     redirect_to('/records')
