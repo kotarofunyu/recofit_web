@@ -1,8 +1,17 @@
 <div class="wrapper">
     <div class="record_detail listItemDecorated">
         <h1>
-            <% user = User.find_by(id: @record.user_id) %>
-            <%= user.name %>
+         <% if @user.picture.present? %>
+            <%=link_to "/users/#{@user_id}" do %>
+            <%= image_tag @user.picture.url, class:"user_image" %>
+            <%= @user.name %>
+            <% end %>
+            <% else %>
+            <%= link_to "/users/#{@user_id}" do %>
+            <%= image_tag ('noicon.png'), class:"user_image" %>
+            <%= @user.name %>
+            <% end %>
+            <% end %>
         </h1>
 
         <div class="comment">

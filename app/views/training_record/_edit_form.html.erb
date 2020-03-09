@@ -5,12 +5,14 @@
 <%= render 'event_fields', f: i %>
 <% end %>
 
-<div class="links">
-    <%= link_to_add_association "種目を追加", f, :event %>
+<div class="links eventAdd">
+    <%= link_to_add_association f, :event do %>
+        <%=icon("fas","plus") %>種目を追加
+    <% end %>
 </div>
 <div class="register_picture">
     <%= f.label :picture, class: "label" do %>
-    <%= icon("far", "image") %>
+    <%= icon("far", "image") %>画像を追加
     <%= f.file_field :picture, class: "register_picture_button" %>
     <% end %>
 </div>
