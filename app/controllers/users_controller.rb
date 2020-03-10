@@ -32,6 +32,7 @@ class UsersController < ApplicationController
         end
     end
 
+    # 種目
     def event
         @name_params = params[:event_name]
         @user_id = params[:user_id]

@@ -26,7 +26,6 @@ class TrainingRecordController < ApplicationController
       flash[:success] = '投稿しました！'
       redirect_to('/records')
     else
-      @record = TrainingRecord.new(create_training_record_params)
       render 'index'
     end
   end

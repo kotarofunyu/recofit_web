@@ -10,8 +10,7 @@
         </div>
         <ul>
             <% @records.each do |record| %>
-            <% nameitem = record.event.where(name: @name_params) %>
-            <% nameitem.each do |item| %>
+            <% record.event.each do |item| %>
             <li class="listItemDecorated">
                 <dl>
                     <dt><%= item.created_at.to_s(:date) %>の記録</dt>
