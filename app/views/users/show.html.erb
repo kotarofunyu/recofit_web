@@ -39,26 +39,35 @@
                 <li class="button" v-bind:class="{active : isActive === '3'}">
                     <label for="tab3">
                         <input type="radio" id="tab3" name="tab" value="3" v-model="isActive">
-                        その他
+                        メディア
                     </label>
                 </li>
             </ul>
             <ul class="items">
-                <li v-if="isActive === '1'">
+                <li class="userRecordIndex" v-if="isActive === '1'">
                     <ul class="recordIndex">
                         <%= render partial: 'shared/record', collection: @records %>
                     </ul>
                 </li>
-                <li v-else-if="isActive === '2'">
-                    <ul class="recordEvent">
+                <li class="userEventItem" v-else-if="isActive === '2'">
+                    <ul class="recordEvent eventItemList">
                         <% @users_event.each do |event| %>
-                        <li><%=link_to "#{event.name}", "/users/events/?user_id=#{@user.id}&event_name=#{event.name}" %>
+                        <li class="eventItem">
+                            <%=link_to "#{event.name}", "/users/events/?user_id=#{@user.id}&event_name=#{event.name}" %>
                         </li>
                         <% end %>
                     </ul>
                 </li>
-                <li v-else-if="isActive === '3'">
-                    <p>その他</p>
+                <li class="userMedia" v-else-if="isActive === '3'">
+                    <ul>
+                        <% @records.each do |record| %>
+                        <% if record.picture.present? %>
+                        <li>
+                            <%=image_tag record.picture.url %>
+                        </li>
+                        <% end %>
+                        <% end %>
+                    </ul>
                 </li>
             </ul>
         </div>
