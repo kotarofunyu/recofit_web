@@ -17,6 +17,9 @@
 // 共通変数を宣言しているファイルをロードする
 @import "./variables";
 
+// アニメーション
+@import "./animation";
+
 //  FontAwesomeをロードする
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
@@ -246,6 +249,11 @@ header {
     top: 80px;
     right: 0;
     left: 0;
+    animation-name: alertFadeOut;
+    animation-duration: 4s;
+    animation-delay: 0s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
     @include sp {
         width: 90%;
         font-size: 16px;
