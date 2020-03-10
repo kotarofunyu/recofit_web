@@ -11,8 +11,11 @@
     @include sp {
         width: 90%;
     }
-    .user_info {
-        margin-bottom: 20px;
+    > .user_info {
+        margin-bottom: 50px;
+        @include sp {
+            margin-bottom: 30px;
+        }
         dl {
             display: flex;
             justify-content: space-around;
@@ -110,6 +113,17 @@
                     position: absolute;
                     bottom: 10px;
                     right: 10px;
+                    i {
+                        color: $main_color;
+                        opacity: 0;
+                        transition: 0.3s;
+                    }
+                }
+                &:hover {
+                    i {
+                        opacity: 1;
+                        transition: 0.3s;
+                    }
                 }
             }
         }
@@ -151,7 +165,8 @@
         .items {
             margin-top: 25px;
             list-style: none;
-            li {
+            > li {
+                padding: 0 12px;
                 transition: 1s;
                 > ul.recordIndex {
                     display: flex;
@@ -159,28 +174,30 @@
                     flex-wrap: wrap;
                     list-style: none;
                 }
-                >ul.recordEvent {
+            }
+            .userEventItem {
+                ul {
+                    li {
+                        @include sp {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+            .userMedia {
+                ul {
                     display: flex;
                     justify-content: space-between;
                     flex-wrap: wrap;
-                    list-style: none;
-                    > li {
+                    list-style-type: none;
+                    li {
                         width: 48%;
-                        border: 1px solid #000;
-                        text-align: center;
-                        padding: 15px;
-                        margin-bottom: 20px;
-                        .title {
-                            display: flex;
-                            justify-content: space-between;
-                            align-items: center;
-                            .username a {
-                                display: flex;
-                                align-items: center;
-                            }
+                        @include sp {
+                            width: 100%;
+                            margin-bottom: 15px;
                         }
-                        ol {
-                            list-style-position: inside;
+                        img {
+                            width: 100%;
                         }
                     }
                 }
@@ -205,7 +222,8 @@
             letter-spacing: 2px;
             margin: 0 0 50px 0;
             @include sp {
-                font-size: 20px;
+                font-size: 18px;
+                line-height: 1.5;
             }
         }
         > ul {
@@ -278,7 +296,7 @@
                 @include sp {
                     width: 100%;
                 }
-                > input {
+                input {
                     width: 250px;
                     height: 40px;
                     font-size: 16px;

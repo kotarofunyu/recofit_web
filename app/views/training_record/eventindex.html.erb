@@ -1,12 +1,12 @@
 <div class="wrapper userEventIndex">
     <h1>
-        <%=@user.name%>の記録済みの種目一覧
+        <%=@user.name%>の<br class="sp">記録済みの種目一覧
     </h1>
     <p>
-        種目をクリックすると、その種目の記録が確認できます。
+        種目をクリックすると、<br class="sp">その種目の記録が確認できます。
     </p>
     <% if @records.present? %>
-    <ul>
+    <ul class="eventItemList">
         <% @records.each do |record| %>
         <li class="eventItem">
             <%=link_to "#{record.name}","/users/events/?user_id=#{@user_params}&event_name=#{record.name}"%>

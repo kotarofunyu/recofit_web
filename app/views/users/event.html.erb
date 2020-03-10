@@ -1,6 +1,6 @@
 <div class="wrapper">
     <div class="userEvent">
-        <h1><%=@user.name %>の<%= @name_params %>の記録</h1>
+        <h1><%=@user.name %>の<br class="sp"><%= @name_params %>の記録</h1>
         <div id="chart">
             <div v-show="loading">グラフを生成しています...</div>
             <div v-show="!loading" class="chatwrap">

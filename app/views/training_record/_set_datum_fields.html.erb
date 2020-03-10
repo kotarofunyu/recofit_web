@@ -3,13 +3,13 @@
 
         </th>
         <td>
-            <%= f.number_field :weight, placeholder: "kg" %>
+            <%= f.number_field :weight, placeholder: "kg", "pattern"=>"\\d*" %>
         </td>
         <td>
-            <%= f.number_field :rep, placeholder: "(例)8" %>
+            <%= f.number_field :rep, placeholder: "(例)8", "pattern"=>"\\d*" %>
         </td>
         <td>
-            <%= f.number_field :set, placeholder: "(例)3" %>
+            <%= f.number_field :set, placeholder: "(例)3", "pattern"=>"\\d*" %>
         </td>
         <td>
             <%= link_to_remove_association f do %>

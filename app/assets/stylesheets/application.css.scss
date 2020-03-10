@@ -95,6 +95,13 @@ $header_height: 65px;
     }
 }
 
+.sp {
+    display: none;
+    @include sp {
+        display: block;
+    }
+}
+
 // エラー部分
 .errors {
     width: 100%;
@@ -133,6 +140,10 @@ header {
             width: 60px;
             height: 60px;
             border-radius: 50%;
+            @include sp {
+                width: 50px;
+                height: 50px;
+            }
         }
         .fa-angle-down {
             @include sp {
