@@ -10,6 +10,11 @@ AWSの各種サービス
 構成は以下  
 Elastic Container Service(ECS) + RDS + ElastiCache + ALB + Route53 + VPC  
 本番環境でもコンテナ基盤を使用
+
+**インフラ構成図**  
+  
+![recofitインフラ構成図](https://user-images.githubusercontent.com/58697518/76403251-fb101b80-63c7-11ea-88ee-c3f80e581844.png)  
+
   
 **バックエンド**  
 Ruby2.6.3    
