@@ -86,7 +86,9 @@ class TrainingRecordController < ApplicationController
 
   # 種目別の一覧ページ
   def event
-    @events = Event.where(name: params[:name]).order(created_at: 'DESC')
+    @event_name = params[:name]
+    @records = TrainingRecord.includes(:event).where(events: { name: @event_name })
+    @events = Event.where(name: @event_name).order(created_at: 'DESC')
   end
 
   # ストロングパラメーター

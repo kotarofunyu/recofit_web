@@ -63,25 +63,10 @@ $icon_color: #000;
         @include sp {
             width: 100%;
         }
-        a {
-            text-decoration: none;
-            color: #000000;
-            font-weight: bold;
-        }
-
     }
 }
 
 .userEventIndex {
-    h1 {
-        font-size: 25px;
-        text-align: center;
-        margin-bottom: 20px;
-        line-height: 1.5;
-        @include sp {
-            font-size: 20px;
-        }
-    }
     p {
         text-align: center;
         margin-bottom: 35px;
@@ -121,10 +106,6 @@ $icon_color: #000;
             }
         }
     }
-}
-
-i {
-    color: $icon_color;
 }
 
 .record_form,
@@ -322,74 +303,86 @@ i.fa-info-circle {
 }
 
 // モーダル
-.modalBg {
-    background: rgba(0,0,0,0.8);
-    height: 100vh;
-    position: absolute;
-    width: 100vw;
-    z-index: 8;
-}
+// .modalBg {
+//     background: rgba(0,0,0,0.8);
+//     height: 100vh;
+//     position: absolute;
+//     width: 100vw;
+//     z-index: 8;
+// }
 
-.modal {
-    display: none;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 6;
-    width: 100vw;
-}
+// .modal {
+//     display: none;
+//     height: 100vh;
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     z-index: 6;
+//     width: 100vw;
+// }
 
-.modal input[type="text"] {
-    outline:none;
-    -moz-appearance: none;
-    text-indent: 0.01px;
-    text-overflow: '';
-    background: none transparent;
-    vertical-align: middle;
-    font-size: 13px;
-    color: inherit;
-    -webkit-appearance: button;
-    -moz-appearance: button;
-    appearance: button;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    height: 45px;
-    padding: 3px 12px;
-    border:1px solid #ddd;
-    color:#828c9a;
-    width:100%;
-    margin-top: 20px;
-    border-radius:3px;
-}
+// .modal input[type="text"] {
+//     outline:none;
+//     -moz-appearance: none;
+//     text-indent: 0.01px;
+//     text-overflow: '';
+//     background: none transparent;
+//     vertical-align: middle;
+//     font-size: 13px;
+//     color: inherit;
+//     -webkit-appearance: button;
+//     -moz-appearance: button;
+//     appearance: button;
+//     appearance: none;
+//     -webkit-appearance: none;
+//     -moz-appearance: none;
+//     height: 45px;
+//     padding: 3px 12px;
+//     border:1px solid #ddd;
+//     color:#828c9a;
+//     width:100%;
+//     margin-top: 20px;
+//     border-radius:3px;
+// }
 
-.modalContents {
-    background: #ffffff;
-    top: 50%;
-    left: 50%;
-    position: absolute;
-    transform: translate(-50%,-50%);
-    width: 300px;
-    height: 300px;
-    z-index: 100;
-    padding: 20px;
-}
+// .modalContents {
+//     background: #ffffff;
+//     top: 50%;
+//     left: 50%;
+//     position: absolute;
+//     transform: translate(-50%,-50%);
+//     width: 300px;
+//     height: 300px;
+//     z-index: 100;
+//     padding: 20px;
+// }
 
+// ????
 .record_detail {
-    width: 600px;
+    max-width: 600px;
     margin: 0 auto;
     padding: 20px 15px;
     @include sp {
         width: 90%;
     }
-    .comment {
-        padding: 20px 0;
-        margin-bottom: 12px;
-        border-bottom: 1px solid #000;
-        line-height: 1.5;
+    &.record {
+        width: 60%;
+        @include sp {
+            width: 100%;
+        }
     }
-    .set
+    .user {
+        a {
+            display: flex;
+            align-items: center;
+            img {
+                max-width: 50px;
+                margin-right: 10px;
+            }
+        }
+    }
+    .set {
+        margin: 20px 0;
         > ol {
             padding-left: 15px;
             display: flex;
@@ -408,6 +401,7 @@ i.fa-info-circle {
                     }
             }
         }
+    }
     .set_list {
         display: flex;
         list-style: none;
@@ -418,6 +412,11 @@ i.fa-info-circle {
     .picture {
         img {
             width: 100%;
+        }
+    }
+    .buttons {
+        i {
+            margin-right: 15px;
         }
     }
 }

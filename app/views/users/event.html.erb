@@ -10,7 +10,8 @@
         </div>
         <ul>
             <% @records.each do |record| %>
-            <% record.event.each do |item| %>
+            <% nameitem = record.event.where(name: @name_params).distinct %>
+            <% nameitem.each do |item| %>
             <li class="listItemDecorated">
                 <dl>
                     <dt><%= item.created_at.to_s(:date) %>の記録</dt>
@@ -23,7 +24,9 @@
                     </dd>
                 </dl>
                 <% end %>
-                <%=link_to "親記録を見る", "/records/#{record.id}",class:"parentRecord" %>
+                <%=link_to "/records/#{record.id}",class:"parentRecord" do %>
+                    <%=icon("fas","external-link-alt") %>
+                <% end %>
             </li>
             <% end %>
         </ul>
