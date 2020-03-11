@@ -38,6 +38,7 @@ class UsersController < ApplicationController
         @user_id = params[:user_id]
         @user = User.find_by(id: @user_id)
         @records = TrainingRecord.joins(:event).where(user_id: @user_id, events: { name: @name_params })
+        @events = Event.includes(:training_record).where(events: {name: @name_params}, training_records: {user_id: @user_id})
     end
 
     def show

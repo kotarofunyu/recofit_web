@@ -24,7 +24,7 @@ import axios from 'axios'
                         data: this.data,
                         backgroundColor:'rgba(231,130,32,0.9)'
                     }]
-                  },
+                },
                 options: {
                     scales: {
                         yAxes: [
