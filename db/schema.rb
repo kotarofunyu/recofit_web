@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_24_115136) do
+ActiveRecord::Schema.define(version: 2020_03_11_114046) do
 
   create_table "events", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.string "name"
@@ -33,12 +33,13 @@ ActiveRecord::Schema.define(version: 2020_01_24_115136) do
   end
 
   create_table "set_data", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
-    t.integer "weight"
+    t.float "weight"
     t.integer "rep"
     t.integer "set"
     t.integer "event_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "main"
   end
 
   create_table "training_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
