@@ -30,7 +30,7 @@
                         <dd>
                             <% item.set_datum.each do |set| %>
                                 <ul class="set_list">
-                                    <li><%= weightInt(set.weight) %>kg</li>
+                                    <li><%= weight_change(set.weight) %>kg</li>
                                     <li><%= set.rep %>レップ</li>
                                     <li><%= set.set %>セット</li>
                                 </ul>

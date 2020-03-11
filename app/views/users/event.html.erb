@@ -17,7 +17,7 @@
                     <dd>
                         <ol>
                             <% item.set_datum.each do |set| %>
-                            <li><%= weightInt(set.weight) %> x <%= set.rep %> x <%= set.set %></li>
+                            <li><%= weight_change(set.weight) %> x <%= set.rep %> x <%= set.set %></li>
                             <% end %>
                         </ol>
                     </dd>
