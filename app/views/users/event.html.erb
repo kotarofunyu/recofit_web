@@ -4,8 +4,9 @@
         <div id="chart">
             <div v-show="loading">グラフを生成しています...</div>
             <div v-show="!loading" class="chatwrap">
-                <button @click="displayGraph">グラフ表示</button>
-                <canvas id="myChart"></canvas>
+                <div class="chart">
+                    <canvas id="myChart"></canvas>
+                </div>
             </div>
         </div>
         <ul>
@@ -25,7 +26,7 @@
                 </dl>
                 <% end %>
                 <%=link_to "/records/#{record.id}",class:"parentRecord" do %>
-                    <%=icon("fas","external-link-alt") %>
+                <%=icon("fas","external-link-alt") %>
                 <% end %>
             </li>
             <% end %>

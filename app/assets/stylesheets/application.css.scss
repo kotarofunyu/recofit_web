@@ -111,8 +111,12 @@ $header_height: 65px;
     background: #ffeac3;
     margin-bottom: 20px;
     padding: 10px;
+    strong {
+        line-height: 1.5;
+    }
     ul {
-        list-style: none;
+        margin-top: 15px;
+        list-style-position: inside;
         line-height: 1.5;
     }
 }

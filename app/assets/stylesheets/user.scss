@@ -231,6 +231,9 @@
             justify-content: space-between;
             flex-wrap: wrap;
             margin-top: 100px;
+            @include sp {
+                margin-top: 50px;
+            }
             > li {
                 width: 30%;
                 min-height: 200px;
@@ -356,5 +359,12 @@
     > .wrapper {
         max-width: 1000px;
         width: 85%;
+    }
+}
+
+.chart {
+    height: 400px;
+    @include sp {
+        height: 300px;
     }
 }
