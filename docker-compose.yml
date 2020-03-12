@@ -32,7 +32,7 @@ services:
     #Rails-webpacker
     webpack:
         <<: *app_base
-        command: bash -c 'rm -f tmp/pids/server.pid && && bundle update && bin/webpack-dev-server'
+        command: bash -c 'rm -f tmp/pids/server.pid && bin/webpack-dev-server'
         volumes:
             - .:/recofit
             - public-data:/recofit/public

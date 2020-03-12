@@ -10,7 +10,7 @@
 
 <div class="links eventAdd">
     <%= link_to_add_association f, :event do %>
-        <%=icon("fas","plus") %>種目を追加
+    <%=icon("fas","plus") %>種目を追加
     <% end %>
 </div>
 <div class="register_picture">
@@ -18,6 +18,9 @@
     <%= icon("far", "image") %>画像を追加
     <%= f.file_field :picture, class: "register_picture_button" %>
     <% end %>
+    <div class="preview">
+        <img src="" alt="" id="img_prev">
+    </div>
 </div>
 <%= f.submit "記録する" %>
 <% end %>

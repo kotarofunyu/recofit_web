@@ -10,7 +10,7 @@ ja:
           comment: "コメント"
         event:
           name: "種目名"
-        set_datum:
+        event/set_datum:
           weight: "重量"
           rep: "レップ"
           set: "セット"

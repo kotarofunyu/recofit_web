@@ -26,6 +26,7 @@ import axios from 'axios'
                     }]
                 },
                 options: {
+                    maintainAspectRatio: false,
                     scales: {
                         yAxes: [
                             {
