@@ -3,8 +3,9 @@
 
         </th>
         <td>
-            <%= f.number_field :weight, placeholder: "kg", "pattern"=>"\\d*", "step"=>"0.5" %>
+            <%= f.number_field :weight, placeholder: "kg", "step"=>"0.5" %>
         </td>
+        <% #pattern=\d*??????????????????????????????????? %>
         <td>
             <%= f.number_field :rep, placeholder: "(例)8", "pattern"=>"\\d*" %>
         </td>
