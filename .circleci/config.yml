@@ -48,8 +48,7 @@ workflows:
   version: 2
   test_and_deploy:
     jobs:
-      - test:
-          context: test
+      - test
       # dockerイメージのビルド & ECRへプッシュ
       - aws-ecr/build-and-push-image:
           # テストをパスしたら実行
