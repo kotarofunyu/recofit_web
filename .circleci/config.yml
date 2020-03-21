@@ -17,9 +17,9 @@ jobs:
           # RECOFIT_DB_PASSWORD: ${RECOFIT_DB_PASSWORD}
       - image: circleci/mysql:5.7
         environment:
-          # MYSQL_ROOT_PASSWORD: kota1171997117
+          MYSQL_ROOT_PASSWORD: kota1171997117
           # MYSQL_ROOT_PASSWORD: ${RECOFIT_DB_PASSWORD}
-          MYSQL_ALLOW_EMPTY_PASSWORD: yes
+          # MYSQL_ALLOW_EMPTY_PASSWORD: yes
           MYSQL_DATABASE: recofit_test
     working_directory: ~/repo
     steps:
