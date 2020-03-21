@@ -4,22 +4,22 @@ default: &default
   charset: utf8mb4
   collation: utf8mb4_bin
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  password: kota1171997117
+  host: <%= ENV['RECOFIT_DB_HOST'] %>
+  username: <%= ENV['RECOFIT_DB_USER'] %>
+  password: <%= ENV['RECOFIT_DB_PASSWORD'] %>
 
 development:
   <<: *default
-  host: <%= ENV['DB_HOST'] %>
   database: recofit_development
+  # host: <%= ENV['RECOFIT_DB_HOST'] %>
 
 test:
   <<: *default
   database: recofit_test
-  host: <%= ENV['DB_HOST']%>
 
 production:
   <<: *default
   database: recofit_production
-  host: <%= ENV['RECOFIT_DB_HOST'] %>
-  username: <%= ENV['RECOFIT_DB_USER'] %>
-  password: <%= ENV['RECOFIT_DB_PASSWORD'] %>
+  # host: <%= ENV['RECOFIT_DB_HOST'] %>
+  # username: <%= ENV['RECOFIT_DB_USER'] %>
+  # password: <%= ENV['RECOFIT_DB_PASSWORD'] %>
