@@ -14,7 +14,7 @@ jobs:
           # RECOFIT_DB_USER: root
           RECOFIT_DB_USER: ${RECOFIT_DB_USER}
           # RECOFIT_DB_PASSWORD: kota1171997117
-          # RECOFIT_DB_PASSWORD: ${RECOFIT_DB_PASSWORD}
+          RECOFIT_DB_PASSWORD: ${RECOFIT_DB_PASSWORD}
       - image: circleci/mysql:5.7
         environment:
           MYSQL_ROOT_PASSWORD: kota1171997117
