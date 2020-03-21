@@ -9,8 +9,8 @@ jobs:
       - image: circleci/ruby:2.6.3-node-browsers
         environment:
           RAILS_ENV: test
-          # RECOFIT_DB_HOST: 127.0.0.1
-          RECOFIT_DB_HOST: ${RECOFIT_DB_HOST}
+          RECOFIT_DB_HOST: 127.0.0.1
+          # RECOFIT_DB_HOST: ${RECOFIT_DB_HOST}
           # RECOFIT_DB_USER: root
           RECOFIT_DB_USER: ${RECOFIT_DB_USER}
           # RECOFIT_DB_PASSWORD: kota1171997117
