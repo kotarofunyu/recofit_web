@@ -17,7 +17,6 @@ jobs:
         environment:
           MYSQL_ROOT_PASSWORD: password
           # MYSQL_ROOT_PASSWORD: ${RECOFIT_DB_PASSWORD}
-          MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
           MYSQL_DATABASE: recofit_test
     working_directory: ~/repo
     steps:
