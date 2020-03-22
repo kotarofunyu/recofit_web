@@ -41,6 +41,9 @@ jobs:
           name: データベースのセットアップ
           command: bundle exec rake db:schema:load
       - run:
+          name: webpackerコンパイル
+          command: bin/webpack
+      - run:
           name: RSpecのテストを実行
           command: bundle exec rspec
       - run:
