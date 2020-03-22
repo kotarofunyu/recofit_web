@@ -23,7 +23,9 @@ services:
             - db
             - redis
         environment:
-            DB_HOST: db
+            RECOFIT_DB_HOST: ${RECOFIT_DB_HOST}
+            RECOFIT_DB_USER: ${RECOFIT_DB_USER}
+            RECOFIT_DB_PASSWORD: ${RECOFIT_DB_PASSWORD}
             REDIS_HOST: redis
             REDIS_PORT: 6379
             WEBPACK_DEV_SERVER_HOST: webpack
