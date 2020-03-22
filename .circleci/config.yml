@@ -35,11 +35,17 @@ jobs:
           paths: ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
       - run:
+          name: install dependencies
+          command: yarn
+      - run:
           name: データベースの起動を待機
           command: dockerize -wait tcp://127.0.0.1:3306 -timeout 1m
       - run:
           name: データベースのセットアップ
           command: bundle exec rake db:schema:load
+      - run:
+          name: webpackerコンパイル
+          command: bundle exec bin/webpack
       - run:
           name: RSpecのテストを実行
           command: bundle exec rspec
