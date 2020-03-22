@@ -9,10 +9,6 @@ jobs:
       - image: circleci/ruby:2.6.3-node-browsers
         environment:
           RAILS_ENV: test
-          # RECOFIT_DB_HOST: 127.0.0.1
-          # RECOFIT_DB_USER: root
-          # RECOFIT_DB_PASSWORD: password
-          # # RECOFIT_DB_PASSWORD: ${RECOFIT_DB_PASSWORD}
       - image: circleci/mysql:5.7
         environment:
           MYSQL_ROOT_PASSWORD: password

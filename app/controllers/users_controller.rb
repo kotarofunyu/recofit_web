@@ -37,7 +37,7 @@ class UsersController < ApplicationController
         @name_params = params[:event_name]
         @user_id = params[:user_id]
         @user = User.find_by(id: @user_id)
-        @records = TrainingRecord.joins(:event).where(user_id: @user_id, events: { name: @name_params })
+        @records = TrainingRecord.joins(:event).where(user_id: @user_id, events: { name: @name_params }).order(created_at: 'DESC')
     end
 
     def show
