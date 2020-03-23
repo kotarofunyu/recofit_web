@@ -9,7 +9,7 @@ RSpec.describe User, type: :model do
     it "is valid" do
       user = User.new(
         name: "testhogehoge",
-        email: "test@test.com",
+        email: "hogehoge@huga.com",
         password: "testpass"
       )
       expect(user).to be_valid

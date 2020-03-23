@@ -32,3 +32,5 @@ Style/ClassAndModuleChildren:
     Enabled: false
 Metrics/AbcSize:
     Enabled: false
+Style/MutableConstant:
+    Enabled: false
