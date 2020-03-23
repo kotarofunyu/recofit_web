@@ -5,7 +5,12 @@ RSpec.describe TrainingRecord, type: :model do
             comment: "comment",
             picture: "",
             event_attributes: [
-                name: "hogehoge"
+                name: "aaaa",
+                set_datum_attributes: [
+                    weight: 20,
+                    rep: 10,
+                    set: 1
+                ]
             ]
         )
         expect(record).to be_valid
