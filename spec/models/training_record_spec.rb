@@ -7,9 +7,9 @@ RSpec.describe TrainingRecord, type: :model do
             event_attributes: [
                 name: "aaaa",
                 set_datum_attributes: [
-                    weight: 20,
-                    rep: 10,
-                    set: 1
+                    weight: 2,
+                    rep: 2,
+                    set: 2
                 ]
             ]
         )
