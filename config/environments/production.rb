@@ -7,7 +7,7 @@ Rails.application.configure do
         db: 0,
         namespace: 'sessions'
       },
-      expire_in: 1.day
+      expire_in: 5.day
   # Code is not reloaded between requests.
   config.cache_classes = true
 
