@@ -77,20 +77,6 @@ class TrainingRecordController < ApplicationController
     redirect_to('/records')
   end
 
-  # 種目別の種目一覧ページ
-  def eventindex
-    @user_params = params[:user_id]
-    @user = User.find_by(id: @user_params)
-    @records = Event.joins(:training_record).where(training_records: { user_id: @user_params }).select('events.name').distinct
-  end
-
-  # 種目別の一覧ページ
-  def event
-    @event_name = params[:name]
-    @records = TrainingRecord.includes(:event).where(events: { name: @event_name }).order(created_at: 'DESC')
-    @events = Event.where(name: @event_name)
-  end
-
   # ストロングパラメーター
   private
 

@@ -2,11 +2,14 @@ Rails.application.routes.draw do
     get '/' => "home#top"
     get 'about' => "home#about"
 
+    get '/records/event/:name' => 'event#index'
+
+    get '/records/events/' => 'user_event#index'
+    get '/users/events/' => 'user_event#show'
+
     # 記録ここから
     get 'records' => 'training_record#index'
     post 'training_record/create' => 'training_record#create'
-    get '/records/event/:name' => 'training_record#event'
-    get '/records/events' => 'training_record#eventindex'
     get '/records/:id' => 'training_record#show'
     get '/records/:id/edit' => 'training_record#edit'
     patch '/records/:id/update' => 'training_record#update'
@@ -20,7 +23,6 @@ Rails.application.routes.draw do
     get '/users/' => 'users#index'
     get '/users/new' => 'users#new'
     post 'users/create' => 'users#create'
-    get '/users/events/' => 'users#event'
     get '/users/:id' => 'users#show'
     get '/users/:id/edit' => 'users#edit'
     patch '/users/:id/update' => 'users#update'
