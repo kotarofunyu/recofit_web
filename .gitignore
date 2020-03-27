@@ -29,6 +29,7 @@
 
 /public/assets
 /public/uploads
+/public/packs
 .byebug_history
 
 # Ignore master key for decrypting credentials and more.
@@ -40,3 +41,6 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+.env
+
