@@ -8,7 +8,73 @@
 
 User.create(
     [
-        {id: 2, name: "アーノルド", email: "test@test.com", password: "test"}
+        {id: 2, name: "アーノルド", email: "test@test.com", password: "test"},
+        {id: 3, name: "katsunori", email: "katsu@gmail.com", password: "katsu"},
+        {id: 4, name: "michel", email: "mk@gmail.com", password: "micheldayo"},
+        {id: 5, name: "拓海", email: "takumi@gmail.com", password: "taku"},
+        {id: 6, name: "lisa", email: "lisa@gmail.com", password: "lisa"}
+        # { name: "アーノルド", email: "test@test.com", password: "test" },
+        # { name: "katsunori", email: "katsu@gmail.com", password: "katsu" },
+        # { name: "michel", email: "mk@gmail.com", password: "micheldayo" },
+        # { name: "拓海", email: "takumi@gmail.com", password: "taku" },
+        # { name: "lisa", email: "lisa@gmail.com", password: "lisa" }
+    ]
+)
+
+TrainingRecord.create(
+    [
+        {
+            comment: "やばい疲れたw かなり追い込めたから明日やばそう、早めに寝るわ",
+            user_id: 3,
+            event_attributes:
+                [
+                    name: "ベンチプレス",
+                    set_datum_attributes: [
+                        weight: 92.5,
+                        rep: 10,
+                        set: 5
+                    ]
+                ]
+        },
+        {
+            comment: "背中のトレーニング、あんまり効いてる感じがしない。",
+            user_id: 4,
+            event_attributes:
+                [
+                    name: "懸垂(チンニング)",
+                    set_datum_attributes: [
+                        weight: 60,
+                        rep: 8,
+                        set: 3
+                    ]
+                ]
+        },
+        {
+            comment: "ダンベルローイングやばすぎ！！ カイトさんの動画がかなり分かりやすいのでおすすめ",
+            user_id: 5,
+            event_attributes:
+                [
+                    name: "ワンハンド・ダンベル・ローイング",
+                    set_datum_attributes: [
+                        weight: 45,
+                        rep: 10,
+                        set: 5
+                    ]
+                ]
+        },
+        {
+            comment: "ハンマーのマシンがバッチバチに入る(笑）",
+            user_id: 6,
+            event_attributes:
+                [
+                    name: "アイソラテラル・デクライン・プレス",
+                    set_datum_attributes: [
+                        weight: 100,
+                        rep: 10,
+                        set: 5
+                    ]
+                ]
+        }
     ]
 )
 
@@ -75,4 +141,26 @@ User.create(
 #         ]
 #     )
 
+MenuName.create(
+    [
+        {
+            name: "ワンハンド・ダンベル・ローイング"
+        },
+        {
+            name: "アイソラテラル・ロウ"
+        },
+        {
+            name: "アイソラテラル・プルダウン"
+        },
+        {
+            name: "ロー・ロウ"
+        },
+        {
+            name: "アイソラテラル・デクライン・プレス"
+        },
+        {
+            name: "アイソラテラル・インクライン・プレス"
+        }
+    ]
+)
 
