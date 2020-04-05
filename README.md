@@ -1,4 +1,4 @@
-## RecoFit
+# フィットネス記録アプリ RecoFit
 
 ## Overview  
 フィットネス記録アプリです。  
