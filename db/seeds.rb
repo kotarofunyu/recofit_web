@@ -8,12 +8,12 @@
 
 User.create(
     [
-        {name: "kotarofunyu", email: "kotarofunyu@gmail.com", password: "kotaro", picture: open("#{Rails.root}/public/images/kotaro.jpeg")},
-        {name: "アーノルド", email: "test@test.com", password: "test", picture: File.open("#{Rails.root}/public/images/arnold.jpg")},
-        {name: "katsunori", email: "katsu@gmail.com", password: "katsu", picture: File.open("#{Rails.root}/public/images/katsunori.jpg")},
-        {name: "michel", email: "mk@gmail.com", password: "micheldayo", picture: File.open("#{Rails.root}/public/images/michel.jpg")},
-        {name: "拓海", email: "takumi@gmail.com", password: "taku", picture: File.open("#{Rails.root}/public/images/takumi.jpg")},
-        {name: "lisa", email: "lisa@gmail.com", password: "lisa", picture: File.open("#{Rails.root}/public/images/lisa.jpg")}
+        { name: "kotarofunyu", email: "kotarofunyu@gmail.com", password: "kotaro", picture: open("#{Rails.root}/public/images/kotaro.jpeg") },
+        { name: "アーノルド", email: "test@test.com", password: "test", picture: File.open("#{Rails.root}/public/images/arnold.jpg") },
+        { name: "katsunori", email: "katsu@gmail.com", password: "katsu", picture: File.open("#{Rails.root}/public/images/katsunori.jpg") },
+        { name: "michel", email: "mk@gmail.com", password: "micheldayo", picture: File.open("#{Rails.root}/public/images/michel.jpg") },
+        { name: "拓海", email: "takumi@gmail.com", password: "taku", picture: File.open("#{Rails.root}/public/images/takumi.jpg") },
+        { name: "lisa", email: "lisa@gmail.com", password: "lisa", picture: File.open("#{Rails.root}/public/images/lisa.jpg") }
         # {id: 1, name: "kotarofunyu", email: "kotarofunyu@gmail.com", password: "kotaro", picture:File.open("../public/images/kotaro.jpeg")}
         # {id: 2, name: "アーノルド", email: "test@test.com", password: "test", picture:File.open("../public/images/arnold.jpg")},
         # {id: 3, name: "katsunori", email: "katsu@gmail.com", password: "katsu", picture:File.open("../public/images/katsunori.jpg")},
