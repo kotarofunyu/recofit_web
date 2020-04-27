@@ -33,6 +33,9 @@
                                     <li><%= weight_change(set.weight) %>kg</li>
                                     <li><%= set.rep %>レップ</li>
                                     <li><%= set.set %>セット</li>
+                                    <% if set.main %>
+                                    <li class="mainMark">メインセット</li>
+                                    <% end %>
                                 </ul>
                             <% end %>
                         </dd>

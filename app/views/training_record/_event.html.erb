@@ -8,7 +8,12 @@
             <dd>
                 <ol class="set_list">
                     <% event.set_datum.each do |set| %>
-                    <li><%= weight_change(set.weight) %>kg <%= set.rep %>レップ <%= set.set %>セット</li>
+                    <li>
+                        <%= weight_change(set.weight) %>kg <%= set.rep %>レップ <%= set.set %>セット
+                        <% if set.main %>
+                        <span class="main">メインセット</span>
+                        <% end %>
+                    </li>
                     <% end %>
                 </ol>
             </dd>

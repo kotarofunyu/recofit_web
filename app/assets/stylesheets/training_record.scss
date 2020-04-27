@@ -278,6 +278,9 @@ $icon_color: #000;
                             transition: 0.3s;
                         }
                     }
+                    input[type="checkbox"] {
+                        -webkit-appearance: checkbox;
+                    }
                 }
             }
         }
@@ -400,7 +403,7 @@ i.fa-info-circle {
             > li {
                 margin-bottom: 15px;
                 line-height: 1.5;
-                width: 45%;
+                width: 60%;
                 @include sp {
                     width: 100%;
                 }
