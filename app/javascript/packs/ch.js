@@ -9,7 +9,9 @@ import axios from 'axios'
         el: '#chart',
         data: {
             labels: [],
-            data: [],
+            allData: [],
+            mainData: [],
+            upData: [],
             loading: true
         },
         methods: {
@@ -21,7 +23,7 @@ import axios from 'axios'
                     labels: this.labels,
                     datasets: [{
                         label: '重量の遷移',
-                        data: this.data,
+                        data: this.allData,
                         backgroundColor:'rgba(231,130,32,0.9)'
                     }]
                 },
@@ -46,7 +48,7 @@ import axios from 'axios'
                 .get(axiosGetUrl)
                 .then(response=>{
                     console.log(response);
-                    this.data = response.data.weight.map(weight=>weight.weight);
+                    this.allData = response.data.weight.map(weight=>weight.weight);
                     this.labels = response.data.weight.map(weight=>weight.created_at);
                     this.loading = false;
                     this.displayGraph();
