@@ -4,6 +4,7 @@ json.weight do
         json.array! @event do |event|
             # json.(event, :weight,:created_at)
             json.weight event.weight
+            json.main event.main
             json.created_at event.created_at.to_s(:date)
         end
 end
