@@ -31,5 +31,6 @@ class SessionsController < ApplicationController
     session[:user_id] = 2
     flash[:notice] = 'テストユーザーでログインしました。'
     redirect_to('/records')
+    # flash.now[:notice] = 'テストユーザーでログインしました。'
   end
 end
