@@ -34,7 +34,9 @@
                                     <li><%= set.rep %>レップ</li>
                                     <li><%= set.set %>セット</li>
                                     <% if set.main %>
-                                    <li class="mainMark">メインセット</li>
+                                    <li class="mainMark">
+                                        <%= icon("fas", "star") %>
+                                    </li>
                                     <% end %>
                                 </ul>
                             <% end %>

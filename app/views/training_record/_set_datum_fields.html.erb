@@ -13,8 +13,9 @@
         </td>
         <td>
             <%= f.check_box :main, { class: "main" } %>
+            <span class="main">main</span>
         </td>
-        <td>
+        <td class="removeIcon">
             <%= link_to_remove_association f do %>
             <%= icon("fas", "minus-circle") %>
             <% end %>
