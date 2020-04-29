@@ -4,15 +4,18 @@
     <div id="chart">
       <div v-show="loading">グラフを生成しています...</div>
       <div v-show="!loading" class="chatwrap">
+        <strong>表示中のデータ : {{graphVar}}</strong>
         <div class="chart">
           <canvas id="myChart"></canvas>
         </div>
-        <select name="graphVar" id="" v-model="graphVar">
-          <option>全て</option>
-          <option>メインセット</option>
-          <option>記録更新</option>
-        </select>
-        <span>{{graphVar}}</span>
+        <div class="selectArea">
+          <span>表示するデータを選択:</span>
+          <select name="graphVar" id="" v-model="graphVar">
+            <option>全て</option>
+            <option>メインセット</option>
+            <option>記録更新</option>
+          </select>
+        </div>
       </div>
     </div>
     <ul>
@@ -25,7 +28,15 @@
           <dd>
             <ol>
               <% item.set_datum.each do |set| %>
-              <li><%= weight_change(set.weight) %> x <%= set.rep %> x <%= set.set %></li>
+              <li>
+                <%= weight_change(set.weight) %> x <%= set.rep %> x <%= set.set %>
+                <% if set.main %>
+                <span class="mainMark"><%= icon('fas', 'star') %></span>
+                <% end %>
+                <% if set.renewal %>
+                <span class="renewalMark"><%= icon('fas', 'smile-wink') %></span>
+                <% end %>
+              </li>
               <% end %>
             </ol>
           </dd>
