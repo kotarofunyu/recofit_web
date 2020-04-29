@@ -9,6 +9,7 @@ const axiosGetUrl =
 var app = new Vue({
   el: "#chart",
   data: {
+    objectContainer: [],
     labels: [],
     data: [],
     loading: true,
@@ -49,29 +50,28 @@ var app = new Vue({
   },
   watch: {
     graphVar: function(newval, oldval) {
-      axios.get(axiosGetUrl).then((response) => {
-        if (this.graphVar == "全て") {
-          this.data = response.data.weight.map((weight) => weight.weight);
-          this.labels = response.data.weight.map((weight) => weight.created_at);
-        } else if (this.graphVar == "メインセット") {
-          var mainData = response.data.weight.filter(function(item, index) {
-            if (item.main == true) return true;
-          });
-          this.data = mainData.map((weight) => weight.weight)
-          this.labels = mainData.map((weight) => weight.created_at);
-        } else if (this.graphVar == "記録更新") {
-          var renewalData = response.data.weight.filter(function(item, index) {
-            if (item.renewal == true) return true;
-          });
-          this.data = renewalData.map((weight) => weight.weight)
-          this.labels = renewalData.map((weight) => weight.created_at);
-        }
-        this.displayGraph();
-      });
+      if (this.graphVar == "全て") {
+        this.data = this.objectContainer.data.weight.map((weight) => weight.weight);
+        this.labels = this.objectContainer.data.weight.map((weight) => weight.created_at);
+      } else if (this.graphVar == "メインセット") {
+        var mainData = this.objectContainer.data.weight.filter(function(item, index) {
+          if (item.main == true) return true;
+        });
+        this.data = mainData.map((weight) => weight.weight)
+        this.labels = mainData.map((weight) => weight.created_at);
+      } else if (this.graphVar == "記録更新") {
+        var renewalData = this.objectContainer.data.weight.filter(function(item, index) {
+          if (item.renewal == true) return true;
+        });
+        this.data = renewalData.map((weight) => weight.weight)
+        this.labels = renewalData.map((weight) => weight.created_at);
+      }
+      this.displayGraph();
     }
   },
   mounted: function() {
     axios.get(axiosGetUrl).then((response) => {
+      this.objectContainer = response
       this.data = response.data.weight.map((weight) => weight.weight);
       this.labels = response.data.weight.map((weight) => weight.created_at);
       this.loading = false;
