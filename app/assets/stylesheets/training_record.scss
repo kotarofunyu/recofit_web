@@ -17,6 +17,27 @@ $icon_color: #000;
     color: $main_color;
 }
 
+.userEvent input[type="checkbox"] {
+  -webkit-appearance: checkbox;
+}
+.userEvent .chatwrap strong {
+  @include sp {
+    font-size: 12px;
+  }
+}
+.userEvent .selectArea {
+  margin-top: 15px;
+  select {
+    border: 1px solid $main_color;
+    -webkit-appearance: menulist;
+  }
+  span {
+    @include sp {
+      font-size: 12px;
+    }
+  }
+}
+
 .record_index .record_list {
     display: flex;
     flex-wrap: wrap;
