@@ -6,15 +6,16 @@
     <div id="eventItem" class="event_item_data" include="form-input-select()">
       <%= f.collection_select :name, MenuName.all, :name, :name,:prompt => "種目を選択する" %>
       <%= f.fields_for :set_datum do |i| %>
-      <table>
-        <tr class="titles">
-          <th></th>
-          <td>重量</td>
-          <td>レップ数</td>
-          <td>セット数</td>
-        </tr>
-        <%= render 'set_datum_fields', f: i %>
-      </table>
+      <div>
+        <dl class="titles">
+          <dt>重量</dt>
+          <dt>レップ数</dt>
+          <dt>セット数</dt>
+          <dt class="mini">メイン</dt>
+          <dt class="mini">ベスト</dt>
+        </dl>
+      </div>
+      <%= render 'set_datum_fields', f: i %>
       <% end %>
       <div class="links">
         <%= link_to_add_association f, :set_datum do %>

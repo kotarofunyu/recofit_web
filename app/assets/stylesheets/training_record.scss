@@ -6,7 +6,7 @@
 @import "./variables";
 
 dd {
-    margin: 0;
+  margin: 0;
 }
 
 $main_color: orange;
@@ -14,7 +14,7 @@ $main_color: orange;
 $icon_color: #000;
 
 .mainMark i {
-    color: $main_color;
+  color: $main_color;
 }
 
 .userEvent input[type="checkbox"] {
@@ -39,318 +39,339 @@ $icon_color: #000;
 }
 
 .record_index .record_list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    @include sp {
-        flex-direction: column;
-    }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  @include sp {
+    flex-direction: column;
+  }
 }
 
 .record_index li img {
-    width: 100%;
+  width: 100%;
 }
 
 .record_index {
-    width: 800px;
-    margin: 0 auto;
-    @include sp {
-        width: 90%;
-    }
-    .title {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+  width: 800px;
+  margin: 0 auto;
+  @include sp {
+    width: 90%;
+  }
+  .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 .event_index > ul {
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  @include sp {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  > li {
+    width: 40%;
+    padding: 20px;
+    margin-bottom: 15px;
+    line-height: 1.5;
     @include sp {
-        flex-direction: row;
-        flex-wrap: wrap;
+      width: 100%;
     }
-    > li {
-        width: 40%;
-        padding: 20px;
-        margin-bottom: 15px;
-        line-height: 1.5;
-        @include sp {
-            width: 100%;
-        }
-    }
+  }
 }
 
 .userEventIndex {
-    p {
-        text-align: center;
-        margin-bottom: 35px;
-        line-height: 1.5;
-        @include sp {
-            font-size: 14px;
-        }
+  p {
+    text-align: center;
+    margin-bottom: 35px;
+    line-height: 1.5;
+    @include sp {
+      font-size: 14px;
     }
-    > ul {
-        @include sp {
-            flex-direction: row;
-            flex-wrap: wrap;
-        }
-        > li {
-            @include sp {
-                width: 100%;
-                padding: 30px 10px;
-            }
-            a {
-                text-decoration: none;
-                position: absolute;
-                top: 0;
-                right: 0;
-                width: 100%;
-                height: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: #000000;
-                font-weight: bold;
-                transition: 0.3s;
-                &:hover {
-                    color: #ffffff;
-                    background: $main_color;
-                    transition: 0.3s;
-                }
-            }
-        }
+  }
+  > ul {
+    @include sp {
+      flex-direction: row;
+      flex-wrap: wrap;
     }
+    > li {
+      @include sp {
+        width: 100%;
+        padding: 30px 10px;
+      }
+      a {
+        text-decoration: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #000000;
+        font-weight: bold;
+        transition: 0.3s;
+        &:hover {
+          color: #ffffff;
+          background: $main_color;
+          transition: 0.3s;
+        }
+      }
+    }
+  }
 }
 
 .record_form,
 .edit_training_record {
-    width: 600px;
-    margin: 0 auto 50px;
-    @include sp {
-        width: 90%;
+  width: 600px;
+  margin: 0 auto 50px;
+  @include sp {
+    width: 90%;
+  }
+  .links {
+    margin-top: 10px;
+    a {
+      color: $main_color;
+      text-decoration: none;
+      i {
+        color: $main_color;
+        margin-right: 10px;
+      }
     }
-    .links {
-        margin-top: 10px;
-        a {
-            color: $main_color;
-            text-decoration: none;
-            i {
-                color: $main_color;
-                margin-right: 10px;
-            }
-        }
-        &.eventAdd {
-            margin: 15px 0;
-            font-size: 14px;
-            @include sp {
-                font-size: 13px;
-            }
-            i {
-                width: 40px;
-                text-align: center;
-            }
-        }
+    &.eventAdd {
+      margin: 15px 0;
+      font-size: 14px;
+      @include sp {
+        font-size: 13px;
+      }
+      i {
+        width: 40px;
+        text-align: center;
+      }
     }
-    .register_picture {
-        width: 130px;
-        margin-top: 5px;
-        .label {
-            display: flex;
-            align-items: center;
-            color: $main_color;
-            font-size: 14px;
-            cursor: pointer;
-            i {
-                margin-right: 10px;
-                color: $main_color;
-            }
-        }
-        .preview {
-            width: 120px;
-            height: auto;
-            img {
-                width: 100%;
-            }
-        }
+  }
+  .register_picture {
+    width: 130px;
+    margin-top: 5px;
+    .label {
+      display: flex;
+      align-items: center;
+      color: $main_color;
+      font-size: 14px;
+      cursor: pointer;
+      i {
+        margin-right: 10px;
+        color: $main_color;
+      }
     }
-        textarea {
-            width: 100%;
-            max-width: 600px;
-            height: 200px;
-            font-size: 16px;
-            padding: 6px;
-            resize: none;
-            border-radius: 5px;
-        }
-        div.commentCounter {
-            font-size: 14px;
-            margin-top: 5px;
-            text-align: right;
-            &.warning {
-                color: red;
-                font-weight: bold;
-            }
-        }
-        input[type="submit"] {
-            width: 250px;
-            height: 50px;
-            background: $main_color;
-            border: 1px solid $main_color;
-            border-radius: 15px;
-            color: #ffffff;
-            font-size: 16px;
-            letter-spacing: 2px;
-            display: block;
-            margin: 15px auto 0px auto;
-        }
-        .register_picture_button {
-            display: none;
-        }
-        .fa-image {
-            font-size: 40px;
-            cursor: pointer;
-        }
+    .preview {
+      width: 120px;
+      height: auto;
+      img {
+        width: 100%;
+      }
+    }
+  }
+  textarea {
+    width: 100%;
+    max-width: 600px;
+    height: 200px;
+    font-size: 16px;
+    padding: 6px;
+    resize: none;
+    border-radius: 5px;
+  }
+  div.commentCounter {
+    font-size: 14px;
+    margin-top: 5px;
+    text-align: right;
+    &.warning {
+      color: red;
+      font-weight: bold;
+    }
+  }
+  input[type="submit"] {
+    width: 250px;
+    height: 50px;
+    background: $main_color;
+    border: 1px solid $main_color;
+    border-radius: 15px;
+    color: #ffffff;
+    font-size: 16px;
+    letter-spacing: 2px;
+    display: block;
+    margin: 15px auto 0px auto;
+  }
+  .register_picture_button {
+    display: none;
+  }
+  .fa-image {
+    font-size: 40px;
+    cursor: pointer;
+  }
 }
 
 .event_fields {
-        .event_item {
-            border: 1px solid #ECF0F2;
-            margin-top: 20px;
-            position: relative;
-            > a {
-                position: absolute;
-                bottom: 10px;
-                right: 10px;
-                > i {
-                    opacity: 0;
-                    transition: 0.3s;
-                    color: $main_color;
-                }
-            }
-            .event_item_data {
-                font-size: 16px;
-                padding: 20px 25px;
-                background: #fff;
-                border: 5px ridge $main_color;
-                @include sp {
-                    padding: 20px 20px;
-                }
-                select {
-                    outline:none;
-                    -moz-appearance: none;
-                    text-indent: 0.01px;
-                    text-overflow: '';
-                    background: none transparent;
-                    vertical-align: middle;
-                    color: #000;
-                    font-weight: bold;
-                    font-size: 15px;
-                    -webkit-appearance: button;
-                    -moz-appearance: button;
-                    appearance: button;
-                    appearance: none;
-                    -webkit-appearance: none;
-                    -moz-appearance: none;
-                    height: 45px;
-                    padding: 3px 12px;
-                    border:1px solid $main_color;
-                    width:80%;
-                    border-radius:3px;
-                    @include sp {
-                        width: 100%;
-                        font-size: 12px;
-                        padding: 3px 5px;
-                    }
-                }
-                input[type="number"] {
-                    width: 60px;
-                    height: 35px;
-                    margin-right: 12px;
-                    padding: 5px;
-                    font-size: 14px;
-                    border:1px solid $main_color;
-                    @include sp {
-                        width: 45px;
-                    }
-                }
-                table {
-                    margin-top: 15px;
-                    .titles {
-                        height: 25px;
-                        font-size: 14px;
-                        font-weight: bold;
-                        @include sp {
-                            font-size: 12px;
-                            height: 15px;
-                        }
-                    }
-                }
-                .set_datum_fields {
-                    height: 40px;
-                    i {
-                        opacity: 0;
-                        transition: 0.3s;
-                        color: $main_color;
-                    }
-                    &:hover {
-                        i {
-                            opacity: 1;
-                            transition: 0.3s;
-                        }
-                    }
-                    .main {
-                        font-size: 14px;
-                        @include sp {
-                            font-size: 10px;
-                        }
-                    }
-                    input[type="checkbox"] {
-                        -webkit-appearance: checkbox;
-                        font-size: 30px;
-                        @include sp {
-                            font-size: 12px;
-                        }
-                    }
-                    .removeIcon {
-                        padding-left: 25px;
-                        @include sp {
-                            padding-left: 12px;
-                        }
-                    }
-                }
-            }
+  .event_item {
+    border: 1px solid #ecf0f2;
+    margin-top: 20px;
+    position: relative;
+    > a {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      > i {
+        opacity: 0;
+        transition: 0.3s;
+        color: $main_color;
+      }
+    }
+    dl {
+      display: flex;
+      dt, dd {
+        width: 60px;
+        margin-right: 10px;
+        text-align: center;
+        @include sp {
+          width: 16%;
+          font-size: 10px;
+        }
+        &.mini {
+          width: 40px;
+          font-size: 12px;
+          @include sp {
+            font-size: 10px;
+            width: 15%;
+            margin-right: 0;
+          }
+        }
+      }
+    }
+    .event_item_data {
+      font-size: 16px;
+      padding: 20px 25px;
+      background: #fff;
+      border: 5px ridge $main_color;
+      @include sp {
+        padding: 20px 20px;
+      }
+      select {
+        outline: none;
+        -moz-appearance: none;
+        text-indent: 0.01px;
+        text-overflow: "";
+        background: none transparent;
+        vertical-align: middle;
+        color: #000;
+        font-weight: bold;
+        font-size: 15px;
+        -webkit-appearance: button;
+        -moz-appearance: button;
+        appearance: button;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        height: 45px;
+        padding: 3px 12px;
+        border: 1px solid $main_color;
+        width: 80%;
+        border-radius: 3px;
+        @include sp {
+          width: 100%;
+          font-size: 12px;
+          padding: 3px 5px;
+        }
+      }
+      input[type="number"] {
+        // width: 60px;
+        // height: 35px;
+        // margin-right: 12px;
+        width: 100%;
+        padding: 5px;
+        font-size: 14px;
+        border: 1px solid $main_color;
+        @include sp {
+          width: 45px;
+          font-size: 12px;
+        }
+      }
+      .titles {
+        display: flex;
+        height: 25px;
+        margin-top: 20px;
+        font-size: 14px;
+        font-weight: bold;
+        @include sp {
+          font-size: 12px;
+          height: 15px;
+        }
+      }
+      .set_datum_fields {
+        height: 40px;
+        i {
+          opacity: 0;
+          transition: 0.3s;
+          color: $main_color;
         }
         &:hover {
-            .event_item {
-                > a{
-                    i {
-                        opacity: 1;
-                        transition: 0.3s;
-                    }
-                }
-            }
-
+          i {
+            opacity: 1;
+            transition: 0.3s;
+          }
         }
+        .main {
+          font-size: 14px;
+          @include sp {
+            font-size: 10px;
+          }
+        }
+        input[type="checkbox"] {
+          -webkit-appearance: checkbox;
+          font-size: 30px;
+          @include sp {
+            font-size: 12px;
+          }
+        }
+        .removeIcon {
+          padding-left: 25px;
+          @include sp {
+            padding-left: 12px;
+          }
+        }
+      }
+    }
+  }
+  &:hover {
+    .event_item {
+      > a {
+        i {
+          opacity: 1;
+          transition: 0.3s;
+        }
+      }
+    }
+  }
 }
 
 .event_item_title {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .event_item_title > .remove_fields {
-    display: none;
+  display: none;
 }
 
 .event_item_title:hover > .remove_fields {
-    display: block;
+  display: block;
 }
 
 i.fa-info-circle {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 // モーダル
@@ -410,105 +431,103 @@ i.fa-info-circle {
 
 // ????
 .record_detail {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px 15px;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px 15px;
+  @include sp {
+    width: 90%;
+  }
+  &.record {
+    width: 60%;
     @include sp {
-        width: 90%;
+      width: 100%;
     }
-    &.record {
+  }
+  .user {
+    a {
+      display: flex;
+      align-items: center;
+      img {
+        max-width: 50px;
+        margin-right: 10px;
+      }
+    }
+  }
+  .set {
+    margin: 20px 0;
+    > ol {
+      padding-left: 15px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      > li {
+        margin-bottom: 15px;
+        line-height: 1.5;
         width: 60%;
         @include sp {
-            width: 100%;
+          width: 100%;
         }
-    }
-    .user {
-        a {
-            display: flex;
-            align-items: center;
-            img {
-                max-width: 50px;
-                margin-right: 10px;
-            }
+        dt > a {
+          color: $main_color;
         }
+      }
     }
-    .set {
-        margin: 20px 0;
-        > ol {
-            padding-left: 15px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            > li {
-                margin-bottom: 15px;
-                line-height: 1.5;
-                width: 60%;
-                @include sp {
-                    width: 100%;
-                }
-                dt
-                    > a {
-                        color: $main_color;
-                    }
-            }
-        }
+  }
+  .set_list {
+    display: flex;
+    list-style: none;
+    > li {
+      margin-right: 5px;
     }
-    .set_list {
-        display: flex;
-        list-style: none;
-        > li {
-            margin-right: 5px;
-        }
+  }
+  .picture {
+    img {
+      width: 100%;
     }
-    .picture {
-        img {
-            width: 100%;
-        }
+  }
+  .buttons {
+    i {
+      margin-right: 15px;
     }
-    .buttons {
-        i {
-            margin-right: 15px;
-        }
-    }
+  }
 }
 
 .event_index > ul {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    // margin-top: 50px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  // margin-top: 50px;
+  @include sp {
+    width: 90%;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+  .record {
+    width: 48%;
+    margin-top: 20px;
+    padding: 15px 15px 20px 15px;
     @include sp {
-        width: 90%;
-        flex-direction: column;
-        margin: 0 auto;
+      width: 100%;
     }
-    .record {
-        width: 48%;
-        margin-top: 20px;
-        padding: 15px 15px 20px 15px;
-        @include sp {
-            width: 100%;
-        }
-        .title {
-            margin-bottom: 15px;
-        }
+    .title {
+      margin-bottom: 15px;
     }
-    .event {
-        margin-bottom: 15px;
-        dt {
-            margin-bottom: 10px;
-            color: $main_color;
-            font-weight: bold;
-        }
-        ol {
-            line-height: 1.5;
-            padding-left: 17px;
-        }
+  }
+  .event {
+    margin-bottom: 15px;
+    dt {
+      margin-bottom: 10px;
+      color: $main_color;
+      font-weight: bold;
     }
+    ol {
+      line-height: 1.5;
+      padding-left: 17px;
+    }
+  }
 }
 
 [v-cloak] {
-    display: none;
+  display: none;
 }
-
