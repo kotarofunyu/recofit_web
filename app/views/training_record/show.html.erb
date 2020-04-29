@@ -1,71 +1,76 @@
 <div class="wrapper">
-    <div class="record_detail listItemDecorated record">
-        <div class="user">
-            <% if @user.picture.present? %>
-            <%=link_to "/users/#{@user_id}" do %>
-            <%= image_tag @user.picture.url, class:"user_image" %>
-            <%= @user.name %>
-            <% end %>
-            <% else %>
-            <%= link_to "/users/#{@user_id}" do %>
-            <%= image_tag ('noicon.png'), class:"user_image" %>
-            <%= @user.name %>
-            <% end %>
-            <% end %>
-        </div>
+  <div class="record_detail listItemDecorated record">
+    <div class="user">
+      <% if @user.picture.present? %>
+      <%=link_to "/users/#{@user_id}" do %>
+      <%= image_tag @user.picture.url, class:"user_image" %>
+      <%= @user.name %>
+      <% end %>
+      <% else %>
+      <%= link_to "/users/#{@user_id}" do %>
+      <%= image_tag ('noicon.png'), class:"user_image" %>
+      <%= @user.name %>
+      <% end %>
+      <% end %>
+    </div>
 
-        <div class="comment">
-            <p><%= @record.comment %></p>
-        </div>
+    <div class="comment">
+      <p><%= @record.comment %></p>
+    </div>
 
-        <div class="set">
-            <ol>
-                <% @record.event.each do |item| %>
-                <li>
-                    <dl>
-                        <dt><%= link_to "#{item.name}", "/records/event/#{item.name}" %></dt>
-                        <dd>
-                            <% item.set_datum.each do |set_item| %>
-                            <ul class="set_list">
-                                <li><%= weight_change(set_item.weight) %>kg</li>
-                                <li><%= set_item.rep %>レップ</li>
-                                <li><%= set_item.set %>セット</li>
-                                <% if set_item.main %>
-                                <li class="mainMark">
-                                    <%= icon("fas", "star") %>
-                                </li>
-                                <% end %>
-                            </ul>
-                            <% end %>
-                        </dd>
-                    </dl>
+    <div class="set">
+      <ol>
+        <% @record.event.each do |item| %>
+        <li>
+          <dl>
+            <dt><%= link_to "#{item.name}", "/records/event/#{item.name}" %></dt>
+            <dd>
+              <% item.set_datum.each do |set_item| %>
+              <ul class="set_list">
+                <li><%= weight_change(set_item.weight) %>kg</li>
+                <li><%= set_item.rep %>レップ</li>
+                <li><%= set_item.set %>セット</li>
+                <% if set_item.main %>
+                <li class="mainMark">
+                  <%= icon('fas', 'star') %>
                 </li>
                 <% end %>
-            </ol>
-        </div>
-
-        <% if @record.picture? %>
-        <div class="picture">
-            <%= image_tag @record.picture.url %>
-        </div>
+                <% if set_item.renewal %>
+                <li class="renewalMark">
+                  <%= icon('fas', 'smile-wink') %>
+                  <% end %>
+                </li>
+              </ul>
+              <% end %>
+            </dd>
+          </dl>
+        </li>
         <% end %>
-
-        <div class="date">
-            <%= @record.created_at.to_s(:datetime) %>
-        </div>
-
-        <div class="buttons">
-            <%=link_to "/records/#{@record.id}" do %>
-            <%= icon("fas", "external-link-alt") %>
-            <% end %>
-            <% if logged_in && current_user.id == @record.user_id %>
-            <%= link_to "/records/#{@record.id}/edit" do %>
-            <%= icon("fas", "pen") %>
-            <% end %>
-            <%= link_to "/records/#{@record.id}", method: :delete, data: { confirm: "本当に削除しますか？"} do %>
-            <%= icon("fas", "trash") %>
-            <% end %>
-            <% end %>
-        </div>
+      </ol>
     </div>
+
+    <% if @record.picture? %>
+    <div class="picture">
+      <%= image_tag @record.picture.url %>
+    </div>
+    <% end %>
+
+    <div class="date">
+      <%= @record.created_at.to_s(:datetime) %>
+    </div>
+
+    <div class="buttons">
+      <%=link_to "/records/#{@record.id}" do %>
+      <%= icon("fas", "external-link-alt") %>
+      <% end %>
+      <% if logged_in && current_user.id == @record.user_id %>
+      <%= link_to "/records/#{@record.id}/edit" do %>
+      <%= icon("fas", "pen") %>
+      <% end %>
+      <%= link_to "/records/#{@record.id}", method: :delete, data: { confirm: "本当に削除しますか？"} do %>
+      <%= icon("fas", "trash") %>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
