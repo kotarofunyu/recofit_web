@@ -10,10 +10,11 @@ var app = new Vue({
   el: "#chart",
   data: {
     labels: [],
-    allData: [],
-    mainData: [],
-    upData: [],
+    data: [],
     loading: true,
+    mainChecked: false,
+    renewalChecked: false,
+    graphVar: '全て'
   },
   methods: {
     displayGraph: function() {
@@ -25,7 +26,7 @@ var app = new Vue({
           datasets: [
             {
               label: "重量の遷移",
-              data: this.allData,
+              data: this.data,
               backgroundColor: "rgba(231,130,32,0.9)",
             },
           ],
@@ -44,19 +45,37 @@ var app = new Vue({
           },
         },
       });
-    },
-    updateGraph: function() {
-      this.allData = [10, 20, 30, 40, 50];
-      console.log("aaaa");
-    },
+    }
+  },
+  watch: {
+    graphVar: function(newval, oldval) {
+      axios.get(axiosGetUrl).then((response) => {
+        if (this.graphVar == "全て") {
+          this.data = response.data.weight.map((weight) => weight.weight);
+          this.labels = response.data.weight.map((weight) => weight.created_at);
+        } else if (this.graphVar == "メインセット") {
+          var mainData = response.data.weight.filter(function(item, index) {
+            if (item.main == true) return true;
+          });
+          this.data = mainData.map((weight) => weight.weight)
+          this.labels = mainData.map((weight) => weight.created_at);
+        } else if (this.graphVar == "記録更新") {
+          var renewalData = response.data.weight.filter(function(item, index) {
+            if (item.renewal == true) return true;
+          });
+          this.data = renewalData.map((weight) => weight.weight)
+          this.labels = renewalData.map((weight) => weight.created_at);
+        }
+        this.displayGraph();
+      });
+    }
   },
   mounted: function() {
     axios.get(axiosGetUrl).then((response) => {
-      console.log(response);
-      this.allData = response.data.weight.map((weight) => weight.weight);
+      this.data = response.data.weight.map((weight) => weight.weight);
       this.labels = response.data.weight.map((weight) => weight.created_at);
       this.loading = false;
       this.displayGraph();
     });
-  },
+  }
 });

@@ -17,6 +17,10 @@ $icon_color: #000;
     color: $main_color;
 }
 
+.userEvent input[type="checkbox"] {
+  -webkit-appearance: checkbox;
+}
+
 .record_index .record_list {
     display: flex;
     flex-wrap: wrap;

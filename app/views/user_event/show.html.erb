@@ -7,8 +7,12 @@
         <div class="chart">
           <canvas id="myChart"></canvas>
         </div>
-        <button v-on:click="updateGraph"></button>
-        <button v-on:click="displayGraph"></button>
+        <select name="graphVar" id="" v-model="graphVar">
+          <option>全て</option>
+          <option>メインセット</option>
+          <option>記録更新</option>
+        </select>
+        <span>{{graphVar}}</span>
       </div>
     </div>
     <ul>
