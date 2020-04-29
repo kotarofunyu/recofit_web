@@ -1,36 +1,38 @@
 <div class="wrapper">
-    <div class="userEvent">
-        <h1><%=@user.name %>の<br class="sp"><%= @name_params %>の記録</h1>
-        <div id="chart">
-            <div v-show="loading">グラフを生成しています...</div>
-            <div v-show="!loading" class="chatwrap">
-                <div class="chart">
-                    <canvas id="myChart"></canvas>
-                </div>
-            </div>
+  <div class="userEvent">
+    <h1><%=@user.name %>の<br class="sp"><%= @name_params %>の記録</h1>
+    <div id="chart">
+      <div v-show="loading">グラフを生成しています...</div>
+      <div v-show="!loading" class="chatwrap">
+        <div class="chart">
+          <canvas id="myChart"></canvas>
         </div>
-        <ul>
-            <% @records.each do |record| %>
-            <% nameitem = record.event.where(name: @name_params).distinct %>
-            <% nameitem.each do |item| %>
-            <li class="listItemDecorated">
-                <dl>
-                    <dt><%= item.created_at.to_s(:date) %>の記録</dt>
-                    <dd>
-                        <ol>
-                            <% item.set_datum.each do |set| %>
-                            <li><%= weight_change(set.weight) %> x <%= set.rep %> x <%= set.set %></li>
-                            <% end %>
-                        </ol>
-                    </dd>
-                </dl>
-                <% end %>
-                <%=link_to "/records/#{record.id}",class:"parentRecord" do %>
-                <%=icon("fas","external-link-alt") %>
-                <% end %>
-            </li>
-            <% end %>
-        </ul>
+        <button v-on:click="updateGraph"></button>
+        <button v-on:click="displayGraph"></button>
+      </div>
     </div>
+    <ul>
+      <% @records.each do |record| %>
+      <% nameitem = record.event.where(name: @name_params).distinct %>
+      <% nameitem.each do |item| %>
+      <li class="listItemDecorated">
+        <dl>
+          <dt><%= item.created_at.to_s(:date) %>の記録</dt>
+          <dd>
+            <ol>
+              <% item.set_datum.each do |set| %>
+              <li><%= weight_change(set.weight) %> x <%= set.rep %> x <%= set.set %></li>
+              <% end %>
+            </ol>
+          </dd>
+        </dl>
+        <% end %>
+        <%=link_to "/records/#{record.id}",class:"parentRecord" do %>
+        <%=icon("fas","external-link-alt") %>
+        <% end %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
 </div>
 <%= javascript_pack_tag 'ch' %>

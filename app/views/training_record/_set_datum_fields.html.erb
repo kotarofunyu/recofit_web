@@ -1,22 +1,27 @@
     <tr class="nested-fields set_datum_fields row">
-        <th>
+      <th>
 
-        </th>
-        <td>
-            <%= f.number_field :weight, placeholder: "kg", "step"=>"0.5" %>
-        </td>
-        <td>
-            <%= f.number_field :rep, placeholder: "(例)8", "pattern"=>"\\d*" %>
-        </td>
-        <td>
-            <%= f.number_field :set, placeholder: "(例)3", "pattern"=>"\\d*" %>
-        </td>
-        <td>
-            <%= f.check_box :main, { class: "main" } %>
-        </td>
-        <td>
-            <%= link_to_remove_association f do %>
-            <%= icon("fas", "minus-circle") %>
-            <% end %>
-        </td>
+      </th>
+      <td>
+        <%= f.number_field :weight, placeholder: "kg", "step"=>"0.5" %>
+      </td>
+      <td>
+        <%= f.number_field :rep, placeholder: "(例)8", "pattern"=>"\\d*" %>
+      </td>
+      <td>
+        <%= f.number_field :set, placeholder: "(例)3", "pattern"=>"\\d*" %>
+      </td>
+      <td>
+        <%= f.check_box :main, { class: 'main' } %>
+        <span class="main">main</span>
+      </td>
+      <td>
+        <%= f.check_box :renewal, { class: 'new' } %>
+        <span class="new">new</span>
+      </td>
+      <td class="removeIcon">
+        <%= link_to_remove_association f do %>
+        <%= icon('fas', 'minus-circle') %>
+        <% end %>
+      </td>
     </tr>

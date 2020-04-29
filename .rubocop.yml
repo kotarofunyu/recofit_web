@@ -1,36 +1,38 @@
 AllCops:
-    TargetRubyVersion: 2.6.3
-    Exclude:
-        - 'db/**/*'
-        - 'config/**/*'
-        - 'script/**/*'
-        - '.git/**/*'
-        - 'public/**/*'
-        - 'log/**/*'
-        - 'tmp/**/*'
-        - 'test/**/*'
-        - 'spec/**/*'
-        - 'node_modules/**/*'
-        - 'bin/**'
-        - 'Gemfile'
-        - 'Rakefile'
-        - 'app/channels/**/*'
-        - 'vendor/**/*'
+  TargetRubyVersion: 2.6.3
+  Exclude:
+    - "db/**/*"
+    - "config/**/*"
+    - "script/**/*"
+    - ".git/**/*"
+    - "public/**/*"
+    - "log/**/*"
+    - "tmp/**/*"
+    - "test/**/*"
+    - "spec/**/*"
+    - "node_modules/**/*"
+    - "bin/**"
+    - "Gemfile"
+    - "Rakefile"
+    - "app/channels/**/*"
+    - "vendor/**/*"
 Layout/IndentationWidth:
-    Enabled: false
+  Enabled: false
 Style/FrozenStringLiteralComment:
-    Enabled: false
+  Enabled: false
 # 日本語のコメントアウトを許可する
 Style/AsciiComments:
-    Enabled: false
+  Enabled: false
 # クラスを継承する前にコメントを書く必要はない
 Style/Documentation:
-    Enabled: false
+  Enabled: false
 Layout/LineLength:
-    Enabled: false
+  Enabled: false
 Style/ClassAndModuleChildren:
-    Enabled: false
+  Enabled: false
 Metrics/AbcSize:
-    Enabled: false
+  Enabled: false
 Style/MutableConstant:
-    Enabled: false
+  Enabled: false
+StringLiterals:
+  EnforcedStyle: single_quotes
