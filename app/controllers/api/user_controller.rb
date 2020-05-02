@@ -1,5 +1,4 @@
 class Api::UserController < ApplicationController
-
   def index
     @user = User.all
   end
@@ -14,8 +13,8 @@ class Api::UserController < ApplicationController
   end
 
   private
+
   def user_params
     params.require(:user).permit(:name, :email, :password, :introduction, :password_confirmation, :picture)
   end
-
 end
