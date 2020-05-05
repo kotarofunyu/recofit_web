@@ -35,8 +35,9 @@ Rails.application.routes.draw do
     # API
     namespace :api, format: 'json' do
       resources :training_record
-      get 'events' => 'training_record#user_event'
       resources :user
+      get 'login' => 'login#show'
+      get 'events' => 'training_record#user_event'
     end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

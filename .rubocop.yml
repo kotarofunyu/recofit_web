@@ -36,3 +36,5 @@ Style/MutableConstant:
   Enabled: false
 StringLiterals:
   EnforcedStyle: single_quotes
+Metrics/MethodLength:
+  Enabled: false

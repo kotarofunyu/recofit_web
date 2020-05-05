@@ -78,16 +78,36 @@ class TrainingRecordController < ApplicationController
   end
 
   # ストロングパラメーター
+
   private
 
   def create_training_record_params
     # 小テーブルの種目テーブルも同時にパラメータ取得
-    params.require(:training_record).permit(:comment, :picture, event_attributes: [:part, :name, :_destroy, set_datum_attributes: %i[weight rep set main renewal _destroy]]).merge(user_id: current_user.id)
+    params.require(:training_record).permit(
+      :comment,
+      :picture,
+      event_attributes: [
+        :part,
+        :name,
+        :_destroy,
+        set_datum_attributes: %i[weight rep set main renewal _destroy]
+      ]
+    ).merge(user_id: current_user.id)
   end
 
   def update_training_record_params
-      # 小テーブルの種目テーブルも同時にパラメータ取得
-      params.require(:training_record).permit(:comment, :picture, event_attributes: [:id, :part, :name, :_destroy, set_datum_attributes: %i[id weight rep set main renewal _destroy]]).merge(user_id: current_user.id)
+    # 小テーブルの種目テーブルも同時にパラメータ取得
+    params.require(:training_record).permit(
+      :comment,
+      :picture,
+      event_attributes: [
+        :id,
+        :part,
+        :name,
+        :_destroy,
+        set_datum_attributes: %i[id weight rep set main renewal _destroy]
+      ]
+    ).merge(user_id: current_user.id)
   end
 
   def menu_name_params

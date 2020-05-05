@@ -1,5 +1,6 @@
 class Api::UserController < ApplicationController
-  skip_before_action :verify_authenticity_token
+  # skip_before_action :verify_authenticity_token
+  skip_forgery_protection
 
   def index
     @user = User.all
@@ -9,9 +10,9 @@ class Api::UserController < ApplicationController
     user = User.new(user_params)
 
     if user.save
-      render json: { status: 'SUCCESS', data: post }
+      render json: { status: 'SUCCESS', data: user }
     else
-      render json: { status: 'ERROR', data: post.errors }
+      render json: { status: 'ERROR', data: user.errors }
     end
   end
 
@@ -22,6 +23,13 @@ class Api::UserController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :introduction, :password_confirmation, :picture)
+    params.require(:user).permit(
+      :name,
+      :email,
+      :password,
+      :introduction,
+      :password_confirmation,
+      :picture
+    )
   end
 end
