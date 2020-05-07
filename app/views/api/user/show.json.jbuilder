@@ -1,1 +1,1 @@
-json.call(@user, :id, :name, :introduction, :created_at)
+json.call(@user, :name, :introduction)
