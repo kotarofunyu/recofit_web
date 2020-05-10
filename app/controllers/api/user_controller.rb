@@ -6,10 +6,6 @@ class Api::UserController < ApplicationController
     @user = User.find_by(api_token: params[:api_token])
   end
 
-  # def index
-  #   @user = User.all
-  # end
-
   def create
     user = User.new(user_params)
 
