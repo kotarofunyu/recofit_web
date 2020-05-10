@@ -35,7 +35,7 @@ Rails.application.routes.draw do
   # API
   namespace :api, format: 'json' do
     resources :training_record
-    resources :user, param: :api_token
+    resources :user, param: :api_token, only: [:show, :create]
     resources :user_record, param: :api_token, only: :show
     resources :user_event, param: :api_token, only: :show
     get 'login' => 'login#show'
