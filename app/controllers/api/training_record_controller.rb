@@ -3,7 +3,7 @@ class Api::TrainingRecordController < ApplicationController
   skip_forgery_protection
 
   def index
-    @training_record = TrainingRecord.all
+    @training_record = TrainingRecord.all.order(created_at: 'DESC')
   end
 
   def create
