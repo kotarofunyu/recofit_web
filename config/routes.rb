@@ -34,12 +34,12 @@ Rails.application.routes.draw do
 
   # API
   namespace :api, format: 'json' do
-    resources :training_record
-    resources :user, param: :api_token, only: [:show, :create]
+    # post '/traning_record/create/:api_token' => 'training_record#create'
+    resources :training_record, only: %i[index show create]
+    resources :user, param: :api_token, only: %i[show create]
     resources :user_record, param: :api_token, only: :show
     resources :user_event, param: :api_token, only: :show
     get 'login' => 'login#show'
     get 'events' => 'training_record#user_event'
   end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
