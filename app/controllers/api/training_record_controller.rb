@@ -21,6 +21,10 @@ class Api::TrainingRecordController < ApplicationController
     @training_record = TrainingRecord.find_by(id: params[:id])
   end
 
+  def user_event
+    @event = SetDatum.joins(event: :training_record).where(training_records: { user_id: params[:user_id] }, events: { name: params[:event_name] })
+  end
+
   def authenticate_by_token
     @user = User.find_by(api_token: params[:api_token])
     render status: :unauthorized, json: 'Invalid API token' if @user.blank?
