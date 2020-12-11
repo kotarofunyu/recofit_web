@@ -15,6 +15,9 @@
     "vue-template-compiler": "^2.6.11"
   },
   "devDependencies": {
+    "@babel/core": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "babel-core": "^7.0.0-bridge.0",
     "webpack-dev-server": "^3.10.1"
   }
 }

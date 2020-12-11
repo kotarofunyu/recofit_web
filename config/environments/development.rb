@@ -8,7 +8,7 @@ Rails.application.configure do
   #   expires_in: 90.minutes
   # }
 
-  config.session_store :redis_store, servers: 'redis://redis:6379/0', expire_in: 1.day
+  # config.session_store :redis_store, servers: 'redis://redis:6379/0', expire_in: 1.day
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.

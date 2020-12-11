@@ -1,12 +1,18 @@
 default: &default
+  # adapter: mysql2
+  # encoding: utf8mb4
+  # charset: utf8mb4
+  # collation: utf8mb4_bin
+  # pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  # host: <%= ENV['RECOFIT_DB_HOST'] %>
+  # username: <%= ENV['RECOFIT_DB_USER'] %>
+  # password: <%= ENV['RECOFIT_DB_PASSWORD'] %>
   adapter: mysql2
   encoding: utf8mb4
-  charset: utf8mb4
-  collation: utf8mb4_bin
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  host: <%= ENV['RECOFIT_DB_HOST'] %>
-  username: <%= ENV['RECOFIT_DB_USER'] %>
-  password: <%= ENV['RECOFIT_DB_PASSWORD'] %>
+  username: root
+  password:
+  socket: /tmp/mysql.sock
 
 development:
   <<: *default
@@ -19,7 +25,10 @@ test:
 
 production:
   <<: *default
-  database: recofit_production
+  # database: recofit_production
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
   # host: <%= ENV['RECOFIT_DB_HOST'] %>
   # username: <%= ENV['RECOFIT_DB_USER'] %>
   # password: <%= ENV['RECOFIT_DB_PASSWORD'] %>
