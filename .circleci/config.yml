@@ -1,83 +1,83 @@
-version: 2.1
-orbs:
-  aws-ecr: circleci/aws-ecr@6.0.0
-  aws-ecs: circleci/aws-ecs@1.1.0
+# version: 2.1
+# orbs:
+#   aws-ecr: circleci/aws-ecr@6.0.0
+#   aws-ecs: circleci/aws-ecs@1.1.0
 
-jobs:
-  test:
-    docker:
-      - image: circleci/ruby:2.6.3-node-browsers
-        environment:
-          RAILS_ENV: test
-      - image: circleci/mysql:5.7
-        environment:
-          MYSQL_ROOT_PASSWORD: password
-          MYSQL_DATABASE: recofit_test
-    working_directory: ~/repo
-    steps:
-      - checkout
-      - restore_cache:
-          name: bundle installの結果をリストア
-          keys:
-            - v1-dependencies-{{ checksum "Gemfile.lock"}}
-            - v1-dependencies-
-      - run:
-          name: bundle install
-          command: bundle install --path vendor/bundle
-      - run:
-          name: context設定の環境変数
-          command: |
-            echo "${RECOFIT_DB_HOST}"
-            echo "${RECOFIT_DB_USER}"
-            echo "${RECOFIT_DB_PASSWORD}"
-      - save_cache:
-          name: bundle installの結果をキャッシュ
-          paths: ./vendor/bundle
-          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
-      - run:
-          name: install dependencies
-          command: yarn
-      - run:
-          name: データベースの起動を待機
-          command: dockerize -wait tcp://127.0.0.1:3306 -timeout 1m
-      - run:
-          name: データベースのセットアップ
-          command: bundle exec rake db:schema:load
-      - run:
-          name: webpackerコンパイル
-          command: bundle exec bin/webpack
-      - run:
-          name: RSpecのテストを実行
-          command: bundle exec rspec
-      - run:
-          name:  RuboCopのテストを実行
-          command: bundle exec rubocop
+# jobs:
+#   test:
+#     docker:
+#       - image: circleci/ruby:2.6.3-node-browsers
+#         environment:
+#           RAILS_ENV: test
+#       - image: circleci/mysql:5.7
+#         environment:
+#           MYSQL_ROOT_PASSWORD: password
+#           MYSQL_DATABASE: recofit_test
+#     working_directory: ~/repo
+#     steps:
+#       - checkout
+#       - restore_cache:
+#           name: bundle installの結果をリストア
+#           keys:
+#             - v1-dependencies-{{ checksum "Gemfile.lock"}}
+#             - v1-dependencies-
+#       - run:
+#           name: bundle install
+#           command: bundle install --path vendor/bundle
+#       - run:
+#           name: context設定の環境変数
+#           command: |
+#             echo "${RECOFIT_DB_HOST}"
+#             echo "${RECOFIT_DB_USER}"
+#             echo "${RECOFIT_DB_PASSWORD}"
+#       - save_cache:
+#           name: bundle installの結果をキャッシュ
+#           paths: ./vendor/bundle
+#           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+#       - run:
+#           name: install dependencies
+#           command: yarn
+#       - run:
+#           name: データベースの起動を待機
+#           command: dockerize -wait tcp://127.0.0.1:3306 -timeout 1m
+#       - run:
+#           name: データベースのセットアップ
+#           command: bundle exec rake db:schema:load
+#       - run:
+#           name: webpackerコンパイル
+#           command: bundle exec bin/webpack
+#       - run:
+#           name: RSpecのテストを実行
+#           command: bundle exec rspec
+#       - run:
+#           name:  RuboCopのテストを実行
+#           command: bundle exec rubocop
 
-workflows:
-  version: 2
-  test_and_deploy:
-    jobs:
-      - test:
-         context:
-          test
-      # dockerイメージのビルド & ECRへプッシュ
-      - aws-ecr/build-and-push-image:
-          # テストをパスしたら実行
-          requires:
-            - test
-          filters:
-            branches:
-              only: master
-          region: AWS_REGION
-          account-url: AWS_ECR_ACCOUNT_URL
-          repo: '${MY_APP}'
-          tag: "${CIRCLE_SHA1}"
-      # ECSで新リビジョンのタスク定義を作成し、サービスに指定するタスク定義のリビジョンを最新に更新する
-      - aws-ecs/deploy-service-update:
-          # イメージのビルド & プッシュが成功したら実行
-          requires:
-            - aws-ecr/build-and-push-image
-          family: '${ECS_TASK}'
-          cluster-name: '${ECS_CLUSTER}'
-          service-name: '${ECS_SERVICE}'
-          container-image-name-updates: 'container=app,image-and-tag=${AWS_ECR_ACCOUNT_URL}/${MY_APP}:${CIRCLE_SHA1}'
+# # workflows:
+# #   version: 2
+# #   test_and_deploy:
+# #     jobs:
+# #       - test:
+# #          context:
+# #           test
+# #       # dockerイメージのビルド & ECRへプッシュ
+# #       - aws-ecr/build-and-push-image:
+# #           # テストをパスしたら実行
+# #           requires:
+# #             - test
+# #           filters:
+# #             branches:
+# #               only: master
+# #           region: AWS_REGION
+# #           account-url: AWS_ECR_ACCOUNT_URL
+# #           repo: '${MY_APP}'
+# #           tag: "${CIRCLE_SHA1}"
+# #       # ECSで新リビジョンのタスク定義を作成し、サービスに指定するタスク定義のリビジョンを最新に更新する
+# #       - aws-ecs/deploy-service-update:
+# #           # イメージのビルド & プッシュが成功したら実行
+# #           requires:
+# #             - aws-ecr/build-and-push-image
+# #           family: '${ECS_TASK}'
+# #           cluster-name: '${ECS_CLUSTER}'
+# #           service-name: '${ECS_SERVICE}'
+# #           container-image-name-updates: 'container=app,image-and-tag=${AWS_ECR_ACCOUNT_URL}/${MY_APP}:${CIRCLE_SHA1}'
