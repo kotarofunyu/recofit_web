@@ -27,7 +27,7 @@ gem 'cocoon'
 gem 'font-awesome-sass'
 
 # webpacker
-gem 'webpacker'
+# gem 'webpacker'
 
 gem 'fog-aws'
 gem 'rmagick'
