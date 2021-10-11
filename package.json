@@ -18,6 +18,9 @@
     "@babel/core": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
     "babel-core": "^7.0.0-bridge.0",
+    "webpack": "^5.58.1",
+    "webpack-assets-manifest": "^5.0.6",
+    "webpack-cli": "^4.9.0",
     "webpack-dev-server": "^3.10.1"
   }
 }

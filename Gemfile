@@ -1,17 +1,20 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.3'
+ruby '2.7.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
+# gem 'nokogiri', :platforms => :arm64-darwin20
 
 gem 'bcrypt', '3.1.12'
 gem 'carrierwave', '1.2.2'
 gem 'jquery-rails'
-gem 'mini_magick', '4.7.0'
+# gem 'mini_magick', '4.7.0'
 
 gem 'redis-rails'
+
+gem 'simpacker'
 
 # エラーメッセージの日本語化
 gem 'rails-i18n'
@@ -32,8 +35,8 @@ gem 'rmagick'
 gem 'fog-vsphere', '3.2.5'
 
 # Use mysql as the database for Active Record
-gem 'mysql2', '>= 0.4.4', '< 0.6.0', groups: %w[test development],require: false
-gem 'pg', '~> 0.19.0', group: :production
+# gem 'mysql2', '>= 0.4.4', '< 0.6.0', groups: %w[test development],require: false
+gem 'pg', '~> 0.19.0'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
