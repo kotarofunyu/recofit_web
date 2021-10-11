@@ -7,10 +7,10 @@ default: &default
   # host: <%= ENV['RECOFIT_DB_HOST'] %>
   # username: <%= ENV['RECOFIT_DB_USER'] %>
   # password: <%= ENV['RECOFIT_DB_PASSWORD'] %>
-  adapter: mysql2
-  encoding: utf8mb4
+  adapter: postgresql
+  encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
+  username: kotarofunyu
   password:
   socket: /tmp/mysql.sock
 
