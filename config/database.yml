@@ -32,3 +32,4 @@ production:
   # host: <%= ENV['RECOFIT_DB_HOST'] %>
   # username: <%= ENV['RECOFIT_DB_USER'] %>
   # password: <%= ENV['RECOFIT_DB_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
