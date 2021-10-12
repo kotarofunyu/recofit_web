@@ -8,7 +8,7 @@ gem 'rails', '~> 5.2.3'
 # gem 'nokogiri', :platforms => :arm64-darwin20
 
 gem 'bcrypt', '3.1.12'
-gem 'carrierwave', '1.2.2'
+gem 'carrierwave'
 gem 'jquery-rails'
 # gem 'mini_magick', '4.7.0'
 
@@ -39,7 +39,7 @@ gem 'rmagick'
 gem 'pg', '~> 0.19.0'
 
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem 'puma'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
