@@ -12,7 +12,7 @@ gem 'carrierwave', '1.2.2'
 gem 'jquery-rails'
 # gem 'mini_magick', '4.7.0'
 
-gem 'redis-rails'
+# gem 'redis-rails'
 
 gem 'simpacker'
 
@@ -91,9 +91,9 @@ group :test do
   gem 'chromedriver-helper'
 end
 
-group :production do
-  gem 'fog', '1.42'
-end
+# group :production do
+#   gem 'fog', '1.42'
+# end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
