@@ -3,7 +3,7 @@
 ## はじめに
 21卒の就活で使用したポートフォリオです。
 
-就活当時はAWSにデプロイしていましたが現在はherokuへと移行しています。
+※就活当時はAWSにデプロイしていましたが現在はherokuへと移行しています。
 https://recofit.herokuapp.com/
 ## Overview  
 フィットネス記録アプリです。  
@@ -54,8 +54,6 @@ Docker
 3. MySQL (DB)
 4. Redis (Cache Store)
 5. Webpack (webpacker)  
-  
-大量アクセスや機能性を考慮し、Nginxとpumaをsocket通信させて、Nginxがブラウザからのリクエストをpumaに投げる方式を採用。
 
 ### その他  
 #### CircleCIでCI/CDパイプラインの構築
@@ -63,6 +61,3 @@ GitHubへのプッシュで、自動テスト&自動デプロイ
   
 #### GitHubでIssueとブランチを連携してプルリクベースの開発  
 OSSや実際の開発で採用されているフローをシミュレーションして開発。  
-  
-### URL
-https://recofit.jp
