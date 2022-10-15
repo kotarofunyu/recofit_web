@@ -157,45 +157,6 @@
                 </div>
             </div>
         </section>
-        <section class="profile">
-            <div class="section-wrap">
-                <h1>
-                    <%=icon("fas","user") %>
-                    開発者プロフィール
-                </h1>
-                <div class="row">
-                    <div class="img-wrap">
-                        <%=image_tag('developer.jpeg') %>
-                    </div>
-                    <div class="contents-wrap">
-                        <dl>
-                            <dt>名前</dt>
-                            <dd>Kotaro</dd>
-                        </dl>
-                        <dl>
-                            <dt>経歴</dt>
-                            <dd>
-                                <ul>
-                                    <% @histories = [
-                                            "2016.4  早稲田大学入学",
-                                            "2019.2  PHPでプログラミング学習を開始。配列で挫折。",
-                                            "2019.3  早大を休学しエンジニアインターンを開始",
-                                            "2019.4  筋トレに目醒める",
-                                            "2019.6  フリーランスWebコーダーとして活動開始",
-                                            "2019.12  RecoFitの開発を開始",
-                                            "現在  新卒就活中(21卒) && RecoFitを継続開発中"
-                                        ]
-                                    %>
-                                    <% @histories.each do |item| %>
-                                    <li><%=item %></li>
-                                    <% end %>
-                                </ul>
-                            </dd>
-                        </dl>
-                    </div>
-                </div>
-            </div>
-        </section>
         <section class="credit">
             <h1>
                 <%=icon("fas","copyright") %>
