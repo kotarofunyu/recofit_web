@@ -16,6 +16,8 @@
 //= require turbolinks
 //= require_tree .
 //= require cocoon
+// TODO: stimulus等でリプレースする
+
 import $ from 'jquery';
 
 $(function() {
