@@ -255,7 +255,7 @@ DEPENDENCIES
   carrierwave
   cocoon
   dartsass-rails
-  font-awesome-sass
+  font-awesome-sass (~> 6.2.0)
   importmap-rails
   jbuilder (~> 2.5)
   jquery-rails
