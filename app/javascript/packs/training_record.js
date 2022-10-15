@@ -1,3 +1,5 @@
+// TODO: stimulus等でリプレースする
+
 import $ from 'jquery';
 
 $(function () {
