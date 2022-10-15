@@ -42,6 +42,10 @@ gem 'rmagick'
 # gem 'pg', '~> 0.19.0'
 gem 'pg', '~> 1.1'
 
+gem 'turbo-rails'
+gem 'importmap-rails'
+gem 'stimulus-rails'
+gem 'dartsass-rails'
 # Use Puma as the app server
 gem 'puma'
 # Use SCSS for stylesheets
