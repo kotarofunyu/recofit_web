@@ -21,6 +21,7 @@
 @import "./sessions.scss";
 @import "./training_record.scss";
 @import "./user.scss";
+@import "bootstrap";
 
 // 共通変数を宣言しているファイルをロードする
 @import "./variables";
@@ -212,36 +213,36 @@ header {
             margin-left: auto;
             position: relative;
             cursor: pointer;
-            .dropdown {
-                display: none;
-                width: 165px;
-                position: absolute;
-                top: 65px;
-                right: 5px;
-                background: rgba(255,165,0,0.7);
-                padding: 5px 15px;
-                list-style: none;
-                line-height: 2;
-                transition: 1s;
-                box-shadow: 1px 1px 15px 0px grey;
-                @include sp {
-                    top: 60px;
-                }
-                &.active {
-                    display: block;
-                }
-                > li {
-                    padding: 5px 0;
-                    > a {
-                        display: block;
-                        background: #ffffff;
-                        color: $main_color;
-                        border-radius: 5px;
-                        padding: 0 6px;
-                        text-align: center;
-                    }
-                }
-            }
+            // .dropdown {
+            //     display: none;
+            //     width: 165px;
+            //     position: absolute;
+            //     top: 65px;
+            //     right: 5px;
+            //     background: rgba(255,165,0,0.7);
+            //     padding: 5px 15px;
+            //     list-style: none;
+            //     line-height: 2;
+            //     transition: 1s;
+            //     box-shadow: 1px 1px 15px 0px grey;
+            //     @include sp {
+            //         top: 60px;
+            //     }
+            //     &.active {
+            //         display: block;
+            //     }
+            //     > li {
+            //         padding: 5px 0;
+            //         > a {
+            //             display: block;
+            //             background: #ffffff;
+            //             color: $main_color;
+            //             border-radius: 5px;
+            //             padding: 0 6px;
+            //             text-align: center;
+            //         }
+            //     }
+            // }
 
         }
 }
