@@ -15,7 +15,9 @@ gem 'jquery-rails'
 
 # gem 'redis-rails'
 
-gem 'simpacker'
+# gem 'simpacker'
+
+gem "sprockets-rails"
 
 # エラーメッセージの日本語化
 gem 'rails-i18n'
@@ -37,7 +39,8 @@ gem 'rmagick'
 
 # Use mysql as the database for Active Record
 # gem 'mysql2', '>= 0.4.4', '< 0.6.0', groups: %w[test development],require: false
-gem 'pg', '~> 0.19.0'
+# gem 'pg', '~> 0.19.0'
+gem 'pg', '~> 1.1'
 
 # Use Puma as the app server
 gem 'puma'
