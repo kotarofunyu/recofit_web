@@ -1,1 +1,488 @@
-// Sassy
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+// dartsass-rails導入後に以下追記
+@import "./reset.scss";
+@import "./home.scss";
+@import "./session.scss";
+@import "./sessions.scss";
+@import "./training_record.scss";
+@import "./user.scss";
+
+// 共通変数を宣言しているファイルをロードする
+@import "./variables";
+
+// アニメーション
+@import "./animation";
+
+//  FontAwesomeをロードする
+// @import 'font-awesome-sprockets';
+// @import 'font-awesome';
+@import "font-awesome";
+
+// @font-face{
+//     font-family:'FontAwesome';
+//     src:font_url('font/fontawesome-webfont.eot?v=3.0.1');
+//     src:font_url('font/fontawesome-webfont.eot?#iefix&v=3.0.1') format('embedded-opentype'),
+//     font_url('font/fontawesome-webfont.woff?v=3.0.1') format('woff'),
+//     font_url('font/fontawesome-webfont.ttf?v=3.0.1') format('truetype');
+//     font-weight:normal;
+//     font-style:normal;
+// }
+
+@font-face {
+    font-family: 'Noto Sans JP';
+    src: font-url('/assets/fonts/NotoSansJP-Thin.otf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Noto Sans JP';
+    src: font-url('/assets/fonts/NotoSansJP-Light.otf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Noto Sans JP';
+    src: font-url('/assets/fonts/NotoSansJP-Regular.otf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Noto Sans JP';
+    src: font-url('/assets/fonts/NotoSansJP-Medium.otf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Noto Sans JP';
+    src: font-url('/assets/fonts/NotoSansJP-Bold.otf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Noto Sans JP';
+    src: font-url('/assets/fonts/NotoSansJP-Black.otf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+* {
+    box-sizing: border-box;
+    -webkit-appearance: none;
+}
+
+body {
+    font-family: system-ui;
+}
+
+$header_height: 65px;
+
+// 共通クラス
+.wrapper {
+    padding-top: 100px;
+}
+
+#contents.master-wrap {
+    padding-left: 250px;
+    @include sp {
+        padding-left: 0;
+    }
+}
+
+.sp {
+    display: none;
+    @include sp {
+        display: block;
+    }
+}
+
+// エラー部分
+.errors {
+    width: 100%;
+    background: #ffeac3;
+    margin-bottom: 20px;
+    padding: 10px;
+    strong {
+        line-height: 1.5;
+    }
+    ul {
+        margin-top: 15px;
+        list-style-position: inside;
+        line-height: 1.5;
+    }
+}
+
+li.record a {
+    text-decoration: none;
+}
+
+header {
+    width: 100%;
+    height: $header_height;
+    background: orange;
+    display: flex;
+    align-items: center;
+    padding: 0 45px 0px 25px;
+    position: fixed;
+    z-index: 10;
+    @include sp {
+        width: 100%;
+        height: 60px;
+        padding: 0 15px 0 15px;
+    }
+    .user_area {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        > .user_image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            @include sp {
+                width: 50px;
+                height: 50px;
+            }
+        }
+        .fa-angle-down {
+            @include sp {
+                margin-left: 5px;
+                color: #ffffff;
+            }
+        }
+    }
+        a {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: bold;
+            letter-spacing: 1px;
+            font-size: 16px;
+            @include sp {
+                font-size: 14px;
+            }
+            img {
+                height: 80%;
+                margin-right: 5px;
+            }
+        }
+        .user_image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 5px;
+            @include sp {
+                height: 90%;
+            }
+        }
+        .row {
+            display: flex;
+            list-style: none;
+            li {
+                margin: 0 5px;
+                a {
+                    text-decoration: none;
+                    color: #fff;
+                    letter-spacing: 1px;
+                    font-weight: bold;
+                }
+            }
+        }
+        .menu_right {
+            margin-left: auto;
+            position: relative;
+            cursor: pointer;
+            .dropdown {
+                display: none;
+                width: 165px;
+                position: absolute;
+                top: 65px;
+                right: 5px;
+                background: rgba(255,165,0,0.7);
+                padding: 5px 15px;
+                list-style: none;
+                line-height: 2;
+                transition: 1s;
+                box-shadow: 1px 1px 15px 0px grey;
+                @include sp {
+                    top: 60px;
+                }
+                &.active {
+                    display: block;
+                }
+                > li {
+                    padding: 5px 0;
+                    > a {
+                        display: block;
+                        background: #ffffff;
+                        color: $main_color;
+                        border-radius: 5px;
+                        padding: 0 6px;
+                        text-align: center;
+                    }
+                }
+            }
+
+        }
+}
+
+// フラッシュメッセージ
+.alert {
+    width: 30%;
+    padding: 20px 10px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: rgba(255,165,0,0.7);
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 18px;
+    z-index: 15;
+    position: fixed;
+    top: 80px;
+    right: 0;
+    left: 0;
+    animation-name: alertFadeOut;
+    animation-duration: 4s;
+    animation-delay: 0s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    @include sp {
+        width: 90%;
+        font-size: 16px;
+    }
+    i {
+        cursor: pointer;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        color: #ffffff;
+    }
+}
+
+#side_menu {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: $header_height;
+    background: $main_color;
+    z-index: 100;
+    @include sp {
+        width: 45%;
+        top: 59px;
+        display: none;
+        &.active {
+            display: block;
+        }
+    }
+    > ul {
+        padding: 0 15px 0px 25px;
+        list-style: none;
+        @include sp {
+            padding: 0 10px 0 10px;
+        }
+        > li {
+            padding: 25px 0;
+            font-size: 20px;
+            @include sp {
+                padding: 20px 0;
+            }
+            > a {
+                text-decoration: none;
+                color: #ffffff;
+                font-weight: bold;
+                letter-spacing: 1px;
+                @include sp {
+                    font-size: 14px;
+                }
+                i {
+                    width: 26px;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+.sp_sidebar {
+    display: none;
+    @include sp {
+        display: block;
+        font-size: 28px;
+        margin-right: 15px;
+    }
+    .fa-bars {
+        @include sp {
+            color: #ffffff;
+        }
+    }
+}
+
+h1 {
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+    @include sp {
+        font-size: 20px;
+    }
+}
+
+.listItemDecorated {
+    background: #fff;
+    border: 5px solid $main_color;
+    border-radius: 10px;
+    box-shadow: rgba(0,0,0,0.3) 5px 5px 8px;
+    list-style: none;
+}
+
+.user_image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.record {
+    width: 48%;
+    margin-bottom: 50px;
+    list-style-type: none;
+    padding: 15px 15px 20px 15px;
+    @include sp {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .title {
+        margin: 0px 0 10px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .username {
+            color: #000000;
+            > a {
+                display: flex;
+                align-items: center;
+                > img {
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 30px;
+                    margin-right: 10px;
+                }
+            }
+        }
+        .date {
+            font-size: 13px;
+        }
+    }
+    .recordContents {
+        height: 250px;
+        overflow-y: scroll;
+        @include sp {
+            height: 150px;
+        }
+    }
+    .comment {
+        margin-bottom: 12px;
+        padding: 20px 0;
+        border-bottom: 1px solid #000;
+        line-height: 1.5;
+    }
+    .event {
+        > ol {
+            margin-bottom: 25px;
+            padding-left: 20px;
+            line-height: 1.5;
+            > li {
+                margin-bottom: 15px;
+            }
+        }
+    }
+    img {
+        width: 100%;
+    }
+    .set_list {
+        display: flex;
+        list-style-type: none;
+        > li {
+            margin-right: 10px;
+        }
+    }
+    a {
+        color: $main_color;
+        font-weight: bold;
+        text-decoration: none;
+    }
+    .buttons {
+        padding: 15px 0 0 0;
+    }
+}
+
+// 投稿詳細
+.record_detail {
+    h1 {
+        a {
+            display: flex;
+            align-items: center;
+            .user_image {
+                margin-right: 10px;
+            }
+        }
+    }
+}
+
+// 種目アイテム
+.eventItemList {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    .eventItem {
+        width: 48%;
+        padding: 20px;
+        text-align: center;
+        margin-bottom: 15px;
+        line-height: 1.5;
+        border: 3px solid orange;
+        border-radius: 10px;
+        position: relative;
+        list-style-type: none;
+        @include sp {
+            width: 100%;
+            padding: 30px 10px;
+        }
+        a {
+            text-decoration: none;
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000000;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+    }
+}

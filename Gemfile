@@ -27,7 +27,7 @@ gem 'cocoon'
 
 # Font Awesome
 # gem 'font-awesome-sass', '~> 4.4.0'
-gem 'font-awesome-sass'
+gem 'font-awesome-sass', "~> 6.2.0"
 
 # webpacker
 # gem 'webpacker'
