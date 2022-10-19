@@ -15,7 +15,7 @@
                 <% if logged_in %>
                 <% if current_user.id === @user.id %>
                 <div class="edit">
-                    <%=link_to "/users/#{@user.id}/edit" do %>
+                    <%=link_to edit_user_path(@user) do %>
                     <%= icon("fas", "edit") %>
                     <% end %>
                 </div>

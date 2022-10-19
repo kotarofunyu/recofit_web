@@ -19,13 +19,7 @@ Rails.application.routes.draw do
   # 種目名登録ここから
   post 'menu_register/create' => 'training_record#register'
 
-  # ユーザーここから
-  get '/users/' => 'users#index'
-  get '/users/new' => 'users#new'
-  post 'users/create' => 'users#create'
-  get '/users/:id' => 'users#show'
-  get '/users/:id/edit' => 'users#edit'
-  patch '/users/:id/update' => 'users#update'
+  resources :users
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
