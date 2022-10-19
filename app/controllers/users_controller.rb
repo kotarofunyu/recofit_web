@@ -30,9 +30,9 @@ class UsersController < ApplicationController
 
     def update
         @user = User.find_by(id: params[:id])
-        if @user.update_attributes(update_user_params)
-            flash[:success] = 'ユーザー情報を編集しました。'
-            redirect_to("/users/#{@user.id}")
+        if @user.update(update_user_params)
+            flash[:success] = 'ユーザーa情報を編集しました。'
+            redirect_to user_path(@user)
         else
             render 'edit'
         end
