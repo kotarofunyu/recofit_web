@@ -42,7 +42,7 @@
           </dd>
         </dl>
         <% end %>
-        <%=link_to "/records/#{record.id}",class:"parentRecord" do %>
+        <%=link_to training_record_path(record),class:"parentRecord" do %>
         <%=icon("fas","external-link-alt") %>
         <% end %>
       </li>

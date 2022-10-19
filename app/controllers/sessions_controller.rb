@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def new
-    redirect_to '/records' if logged_in
+    redirect_to training_records_path if logged_in
   end
 
   def create
@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       # フラッシュメッセージ
       flash[:notice] = "#{user.name}でログインしました。"
       # 特定のページにリダイレクトする
-      redirect_to('/records')
+      redirect_to training_records_path
     else
       # エラーメッセージの表示
       flash.now[:danger] = 'メールアドレスもしくはパスワードが正しくありません。'
@@ -30,6 +30,6 @@ class SessionsController < ApplicationController
   def test_login
     session[:user_id] = 2
     flash[:notice] = 'テストユーザーでログインしました。'
-    redirect_to('/records')
+    redirect_to training_records_path
   end
 end

@@ -58,14 +58,14 @@
     <% end %>
   </div>
   <div class="buttons">
-    <%=link_to "/records/#{record.id}" do %>
+    <%=link_to training_record_path(record) do %>
     <%= icon('fas', 'external-link-alt') %>
     <% end %>
     <% if logged_in && current_user.id == record.user_id %>
-    <%= link_to "/records/#{record.id}/edit" do %>
+    <%= link_to edit_training_record_path(record) do %>
     <%= icon('fas', 'pen') %>
     <% end %>
-    <%= link_to "/records/#{record.id}", method: :delete, data: { confirm: "本当に削除しますか？"} do %>
+    <%= link_to training_record_path(record), method: :delete, data: { confirm: "本当に削除しますか？"} do %>
     <%= icon('fas', 'trash') %>
     <% end %>
     <% end %>

@@ -18,7 +18,7 @@ class UsersController < ApplicationController
         if @user.save
             log_in @user
             flash[:success] = 'ユーザー登録が完了しました。'
-            redirect_to('/records')
+            redirect_to training_records_path
         else
             render 'new'
         end

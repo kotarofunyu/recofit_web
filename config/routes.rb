@@ -7,13 +7,8 @@ Rails.application.routes.draw do
   get '/records/events/' => 'user_event#index'
   get '/users/events/' => 'user_event#show'
 
-  # 記録ここから
-  get 'records' => 'training_record#index'
-  post 'training_record/create' => 'training_record#create'
-  get '/records/:id' => 'training_record#show'
-  get '/records/:id/edit' => 'training_record#edit'
-  patch '/records/:id/update' => 'training_record#update'
-  delete '/records/:id' => 'training_record#destroy'
+  # 記録ここから¥
+  resources :training_records
   get 'sessions/new'
 
   # 種目名登録ここから
