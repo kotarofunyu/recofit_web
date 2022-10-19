@@ -1,20 +1,19 @@
-class TrainingRecordController < ApplicationController
+class TrainingRecordsController < ApplicationController
   # 作成と表示を同画面で行う
   def index
-    # 新規作成
     @record = TrainingRecord.new
     record_event = @record.event.build
     record_event.set_datum.build
 
-    # 全ての投稿を取得して、作成日昇順でソートする
     @records = TrainingRecord.all.includes(:event).order(created_at: 'DESC')
+  end
 
-    # @menuname = MenuName.new
+  def new
+    @training_record = TrainingRecord.new
   end
 
   # 記録詳細ページ”
   def show
-    # パタメーターから投稿を取得して変数に代入
     @record = TrainingRecord.find_by(id: params[:id])
     @user = User.find_by(id: @record.user_id)
   end
@@ -24,39 +23,29 @@ class TrainingRecordController < ApplicationController
     @record = TrainingRecord.new(create_training_record_params)
     if @record.save
       flash[:success] = '投稿しました！'
-      redirect_to('/records')
+      redirect_to training_records_path
     else
       render 'index'
     end
   end
 
-  # 種目名の登録
-  # def register
-  #   @menuname = MenuName.new(menu_name_params)
-  #   if @menuname.save
-  #     redirect_to('/records')
-  #   else
-  #     render('index')
-  #   end
-  # end
-
   # 編集
   def edit
     @record = TrainingRecord.find_by(id: params[:id])
 
-    # 未ログイン、もしくは他ユーザーの投稿編集を禁止
     return unless !logged_in || current_user.id != @record.user_id
 
     flash[:danger] = '他のユーザーの記録を編集することはできません。'
-    redirect_to('/records')
+    redirect_to training_records_path
   end
 
   # 編集を更新
   def update
     @record = TrainingRecord.find_by(id: params[:id])
-    if @record.update_attributes(update_training_record_params)
+    if @record.update(update_training_record_params)
+    # if @record.update_attributes(update_training_record_params)
       flash[:success] = '記録を編集しました'
-      redirect_to('/records')
+      redirect_to training_records_path
     else
       flash[:danger] = '編集できませんでした。エラーを確認してください。'
       render 'edit'
@@ -65,7 +54,6 @@ class TrainingRecordController < ApplicationController
 
   # 記録削除
   def destroy
-    # 削除対象の記録を取得
     @record = TrainingRecord.find_by(id: params[:id])
 
     if logged_in && current_user.id == @record.user_id
@@ -74,10 +62,8 @@ class TrainingRecordController < ApplicationController
     else
       flash[:danger] = '他ユーザーの記録削除は禁止です。'
     end
-    redirect_to('/records')
+    redirect_to training_records_path
   end
-
-  # ストロングパラメーター
 
   private
 
