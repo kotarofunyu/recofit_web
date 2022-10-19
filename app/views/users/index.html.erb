@@ -6,21 +6,21 @@
             <li class="user listItemDecorated">
                 <div class="user_img">
                     <% if user.picture.present? %>
-                    <%=link_to "/users/#{user.id}" do %>
+                    <%=link_to user_path(user) do %>
                     <%= image_tag user.picture.url, class:"user_image" %>
                     <% end %>
                     <% else %>
-                    <%= link_to "/users/#{user.id}" do %>
+                    <%= link_to user_path(user) do %>
                     <%= image_tag ('noicon.png'), class:"user_image" %>
                     <% end %>
                     <% end %>
                 </div>
                 <div class="user_info">
-                    <div class="name"><%= link_to user.name, "/users/#{user.id}/" %></div>
+                    <div class="name"><%= link_to user.name, user_path(user) %></div>
                     <div class="intro"><%=user.introduction %></div>
                 </div>
                 <div class="icons">
-                    <%= link_to "/users/#{user.id}/" do %>
+                    <%= link_to user_path(user) do %>
                     <%= icon("fas", "external-link-alt") %>
                     <% end %>
                 </div>

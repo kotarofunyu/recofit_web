@@ -4,12 +4,12 @@
       <% user_id = record.user_id %>
       <% user = User.find_by(id: user_id) %>
       <% if user.picture.present? %>
-      <%=link_to "/users/#{user_id}" do %>
+      <%=link_to user_path(record.user) do %>
       <%= image_tag user.picture.url, class:"user_image" %>
       <%= user.name %>
       <% end %>
       <% else %>
-      <%= link_to "/users/#{user_id}" do %>
+      <%= link_to user_path(record.user) do %>
       <%= image_tag ('noicon.png'), class:"user_image" %>
       <%= user.name %>
       <% end %>
