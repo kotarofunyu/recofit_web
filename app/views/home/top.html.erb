@@ -32,7 +32,7 @@
                 <%=link_to'ログイン','/login' ,class:'button login'%>
                 <ul>
                     <li>
-                        <%=link_to "/test_login", method: :post,class:'testUser' do %>
+                        <%= button_to sessions_test_user_path, method: :post, class:'testUser' do %>
                         <%= icon("fas", "user-check") %>テストユーザーログイン
                         <% end %>
                     </li>

@@ -14,7 +14,7 @@
     <% end %>
     <ul class="other">
       <li>
-        <%=link_to "/test_login", method: :post do %>
+        <%= button_to sessions_test_user_path, method: :post do %>
         <%= icon("fas", "user-check") %>テストユーザーで簡単ログイン
         <% end %>
       </li>
