@@ -33,7 +33,7 @@
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
           <li class="dropdown-item"><%= current_user.name %></li>
           <li class="dropdown-item"><%= link_to "ユーザーページ", user_path(current_user) %></li>
-          <li class="dropdown-item"><%= button_to "ログアウト", logout_path, method: :delete, class:"header_button logout" %></li>
+          <li class="dropdown-item"><%= link_to "ログアウト", logout_path, method: :delete, class:"header_button logout" %></li>
         </ul>
       </div>
     </div>

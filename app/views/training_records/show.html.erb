@@ -67,7 +67,7 @@
       <%= link_to edit_training_record_path(@record) do %>
       <%= icon("fas", "pen") %>
       <% end %>
-      <%= button_to training_record_path(@record), method: :delete, data: { confirm: "本当に削除しますか？"} do %>
+      <%= link_to training_record_path(@record), method: :delete, data: { confirm: "本当に削除しますか？"} do %>
       <%= icon("fas", "trash") %>
       <% end %>
       <% end %>
