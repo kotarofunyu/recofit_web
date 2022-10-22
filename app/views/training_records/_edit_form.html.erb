@@ -1,4 +1,4 @@
-<%= form_with model: @record do |f| %>
+<%= form_for(@record, url: training_record_path(@record)) do |f| %>
 <%= render 'shared/errors',object: @record %>
 <%= f.text_area :comment, :placeholder => "今日のトレーニングはどうだった？" %>
 <%= f.fields_for :event do |i| %>

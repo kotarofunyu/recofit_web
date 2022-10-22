@@ -2,7 +2,7 @@
     <div class="wrapper">
         <div class="user_info">
             <div class="profile">
-                <%= form_with model: @user do |f| %>
+                <%= form_for(@user, url: user_path(@user)) do |f| %>
                 <%= render 'shared/errors',object: @user %>
                 <div class="userImage">
                     <%= image_tag @user.picture.url if @user.picture? %>
