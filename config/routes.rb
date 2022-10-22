@@ -21,6 +21,10 @@ Rails.application.routes.draw do
   post '/test_login' => 'sessions#test_login'
   delete 'logout' => 'sessions#destroy'
 
+  namespace :sessions do
+    resource :test_user, only: %i[create]
+  end
+
   # API
   namespace :api, format: 'json' do
     # post '/traning_record/create/:api_token' => 'training_record#create'
